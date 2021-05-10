@@ -6,51 +6,39 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WpfApp1.Commands;
+using WpfApp1.Navigation;
 
 namespace WpfApp1.ViewModels
 {
 	internal class MainWindowViewModel : ViewModelBase
 	{
-		#region Constructors
-		public MainWindowViewModel()
-		{
-			ShowWindow = new DelegateCommand(ShowWindowCommand, CanShowWindowCommand);
-		}
+		#region Fields
+		private INavigationManager _navigationActions;
 		#endregion
 		#region Properties
-		private string _Login;
-		public string Login
+		#endregion
+		#region Constructors
+		public MainWindowViewModel(INavigationManager navigationActions)
 		{
-			get { return _Login;}
-			set 
-			{
-				Set(ref _Login, value);
-			}
+			_navigationActions = navigationActions;
+			_navigationActions.Insert(NavigationKeys.MainWindowLoginOrRegister);
 		}
-		private string _Password;
-		public string Password
-		{
-			get { return _Password; }
-			set
-			{
-				Set(ref _Password, value);
-			}
-		}
+		public MainWindowViewModel() { }
 		#endregion
 		#region Commands
 
-		public ICommand ShowWindow { get;}
+		//public ICommand ShowWindow { get;}
 
-		public bool CanShowWindowCommand(object parameter)
-		{
-			return true;
-		}
-		public void ShowWindowCommand(object parameter)
-		{
-			Window s = new Window();
-			s.Show();
-		}
-		
+		//public bool CanShowWindowCommand(object parameter)
+		//{
+		//	return true;                                                  //Пример использования комманды
+		//}
+		//public void ShowWindowCommand(object parameter)
+		//{
+		//	Window s = new Window();
+		//	s.Show();
+		//}
+
 		#endregion
 	}
 }
