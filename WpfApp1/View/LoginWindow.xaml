@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:vm ="clr-namespace:WpfApp1.ViewModels"
              xmlns:local="clr-namespace:WpfApp1.View"
              mc:Ignorable="d" 
              d:DesignHeight="197" d:DesignWidth="83">
@@ -28,8 +29,8 @@
         </Viewbox>
         <TextBox  Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Логин" FontSize="20"/>
         <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Пароль" FontSize="20"/>
-        <Button Grid.Column="1" Grid.Row="4" Content="Войти" VerticalAlignment="Center" />
-        <Button Grid.Column="1" Grid.Row="5" Content="Зарегистрироваться" VerticalAlignment="Top" />
+        <Button Grid.Column="1" Grid.Row="4" Content="Войти" VerticalAlignment="Center"/>
+        <Button Grid.Column="1" Grid.Row="5" Content="Зарегистрироваться" VerticalAlignment="Top" Command="{Binding ShowRegisterWindow}" />
         <Image Source="Resources\logo.png" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" Margin="0,0,0,50"/>
     </Grid>
 </UserControl>

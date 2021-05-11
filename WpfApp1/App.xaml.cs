@@ -21,8 +21,10 @@ namespace WpfApp1
             var window = new MainWindow();
             var navigationManager = new NavigationManager(Dispatcher, window.MainWindowLoginOrRegister);
 
+
             navigationManager.Add<MainWindowLoginOrRegisterViewModel, MainWindowLoginOrRegister>(new MainWindowLoginOrRegisterViewModel(navigationManager),
                 NavigationKeys.MainWindowLoginOrRegister);
+
 
             var viewModel = new MainWindowViewModel(navigationManager);
             window.DataContext = viewModel;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WpfApp1.Commands;
 using WpfApp1.Navigation;
 
 namespace WpfApp1.ViewModels
@@ -12,7 +14,8 @@ namespace WpfApp1.ViewModels
 		#region Fields
 		private string _Login;
 		private string _Password;
-		private INavigationManager _navigationManager;
+		private NavigationManager _navigationManager;
+		private NavigationManager _smallNavigationManager;
 		#endregion
 		#region Properties
 		public string Login
@@ -27,14 +30,30 @@ namespace WpfApp1.ViewModels
 		}
 		#endregion
 		#region Constructors
-		public LoginWindowViewModel(INavigationManager navigationManager)
+		public LoginWindowViewModel(NavigationManager smallNavigatorManager, NavigationManager navigationManager) : this()
 		{
+			_smallNavigationManager = smallNavigatorManager;
 			_navigationManager = navigationManager;
+		}
+		public LoginWindowViewModel() 
+		{
+			ShowRegisterWindow = new DelegateCommand(ShowRegisterWindowCommand, CanShowRegisterWindowCommand);
 		}
 		#endregion
 		#region Methods
 		public void ActionsBeforeInsert(){}
 		public void ActionsBeforeClosing(){}
+		#endregion
+		#region Commands
+		public ICommand ShowRegisterWindow { get; set; }
+		private bool CanShowRegisterWindowCommand(object parameter)
+		{
+			return true;
+		}
+		private void ShowRegisterWindowCommand(object parameter)
+		{
+			_smallNavigationManager.Insert(NavigationKeys.RegisterWindow);
+		}
 		#endregion
 	}
 }

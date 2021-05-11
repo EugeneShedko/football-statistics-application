@@ -72,6 +72,9 @@
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MainWindowForInformation.xaml.cs">
+      <DependentUpon>MainWindowForInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindowLoginOrRegister.xaml.cs">
       <DependentUpon>MainWindowLoginOrRegister.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\MainWindowForInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindowLoginOrRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

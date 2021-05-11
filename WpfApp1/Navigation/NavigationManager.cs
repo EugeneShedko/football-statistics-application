@@ -12,10 +12,13 @@ namespace WpfApp1.Navigation
 	class NavigationManager : INavigationManager
 	{
 		#region Fields
-		private readonly Dispatcher _Dispatcher;
-		private readonly ContentControl _frameControl;
-		private readonly IDictionary<string, object> _viewModelsByKey = new Dictionary<string, object>();
-		private readonly IDictionary<Type, Type> _viewTypesByViewModelTypes = new Dictionary<Type, Type>();
+		public Dispatcher _Dispatcher { get;}    //Здесь были изменения
+		public ContentControl _frameControl { get; set; }
+		private  IDictionary<string, object> _viewModelsByKey = new Dictionary<string, object>();
+		public IDictionary<Type, object> ViewTypesByViewModelTypes { get; set; } = new Dictionary<Type, object>();
+		#endregion
+
+		#region Properties
 		#endregion
 
 		#region Constructors
@@ -30,10 +33,11 @@ namespace WpfApp1.Navigation
 			_frameControl = frameControl;
 		}
 
+
 		#endregion
 		#region Methods
 
-		public void Add<TViewModel, TView>(TViewModel viewModel, string navigationKey)
+		public void Add<TViewModel, TView>(TViewModel viewModel, string navigationKey) where TView : new()
 		{
 			if (viewModel == null)
 				throw new ArgumentNullException("viewModel");
@@ -41,7 +45,7 @@ namespace WpfApp1.Navigation
 				throw new ArgumentNullException("navigationKey");
 
 			_viewModelsByKey[navigationKey] = viewModel;
-			_viewTypesByViewModelTypes[typeof(TViewModel)] = typeof(TView);
+			ViewTypesByViewModelTypes[viewModel.GetType()] = new TView();
 		}
 
 		public void Insert(string navigationKey)
@@ -59,8 +63,7 @@ namespace WpfApp1.Navigation
 
 		private FrameworkElement CreateNewView(object viewModel)
 		{
-			var viewType = _viewTypesByViewModelTypes[viewModel.GetType()];
-			var view = (FrameworkElement)Activator.CreateInstance(viewType);
+			var view = (FrameworkElement)ViewTypesByViewModelTypes[viewModel.GetType()];
 			view.DataContext = viewModel;
 			return view;
 		}
