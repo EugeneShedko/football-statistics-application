@@ -38,6 +38,7 @@ namespace WpfApp1.ViewModels
 		public LoginWindowViewModel() 
 		{
 			ShowRegisterWindow = new DelegateCommand(ShowRegisterWindowCommand, CanShowRegisterWindowCommand);
+			ShowMainWindowForInformation = new DelegateCommand(ShowMainWindowForInforamtionCommand, CanShowMainWindowForInformationCommand);
 		}
 		#endregion
 		#region Methods
@@ -53,6 +54,15 @@ namespace WpfApp1.ViewModels
 		private void ShowRegisterWindowCommand(object parameter)
 		{
 			_smallNavigationManager.Insert(NavigationKeys.RegisterWindow);
+		}
+		public ICommand ShowMainWindowForInformation { get; set; }
+		private bool CanShowMainWindowForInformationCommand(object parameter)
+		{
+			return true;
+		}
+		private void ShowMainWindowForInforamtionCommand(object parameter)
+		{
+			_navigationManager.Insert(NavigationKeys.MainWindowForInformationUser);
 		}
 		#endregion
 	}

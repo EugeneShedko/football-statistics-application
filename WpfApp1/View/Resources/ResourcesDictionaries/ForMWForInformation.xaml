@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfApp1.View.Resources.ResourcesDictionaries">
+    <Style x:Key="BigMenu">
+        <Setter Property="Menu.BorderBrush" Value="White"/>
+        <Setter Property="Menu.BorderThickness" Value="2"/>
+        <Setter Property="Menu.Background" Value="OliveDrab"/>
+    </Style>
+    
+    <Style x:Key="BigMenuItem">
+        <Style.Setters>
+            <Setter Property="MenuItem.Height" Value="60"/>
+            <Setter Property="MenuItem.Foreground" Value="White"/>
+            <Setter Property="MenuItem.Background" Value="Orange"/>
+            <Setter Property="MenuItem.BorderBrush" Value="White"/>
+            <Setter Property="MenuItem.BorderThickness" Value="1"/>
+            <Setter Property="MenuItem.FontSize" Value="15"/>
+            <Setter Property="MenuItem.Margin" Value="-1,-1,0,0"/>
+        </Style.Setters>
+        <Style.Triggers >
+            <Trigger Property="MenuItem.IsMouseOver" Value="True">
+                <Setter Property="MenuItem.Background" Value="OliveDrab"/>
+            </Trigger>
+            <Trigger Property="MenuItem.IsPressed" Value="True">
+                <Setter Property="MenuItem.Background" Value="OliveDrab"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
