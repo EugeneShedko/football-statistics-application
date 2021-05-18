@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Icon="/WpfApp1;component/View/Resources/logohuman.ico"
         WindowStartupLocation="CenterScreen"
-        WindowState="Maximized">
+        WindowState="Maximized" Closed="Window_Closed">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>

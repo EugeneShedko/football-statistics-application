@@ -17,7 +17,7 @@ namespace WpfApp1.ViewModels
 		private string _Login;
 		private string _Password;
 		private NavigationManager _navigationManager;
-		private NavigationManager _smallNavigationManager;
+		private NavigationManager _smallNavigationLoginManager;
 		#endregion
 		#region Properties
 		public string FamilyName
@@ -45,7 +45,7 @@ namespace WpfApp1.ViewModels
 		public RegisterWindowViewModel(NavigationManager smallNavigationManager,NavigationManager navigationManager) : this()
 		{
 			_navigationManager = navigationManager;
-			_smallNavigationManager = smallNavigationManager;
+			_smallNavigationLoginManager = smallNavigationManager;
 		}
 		public RegisterWindowViewModel()
 		{
@@ -53,7 +53,7 @@ namespace WpfApp1.ViewModels
 		}
 		#endregion
 		#region Methods
-		public void ActionsBeforeInsert(){}
+		public void ActionsBeforeInsert(object parameters = null){}
 		public void ActionsBeforeClosing(){}
 		#endregion
 		#region Commands
@@ -64,7 +64,7 @@ namespace WpfApp1.ViewModels
 		}
 		private void ShowLoginWindowCommand(object parameter)
 		{
-			_smallNavigationManager.Insert(NavigationKeys.LoginWindow);
+			_smallNavigationLoginManager.Insert(NavigationKeys.LoginWindow);
 		}
 		#endregion
 	}

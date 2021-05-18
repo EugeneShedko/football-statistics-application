@@ -13,7 +13,8 @@
             <Setter Property="MenuItem.Foreground" Value="White"/>
             <Setter Property="MenuItem.Background" Value="Orange"/>
             <Setter Property="MenuItem.BorderBrush" Value="White"/>
-            <Setter Property="MenuItem.BorderThickness" Value="1"/>
+            <Setter Property="MenuItem.FontWeight" Value="DemiBold"/>
+            <Setter Property="MenuItem.BorderThickness" Value="2"/>
             <Setter Property="MenuItem.FontSize" Value="15"/>
             <Setter Property="MenuItem.Margin" Value="-1,-1,0,0"/>
         </Style.Setters>

@@ -9,6 +9,6 @@ namespace WpfApp1.Navigation
 {
 	public interface INavigationManager
 	{
-		void Insert(string navigationKey);
+		void Insert(string navigationKey, object parameters = null);
 	}
 }

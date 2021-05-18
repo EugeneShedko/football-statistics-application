@@ -38,11 +38,6 @@
                 </MenuItem>
                 <MenuItem Style="{StaticResource BigMenuItem}">
                     <MenuItem.Header>
-                        <TextBlock Text="Новости" Margin="20,0,0,0"/>
-                    </MenuItem.Header>
-                </MenuItem >
-                <MenuItem Style="{StaticResource BigMenuItem}">
-                    <MenuItem.Header>
                         <TextBlock Text="Турнирная таблица" Margin="20,0,0,0"/>
                     </MenuItem.Header>
                 </MenuItem >
@@ -78,12 +73,10 @@
                 <MenuItem Header="Выход" />
             </MenuItem>
         </Menu>
-        <Border  Grid.Column="1" Grid.Row="1" BorderBrush="White" BorderThickness="2">
-            <Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
                 <ContentControl x:Name="ForInformation" x:FieldModifier="public">
 
                 </ContentControl>
             </Grid>
-        </Border>
-    </Grid>
+        </Grid>
 </UserControl>

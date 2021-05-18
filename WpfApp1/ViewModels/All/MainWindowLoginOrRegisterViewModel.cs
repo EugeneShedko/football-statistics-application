@@ -13,7 +13,7 @@ namespace WpfApp1.ViewModels
 	{
 		#region Fields
 		private NavigationManager _navigationManager;                   //Зачем мне этот интерфейс может его снести?
-		private NavigationManager _smallnavigationManager;
+		private NavigationManager _smallnavigationLoginManager;
 		#endregion
 		#region Constructors
 		public MainWindowLoginOrRegisterViewModel(NavigationManager navigationManager)
@@ -25,15 +25,15 @@ namespace WpfApp1.ViewModels
 		#region Methods
 		public void ActionsBeforeClosing(){}
 
-		public void ActionsBeforeInsert()
+		public void ActionsBeforeInsert(object parameters = null)
 		{
 			//Достаем из коллекции объект данного типа, преобразеуем его и берем от него ContentControl
-			_smallnavigationManager = new NavigationManager(_navigationManager._Dispatcher, ((MainWindowLoginOrRegister)_navigationManager.ViewTypesByViewModelTypes[this.GetType()]).WindowLoginOrRegister);
+			_smallnavigationLoginManager = new NavigationManager(_navigationManager._Dispatcher, ((MainWindowLoginOrRegister)_navigationManager.ViewTypesByViewModelTypes[this.GetType()]).WindowLoginOrRegister, _navigationManager.Mainwindow);
 			//Регистрируем все страницы, которые возможно поместить в выбранный ContentControl
-			_smallnavigationManager.Add<LoginWindowViewModel, LoginWindow>(new LoginWindowViewModel(_smallnavigationManager, _navigationManager), NavigationKeys.LoginWindow);
-			_smallnavigationManager.Add <RegisterWindowViewModel, RegisterWindow>(new RegisterWindowViewModel(_smallnavigationManager, _navigationManager), NavigationKeys.RegisterWindow);
+			_smallnavigationLoginManager.AddUserControl<LoginWindowViewModel, LoginWindow>(new LoginWindowViewModel(_smallnavigationLoginManager, _navigationManager), NavigationKeys.LoginWindow);
+			_smallnavigationLoginManager.AddUserControl<RegisterWindowViewModel, RegisterWindow>(new RegisterWindowViewModel(_smallnavigationLoginManager, _navigationManager), NavigationKeys.RegisterWindow);
 			//Вызываем функцию для вставки новой страницы
-			_smallnavigationManager.Insert(NavigationKeys.LoginWindow);
+			_smallnavigationLoginManager.Insert(NavigationKeys.LoginWindow);
 		}
 		#endregion
 	}

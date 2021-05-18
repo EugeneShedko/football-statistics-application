@@ -8,7 +8,7 @@ namespace WpfApp1.Navigation
 {
 	public interface INavigationActions
 	{
-		void ActionsBeforeInsert();
+		void ActionsBeforeInsert(object parameters = null);
 		void ActionsBeforeClosing();
 	}
 }

@@ -13,5 +13,6 @@ namespace WpfApp1.Navigation
 		public const string RegisterWindow = "RegisterWindow";
 		public const string MainWindowForInformationUser = "MainWindowForInformationUser";
 		public const string MainForUser = "MainForUser";
+		public const string NewsForUser = "NewsForUser";
 	}
 }

@@ -6,31 +6,71 @@
              xmlns:local="clr-namespace:WpfApp1.View.User"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White" ShowGridLines="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2.3*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <ListBox>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid ShowGridLines="True" Background="Black">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-            <ListItem></ListItem>
-        </ListBox>
-        <!--<TextBlock Text="01.01.2021 00:00" Foreground="OliveDrab" FontSize="17"/>
-                    <TextBlock Text="-:-" Margin="200,0,0,0" Foreground="OliveDrab" FontSize="17"/>
-                    <TextBlock Text="Батэ " Foreground="OliveDrab" FontSize="17" Width="43"/>
-                    <TextBlock Text=" Шахтер" Foreground="OliveDrab" FontSize="17"/>
-                    <TextBlock Text="Тур 1"  Foreground="OliveDrab" FontSize="17"/>-->
-    </Grid>
+    <UserControl.Resources>
+        <ResourceDictionary Source="/WpfApp1;component/View/Resources/ResourcesDictionaries/ForMainForUser.xaml"/>
+    </UserControl.Resources>
+    <ScrollViewer Background="White">
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- Контейнер для матчей-->
+            <Border Style="{StaticResource WhiteBorder}" Grid.Column="0" Grid.Row="0">
+                <Grid>
+                    <ListBox IsHitTestVisible="False" ItemsSource="{Binding Match}" ItemContainerStyle="{StaticResource MaterialDesignCardsListBoxItem}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource OliveDrabBorder}" Height="55"  VerticalAlignment="Top">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1.13*"/>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="0.2*"/>
+                                            <ColumnDefinition Width="0.1*"/>
+                                            <ColumnDefinition Width="0.2*"/>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding Time}" HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}" Margin="9,0,0,0"/>
+                                        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Firstteam}" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" />
+                                        <TextBlock Grid.Column="3" Text="{Binding Firstgoal}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"  />
+                                        <TextBlock Grid.Column="4" Text="-" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+                                        <TextBlock Grid.Column="5" Text="{Binding Secondgoal}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
+                                        <TextBlock Grid.Column="6" Grid.ColumnSpan="2" Text="{Binding Secondteam}" HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}" />
+                                        <TextBlock Grid.Column="8" Text="{Binding Tur}" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Margin="0,0,9,0" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+            <!--Контейнер для новостей -->
+            <Border Style="{StaticResource WhiteBorder}" Grid.Column="1" Grid.Row="0">
+                <Grid>
+                    <ListBox ItemsSource="{Binding Newses}" SelectedItem="{Binding SelectedItem}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource OliveDrabBorder}" Height="173" VerticalAlignment="Top">
+                                    <Grid  RenderOptions.BitmapScalingMode="NearestNeighbor">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="0.7*"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Zaglavie}" Foreground="Black" FontSize="23" VerticalAlignment="Center" Margin="15,0,0,0" />
+                                        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Info}"
+                                        Foreground="Gray" FontSize="17" Margin="10,0,10,0" VerticalAlignment="Top" TextAlignment="Justify"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <TextBlock Text="{Binding Proverka}" Margin="0,1000,0,0"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

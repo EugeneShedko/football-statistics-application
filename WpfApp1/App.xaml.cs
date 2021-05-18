@@ -19,12 +19,12 @@ namespace WpfApp1
         protected override void OnStartup(StartupEventArgs e)
         {
             var window = new MainWindow();
-            var navigationManager = new NavigationManager(Dispatcher, window.MainWindowLoginOrInformation);
+            var navigationManager = new NavigationManager(Dispatcher, window.MainWindowLoginOrInformation, window);
 
 
-            navigationManager.Add<MainWindowLoginOrRegisterViewModel, MainWindowLoginOrRegister>(new MainWindowLoginOrRegisterViewModel(navigationManager),
+            navigationManager.AddUserControl<MainWindowLoginOrRegisterViewModel, MainWindowLoginOrRegister>(new MainWindowLoginOrRegisterViewModel(navigationManager),
                 NavigationKeys.MainWindowLoginOrRegister);
-            navigationManager.Add<MainWindowForInformationViewModelUser, MainWindowForInformation>(new MainWindowForInformationViewModelUser(navigationManager),
+            navigationManager.AddUserControl<MainWindowForInformationViewModelUser, MainWindowForInformation>(new MainWindowForInformationViewModelUser(navigationManager),
                 NavigationKeys.MainWindowForInformationUser);
 
 

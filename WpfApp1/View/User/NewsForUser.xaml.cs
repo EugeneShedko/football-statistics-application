@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace WpfApp1.View.User
 {
 	/// <summary>
-	/// Логика взаимодействия для MainWindow.xaml
+	/// Логика взаимодействия для NewsForUser.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class NewsForUser : Window
 	{
-		public MainWindow()
+		public NewsForUser()
 		{
 			InitializeComponent();
-		}
-
-		private void Window_Closed(object sender, EventArgs e)
-		{
-			//foreach (Window w in App.Current.Windows)
-			//	w.Close();
 		}
 	}
 }

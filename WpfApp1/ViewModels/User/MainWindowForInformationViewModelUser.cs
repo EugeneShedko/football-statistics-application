@@ -14,7 +14,7 @@ namespace WpfApp1.ViewModels
 	{
 		#region Fields
 		private NavigationManager _navigationManager;
-		private NavigationManager _smallNavigationManager;
+		private NavigationManager _smallNavigationInfoManager;
 		#endregion
 		#region Constructors
 		public MainWindowForInformationViewModelUser(NavigationManager navigationManager)
@@ -25,15 +25,15 @@ namespace WpfApp1.ViewModels
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}
-		public void ActionsBeforeInsert()
+		public void ActionsBeforeInsert(object parameters = null)
 		{
 			//Достаем из коллекции объект данного типа, преобразеуем его и берем от него ContentControl
-			_smallNavigationManager = new NavigationManager(_navigationManager._Dispatcher, ((MainWindowForInformation)_navigationManager.ViewTypesByViewModelTypes[this.GetType()]).ForInformation);
-			//Регистрируем все страницы, которые возможно поместить в выбранный ContentControl
-			_smallNavigationManager.Add<MainForUserViewModel, MainForUser>(new MainForUserViewModel(_smallNavigationManager, _navigationManager), NavigationKeys.MainForUser);
+			_smallNavigationInfoManager = new NavigationManager(_navigationManager._Dispatcher, ((MainWindowForInformation)_navigationManager.ViewTypesByViewModelTypes[this.GetType()]).ForInformation, _navigationManager.Mainwindow);
+			//Регистрируем все страницы, которые возможно поместить и использовать в рамках выбранного ContentControl
+			_smallNavigationInfoManager.AddUserControl<MainForUserViewModel, MainForUser>(new MainForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.MainForUser);
+			_smallNavigationInfoManager.AddWindow<NewsForUserViewModel, NewsForUser>(new NewsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForUser);
 			//Вызываем функцию для вставки новой страницы
-			_smallNavigationManager.Insert(NavigationKeys.MainForUser);
-
+			_smallNavigationInfoManager.Insert(NavigationKeys.MainForUser);
 		}
 		#endregion
 	}
