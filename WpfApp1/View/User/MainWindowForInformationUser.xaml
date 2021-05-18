@@ -31,12 +31,12 @@
                         <StackPanel></StackPanel>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
-                <MenuItem Style="{StaticResource BigMenuItem}">
+                <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowMainUserWindow}">
                     <MenuItem.Header>
                         <TextBlock Text="Главная" Margin="20,0,0,0"/>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem Style="{StaticResource BigMenuItem}">
+                <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowTournamentTableUserWindow}">
                     <MenuItem.Header>
                         <TextBlock Text="Турнирная таблица" Margin="20,0,0,0"/>
                     </MenuItem.Header>

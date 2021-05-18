@@ -19,9 +19,9 @@
             <Setter Property="MenuItem.Margin" Value="-1,-1,0,0"/>
         </Style.Setters>
         <Style.Triggers >
-            <Trigger Property="MenuItem.IsMouseOver" Value="True">
+            <!--<Trigger Property="MenuItem.IsMouseOver" Value="True">
                 <Setter Property="MenuItem.Background" Value="OliveDrab"/>
-            </Trigger>
+            </Trigger>-->
             <Trigger Property="MenuItem.IsPressed" Value="True">
                 <Setter Property="MenuItem.Background" Value="OliveDrab"/>
             </Trigger>

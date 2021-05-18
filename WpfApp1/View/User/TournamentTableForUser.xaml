@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="WpfApp1.View.User.TournamentTableForUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.View.User"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="-18,0,0,0" />
+        </Style>
+    </UserControl.Resources>
+    <Border BorderBrush="White" BorderThickness="2">
+        <Grid Background="White">
+            <Viewbox VerticalAlignment="Top">
+                <ListView   ItemsSource="{Binding Teams}">
+                    <ListView.View>
+                        <GridView >
+                            <GridViewColumn  DisplayMemberBinding="{Binding Position}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="№" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn Width="300" DisplayMemberBinding="{Binding TeamName}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="Команда" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn  DisplayMemberBinding="{Binding CountOfGame}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="И" />
+                                    </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn  DisplayMemberBinding="{Binding CountOfWinGame}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="В" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn  DisplayMemberBinding="{Binding CountOfDraws}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="Н" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding CountOfLoses}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="П" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding CountOfGoalsScored}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="ЗМ" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding CountOfGoalsConseded}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="ПМ" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding GoalsDifference}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="РМ" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Points}">
+                                <GridViewColumn.Header>
+                                    <TextBlock Text="О" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Viewbox>
+        </Grid>
+    </Border>
+</UserControl>

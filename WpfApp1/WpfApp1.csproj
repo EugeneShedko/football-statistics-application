@@ -73,6 +73,7 @@
     <Compile Include="ViewModels\All\MainWindowLoginOrRegisterViewModel.cs" />
     <Compile Include="ViewModels\All\RegisterWindowViewModel.cs" />
     <Compile Include="ViewModels\User\NewsForUserViewModel.cs" />
+    <Compile Include="ViewModels\User\TournamentTableUserViewModel.cs" />
     <Compile Include="View\All\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -90,6 +91,9 @@
     </Compile>
     <Compile Include="View\User\NewsForUser.xaml.cs">
       <DependentUpon>NewsForUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\TournamentTableForUser.xaml.cs">
+      <DependentUpon>TournamentTableForUser.xaml</DependentUpon>
     </Compile>
     <Page Include="View\All\LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -140,6 +144,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\User\TournamentTableForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -173,9 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\Resources\WindowIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resources\logohuman.ico" />
