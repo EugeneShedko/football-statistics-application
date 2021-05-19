@@ -27,11 +27,13 @@ namespace WpfApp1.ViewModels
 		{
 			ShowMainUserWindow = new DelegateCommand(ShowMainUserWindowCommand, CanShowMainUserWindowCommand);
 			ShowTournamentTableUserWindow = new DelegateCommand(ShowTournamentTableUserWindowCommand, CanShowTournamentTableUserWindowCommand);
+			ShowStatisticUserWindow = new DelegateCommand(ShowStatisticWindowCommand, CanShowStatisticWindowCommand);
 		}
 		#endregion
 		#region Commands
 		public ICommand ShowMainUserWindow { get; set; }
 		public ICommand ShowTournamentTableUserWindow { get; set;}
+		public ICommand ShowStatisticUserWindow { get; set; }
 		private bool CanShowMainUserWindowCommand(object parameter)
 		{
 			return true;
@@ -48,6 +50,14 @@ namespace WpfApp1.ViewModels
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.TournamentTableForUser);
 		}
+		public bool CanShowStatisticWindowCommand(object parameter)
+		{
+			return true;
+		}
+		public void ShowStatisticWindowCommand(object parameter)
+		{
+			_smallNavigationInfoManager.Insert(NavigationKeys.StatisticForUser);
+		}
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}
@@ -58,6 +68,7 @@ namespace WpfApp1.ViewModels
 			//Регистрируем все страницы, которые возможно поместить и использовать в рамках выбранного ContentControl
 			_smallNavigationInfoManager.AddUserControl<MainForUserViewModel, MainForUser>(new MainForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.MainForUser);
 			_smallNavigationInfoManager.AddUserControl<TournamentTableUserViewModel, TournamentTableForUser>(new TournamentTableUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TournamentTableForUser);
+			_smallNavigationInfoManager.AddUserControl<StatisticForUserViewModel, StatisticForUser>(new StatisticForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.StatisticForUser);
 			_smallNavigationInfoManager.AddWindow<NewsForUserViewModel, NewsForUser>(new NewsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForUser);
 			//Вызываем функцию для вставки новой страницы
 			_smallNavigationInfoManager.Insert(NavigationKeys.MainForUser);

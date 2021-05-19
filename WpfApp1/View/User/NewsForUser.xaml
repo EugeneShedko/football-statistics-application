@@ -9,7 +9,7 @@
         Title="Новости" Height="550" Width="1000"
         WindowStartupLocation="CenterScreen"
         >
-    <Grid ShowGridLines="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+    <Grid ScrollViewer.VerticalScrollBarVisibility="Auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="0.6*"/>

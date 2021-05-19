@@ -15,5 +15,6 @@ namespace WpfApp1.Navigation
 		public const string MainForUser = "MainForUser";
 		public const string NewsForUser = "NewsForUser";
 		public const string TournamentTableForUser = "TournamentTableForUser";
+		public const string StatisticForUser = "StatisticForUser";
 	}
 }

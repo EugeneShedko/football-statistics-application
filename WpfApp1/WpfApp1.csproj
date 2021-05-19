@@ -73,6 +73,7 @@
     <Compile Include="ViewModels\All\MainWindowLoginOrRegisterViewModel.cs" />
     <Compile Include="ViewModels\All\RegisterWindowViewModel.cs" />
     <Compile Include="ViewModels\User\NewsForUserViewModel.cs" />
+    <Compile Include="ViewModels\User\StatisticForUserViewModel.cs" />
     <Compile Include="ViewModels\User\TournamentTableUserViewModel.cs" />
     <Compile Include="View\All\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -91,6 +92,9 @@
     </Compile>
     <Compile Include="View\User\NewsForUser.xaml.cs">
       <DependentUpon>NewsForUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\StatisticForUser.xaml.cs">
+      <DependentUpon>StatisticForUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\User\TournamentTableForUser.xaml.cs">
       <DependentUpon>TournamentTableForUser.xaml</DependentUpon>
@@ -141,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\User\NewsForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\StatisticForUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
