@@ -30,6 +30,7 @@ namespace WpfApp1.ViewModels
 			ShowStatisticUserWindow = new DelegateCommand(ShowStatisticWindowCommand, CanShowStatisticWindowCommand);
 			ShowTicketsUserWindow = new DelegateCommand(ShowTicketsUserWindowCommand, CanShowTicketsUserWindowCommand);
 			ShowCommentUserWindow = new DelegateCommand(ShowCommentUserWindowCommand, CanShowCommentUserWindowCommand);
+			ShowClubsUserWindow = new DelegateCommand(ShowClubsUserWindowCommand, CanShowClubsUserWindowCommand);
 		}
 		#endregion
 		#region Commands
@@ -38,6 +39,7 @@ namespace WpfApp1.ViewModels
 		public ICommand ShowStatisticUserWindow { get; set; }
 		public ICommand ShowTicketsUserWindow { get; set; }
 		public ICommand ShowCommentUserWindow { get; set; }
+		public ICommand ShowClubsUserWindow { get; set;}
 		private bool CanShowMainUserWindowCommand(object parameter)
 		{
 			return true;
@@ -46,38 +48,47 @@ namespace WpfApp1.ViewModels
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.MainForUser);
 		}
-		public bool CanShowTournamentTableUserWindowCommand(object parameter)
+		private bool CanShowTournamentTableUserWindowCommand(object parameter)
 		{
 			return true;
 		}
-		public void ShowTournamentTableUserWindowCommand(object parameter)
+		private void ShowTournamentTableUserWindowCommand(object parameter)
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.TournamentTableForUser);
 		}
-		public bool CanShowStatisticWindowCommand(object parameter)
+		private bool CanShowStatisticWindowCommand(object parameter)
 		{
 			return true;
 		}
-		public void ShowStatisticWindowCommand(object parameter)
+		private void ShowStatisticWindowCommand(object parameter)
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.StatisticForUser);
 		}
-		public bool CanShowTicketsUserWindowCommand(object parameter)
+		private bool CanShowTicketsUserWindowCommand(object parameter)
 		{
 			return true;
 		}
-		public void ShowTicketsUserWindowCommand(object parameter)
+		private void ShowTicketsUserWindowCommand(object parameter)
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.TicketsForUser);
 		}
-		public bool CanShowCommentUserWindowCommand(object parameter)
+		private bool CanShowCommentUserWindowCommand(object parameter)
 		{
 			return true;
 		}
-		public void ShowCommentUserWindowCommand(object parammeter)
+		private void ShowCommentUserWindowCommand(object parammeter)
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.CommentForUser);
 		}
+		private bool CanShowClubsUserWindowCommand(object parameter)
+		{
+			return true;
+		}
+		private void ShowClubsUserWindowCommand(object parameter)
+		{
+			_smallNavigationInfoManager.Insert(NavigationKeys.ClubsForUser);
+		}
+
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}
@@ -91,6 +102,7 @@ namespace WpfApp1.ViewModels
 			_smallNavigationInfoManager.AddUserControl<StatisticForUserViewModel, StatisticForUser>(new StatisticForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.StatisticForUser);
 			_smallNavigationInfoManager.AddUserControl<TicketsForUserViewModel, TicketsForUser>(new TicketsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TicketsForUser);
 			_smallNavigationInfoManager.AddUserControl<CommentForUserViewModel, CommentForUser>(new CommentForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.CommentForUser);
+			_smallNavigationInfoManager.AddUserControl<ClubsForUserViewModel, ClubsForUser>(new ClubsForUserViewModel(_smallNavigationInfoManager,_navigationManager), NavigationKeys.ClubsForUser);
 			_smallNavigationInfoManager.AddWindow<NewsForUserViewModel, NewsForUser>(new NewsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForUser);
 			//Вызываем функцию для вставки новой страницы
 			_smallNavigationInfoManager.Insert(NavigationKeys.MainForUser);

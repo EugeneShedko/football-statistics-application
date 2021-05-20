@@ -51,7 +51,7 @@
                         <TextBlock Text="Билеты" Margin="20,0,0,0"/>
                     </MenuItem.Header>
                 </MenuItem >
-                <MenuItem Style="{StaticResource BigMenuItem}">
+                <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowClubsUserWindow}">
                     <MenuItem.Header>
                         <TextBlock Text="Клубы" Margin="20,0,0,0"/>
                     </MenuItem.Header>
