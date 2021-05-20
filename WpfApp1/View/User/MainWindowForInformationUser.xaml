@@ -75,7 +75,7 @@
                 </MenuItem.Icon>
                 <MenuItem Header="Мой Профиль" />
                 <MenuItem Header="Мои Билеты"/>
-                <MenuItem Header="Выход" />
+                <MenuItem Header="Выход" Command="{Binding ShowExitUserWindow}"/>
             </MenuItem>
         </Menu>
         <Grid Grid.Column="1" Grid.Row="1">

@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WpfApp1.View.User.ExitWindowForUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.View.User"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid Margin="350,230,350,400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Вы действительно хотите выйти?" HorizontalAlignment="Center" FontSize="23"/>
+            <Button Content="Да" Grid.Column="0" Grid.Row="1" Width="100" HorizontalAlignment="Right" Margin="0,0,20,0" Command="{Binding ShowMainWindowLoginOrRegister}"/>
+            <Button Content="Нет" Grid.Column="1" Grid.Row="1" Width="100" HorizontalAlignment="Left" Margin="20,0,0,0" Command="{Binding ShowMainFouUserWindow}"/>
+        </Grid>
+    </Grid>
+</UserControl>

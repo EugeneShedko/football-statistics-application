@@ -70,6 +70,7 @@
     <Compile Include="ViewModels\All\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\User\ClubsForUserViewModel.cs" />
     <Compile Include="ViewModels\User\CommentForUserViewModel.cs" />
+    <Compile Include="ViewModels\User\ExitWindowViewModel.cs" />
     <Compile Include="ViewModels\User\MainForUserViewModel.cs" />
     <Compile Include="ViewModels\User\MainWindowForInformationViewModelUser.cs" />
     <Compile Include="ViewModels\All\MainWindowLoginOrRegisterViewModel.cs" />
@@ -86,6 +87,9 @@
     </Compile>
     <Compile Include="View\User\CommentForUser.xaml.cs">
       <DependentUpon>CommentForUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\ExitWindowForUser.xaml.cs">
+      <DependentUpon>ExitWindowForUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\User\MainForUser.xaml.cs">
       <DependentUpon>MainForUser.xaml</DependentUpon>
@@ -145,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\User\CommentForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\ExitWindowForUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
