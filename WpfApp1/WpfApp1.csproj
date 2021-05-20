@@ -68,6 +68,7 @@
     <Compile Include="Navigation\NavigationManager.cs" />
     <Compile Include="Navigation\ParametersForWindow.cs" />
     <Compile Include="ViewModels\All\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModels\User\CommentForUserViewModel.cs" />
     <Compile Include="ViewModels\User\MainForUserViewModel.cs" />
     <Compile Include="ViewModels\User\MainWindowForInformationViewModelUser.cs" />
     <Compile Include="ViewModels\All\MainWindowLoginOrRegisterViewModel.cs" />

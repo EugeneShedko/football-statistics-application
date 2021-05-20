@@ -29,6 +29,7 @@ namespace WpfApp1.ViewModels
 			ShowTournamentTableUserWindow = new DelegateCommand(ShowTournamentTableUserWindowCommand, CanShowTournamentTableUserWindowCommand);
 			ShowStatisticUserWindow = new DelegateCommand(ShowStatisticWindowCommand, CanShowStatisticWindowCommand);
 			ShowTicketsUserWindow = new DelegateCommand(ShowTicketsUserWindowCommand, CanShowTicketsUserWindowCommand);
+			ShowCommentUserWindow = new DelegateCommand(ShowCommentUserWindowCommand, CanShowCommentUserWindowCommand);
 		}
 		#endregion
 		#region Commands
@@ -36,6 +37,7 @@ namespace WpfApp1.ViewModels
 		public ICommand ShowTournamentTableUserWindow { get; set;}
 		public ICommand ShowStatisticUserWindow { get; set; }
 		public ICommand ShowTicketsUserWindow { get; set; }
+		public ICommand ShowCommentUserWindow { get; set; }
 		private bool CanShowMainUserWindowCommand(object parameter)
 		{
 			return true;
@@ -68,6 +70,14 @@ namespace WpfApp1.ViewModels
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.TicketsForUser);
 		}
+		public bool CanShowCommentUserWindowCommand(object parameter)
+		{
+			return true;
+		}
+		public void ShowCommentUserWindowCommand(object parammeter)
+		{
+			_smallNavigationInfoManager.Insert(NavigationKeys.CommentForUser);
+		}
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}
@@ -80,6 +90,7 @@ namespace WpfApp1.ViewModels
 			_smallNavigationInfoManager.AddUserControl<TournamentTableUserViewModel, TournamentTableForUser>(new TournamentTableUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TournamentTableForUser);
 			_smallNavigationInfoManager.AddUserControl<StatisticForUserViewModel, StatisticForUser>(new StatisticForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.StatisticForUser);
 			_smallNavigationInfoManager.AddUserControl<TicketsForUserViewModel, TicketsForUser>(new TicketsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TicketsForUser);
+			_smallNavigationInfoManager.AddUserControl<CommentForUserViewModel, CommentForUser>(new CommentForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.CommentForUser);
 			_smallNavigationInfoManager.AddWindow<NewsForUserViewModel, NewsForUser>(new NewsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForUser);
 			//Вызываем функцию для вставки новой страницы
 			_smallNavigationInfoManager.Insert(NavigationKeys.MainForUser);

@@ -56,7 +56,7 @@
                         <TextBlock Text="Клубы" Margin="20,0,0,0"/>
                     </MenuItem.Header>
                 </MenuItem >
-                <MenuItem Style="{StaticResource BigMenuItem}">
+                <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowCommentUserWindow}">
                     <MenuItem.Header>
                         <TextBlock Text="Комментарии" Margin="20,0,0,0"/>
                     </MenuItem.Header>
