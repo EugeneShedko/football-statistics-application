@@ -46,7 +46,7 @@
                         <TextBlock Text="Статистика" Margin="20,0,0,0"/>
                     </MenuItem.Header>
                 </MenuItem >
-                <MenuItem Style="{StaticResource BigMenuItem}">
+                <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowTicketsUserWindow}">
                     <MenuItem.Header>
                         <TextBlock Text="Билеты" Margin="20,0,0,0"/>
                     </MenuItem.Header>
@@ -54,6 +54,11 @@
                 <MenuItem Style="{StaticResource BigMenuItem}">
                     <MenuItem.Header>
                         <TextBlock Text="Клубы" Margin="20,0,0,0"/>
+                    </MenuItem.Header>
+                </MenuItem >
+                <MenuItem Style="{StaticResource BigMenuItem}">
+                    <MenuItem.Header>
+                        <TextBlock Text="Комментарии" Margin="20,0,0,0"/>
                     </MenuItem.Header>
                 </MenuItem >
             </Menu>

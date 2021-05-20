@@ -74,9 +74,13 @@
     <Compile Include="ViewModels\All\RegisterWindowViewModel.cs" />
     <Compile Include="ViewModels\User\NewsForUserViewModel.cs" />
     <Compile Include="ViewModels\User\StatisticForUserViewModel.cs" />
+    <Compile Include="ViewModels\User\TicketsForUserViewModel.cs" />
     <Compile Include="ViewModels\User\TournamentTableUserViewModel.cs" />
     <Compile Include="View\All\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\CommentForUser.xaml.cs">
+      <DependentUpon>CommentForUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\User\MainForUser.xaml.cs">
       <DependentUpon>MainForUser.xaml</DependentUpon>
@@ -95,6 +99,9 @@
     </Compile>
     <Compile Include="View\User\StatisticForUser.xaml.cs">
       <DependentUpon>StatisticForUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\TicketsForUser.xaml.cs">
+      <DependentUpon>TicketsForUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\User\TournamentTableForUser.xaml.cs">
       <DependentUpon>TournamentTableForUser.xaml</DependentUpon>
@@ -124,6 +131,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Resources\ResourcesDictionaries\ForTicketsForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\CommentForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\User\MainForUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\User\StatisticForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\TicketsForUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,6 +225,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resources\picture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\ticket %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
