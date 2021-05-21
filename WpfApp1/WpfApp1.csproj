@@ -231,6 +231,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Resources\ResourcesDictionaries\StyleForAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\User\ClubsForUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

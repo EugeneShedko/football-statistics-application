@@ -3,10 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WpfApp1.View.Admin"
              mc:Ignorable="d" 
              d:DesignHeight="985" d:DesignWidth="1480">
     <Grid Background="White">
-        <TextBlock Text="Турнирная таблица"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox  materialDesign:HintAssist.Hint="Id команды" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="60,0,0,0" FontSize="20"/>
+        <Button Content="Найти" HorizontalAlignment="Center" Margin="20,0,0,0"/>
+        <ScrollViewer Grid.Column="0" Grid.Row="1">
+            <DataGrid HorizontalAlignment="Center">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID команды"/>
+                    <DataGridTextColumn Header="№"/>
+                    <DataGridTextColumn Header="Команда" Width="200" />
+                    <DataGridTextColumn Header="И"/>
+                    <DataGridTextColumn Header="В"/>
+                    <DataGridTextColumn Header="Н"/>
+                    <DataGridTextColumn Header="П"/>
+                    <DataGridTextColumn Header="ЗМ"/>
+                    <DataGridTextColumn Header="ПМ"/>
+                    <DataGridTextColumn Header="О"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <Border Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" BorderBrush="OliveDrab" BorderThickness="2" Margin="0,0,30,0" >
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Text="Добавить команду" FontSize="25" HorizontalAlignment="Center"/>
+                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Id команды" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <TextBox Grid.Row="3"  materialDesign:HintAssist.Hint="Позиция" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Название" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <TextBox Grid.Row="5"  materialDesign:HintAssist.Hint="Игр" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <TextBox Grid.Row="6"  materialDesign:HintAssist.Hint="Побед" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <TextBox Grid.Row="7"  materialDesign:HintAssist.Hint="Ничьих" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <TextBox Grid.Row="8"  materialDesign:HintAssist.Hint="Поражений" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <TextBox Grid.Row="9"  materialDesign:HintAssist.Hint="Забито мячей" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <TextBox Grid.Row="10"  materialDesign:HintAssist.Hint="Пропущено мячей" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <Button Grid.Row="11"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" />
+                <TextBlock Grid.Row="12" Text="Удалить матч" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Row="13"  materialDesign:HintAssist.Hint="Id команды" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                <Button Grid.Row="14" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" />
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>
