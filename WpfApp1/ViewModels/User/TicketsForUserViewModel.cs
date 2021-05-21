@@ -39,7 +39,6 @@ namespace WpfApp1.ViewModels.User
 		{
 			MessageBox.Show("Ваш заказ оформлен!");
 		}
-
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}

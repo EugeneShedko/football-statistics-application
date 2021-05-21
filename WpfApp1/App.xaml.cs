@@ -8,6 +8,8 @@ using System.Windows;
 using WpfApp1.Navigation;
 using WpfApp1.ViewModels;
 using WpfApp1.View;
+using WpfApp1.ViewModels.Admin;
+using WpfApp1.View.Admin;
 
 namespace WpfApp1
 {
@@ -26,7 +28,7 @@ namespace WpfApp1
                 NavigationKeys.MainWindowLoginOrRegister);
             navigationManager.AddUserControl<MainWindowForInformationViewModelUser, MainWindowForInformation>(new MainWindowForInformationViewModelUser(navigationManager),
                 NavigationKeys.MainWindowForInformationUser);
-
+            navigationManager.AddUserControl<MainWindowForInformationAdminViewModel, MainWindowForInformationAdmin>(new MainWindowForInformationAdminViewModel(navigationManager), NavigationKeys.MainWindowForInformationAdmin);
 
             var viewModel = new MainWindowViewModel(navigationManager);
             window.DataContext = viewModel;

@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="WpfApp1.View.All.LoginForAlminWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ff="clr-namespace:WpfApp1.ForPasswordBox"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:WpfApp1.View.All"
+             mc:Ignorable="d" 
+              d:DesignHeight="780" d:DesignWidth="460">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Viewbox  Grid.Column="1" Grid.Row="1">
+            <TextBlock Text="Вход" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
+        </Viewbox>
+        <PasswordBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Пароль" FontSize="20"
+                     x:Name="PasswordBox"
+         ff:PasswordBoxAssistant.BindPassword="true"  ff:PasswordBoxAssistant.BoundPassword="{Binding Path = Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="1" Grid.Row="4"  Height="40" Content="Войти" VerticalAlignment="Center" Command="{Binding ShowMainWindowForInformationAdmin}"/>
+        <Button Grid.Column="1" Grid.Row="5" Height="40" Content="Назад" VerticalAlignment="Top" Command="{Binding ShowLoginWindow}"/>
+        <Image Source="/WpfApp1;component/View/Resources/logo.png" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" Margin="0,0,0,50"/>
+    </Grid>
+</UserControl>

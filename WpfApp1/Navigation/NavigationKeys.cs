@@ -23,5 +23,8 @@ namespace WpfApp1.Navigation
 		public const string ExitWindowForUser = "ExitWindowForUser";
 		public const string UserProfile = "UserProfile";
 		public const string UserTickets = "UserTickkets";
+
+		public const string LoginForAdminWindow = "LoginForAdminWindow";
+		public const string MainWindowForInformationAdmin = "MainWindowForInformationAdmin";
 	}
 }

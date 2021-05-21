@@ -35,5 +35,20 @@
         <Button Grid.Column="1" Grid.Row="4"  Height="40" Content="Войти" VerticalAlignment="Center" Command="{Binding ShowMainWindowForInformation}"/>
         <Button Grid.Column="1" Grid.Row="5" Height="40" Content="Зарегистрироваться" VerticalAlignment="Top" Command="{Binding ShowRegisterWindow}" />
         <Image Source="/WpfApp1;component/View/Resources/logo.png" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" Margin="0,0,0,50"/>
+        <TextBlock Grid.Column="1" Grid.Row="7" Text="Войти от имени администратора" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Margin="0,0,0,10" Cursor="Hand">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="TextDecorations" Value="underline"/>
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+            <TextBlock.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="{Binding ShowLoginWindowForAdmin}"/>
+            </TextBlock.InputBindings>
+        </TextBlock>
     </Grid>
 </UserControl>
