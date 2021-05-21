@@ -6,7 +6,7 @@
              xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WpfApp1.View.User"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="985" d:DesignWidth="1480">
     <Grid Background="White">
         <Grid Margin="200,20,200,0">
             <Grid.RowDefinitions>

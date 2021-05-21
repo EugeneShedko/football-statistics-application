@@ -6,7 +6,7 @@
              xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WpfApp1.View.User"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="985" d:DesignWidth="1480">
     <UserControl.Resources>
         <ResourceDictionary Source="/WpfApp1;component/View/Resources/ResourcesDictionaries/ForTicketsForUser.xaml"/>
     </UserControl.Resources>

@@ -20,5 +20,6 @@ namespace WpfApp1.Navigation
 		public const string CommentForUser = "CommentForUser";
 		public const string ClubsForUser = "ClubsForUser";
 		public const string ExitWindowForUser = "ExitWindowForUser";
+		public const string UserProfile = "UserProfile";
 	}
 }

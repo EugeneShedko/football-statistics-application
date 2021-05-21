@@ -10,12 +10,14 @@
         mc:Ignorable="d"
         Icon="/WpfApp1;component/View/Resources/logohuman.ico"
         WindowStartupLocation="CenterScreen"
-        WindowState="Maximized" Closed="Window_Closed">
+        WindowState="Maximized" 
+         d:DesignHeight="1080" d:DesignWidth="1920">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Grid Background="OliveDrab">
         <ContentControl x:Name="MainWindowLoginOrInformation" x:FieldModifier="public">
+            
         </ContentControl>
     </Grid>
 </Window>

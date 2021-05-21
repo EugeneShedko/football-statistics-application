@@ -6,7 +6,7 @@
              xmlns:v ="clr-namespace:WpfApp1.View"
              xmlns:local="clr-namespace:WpfApp1.View"
              mc:Ignorable="d" 
-             d:DesignHeight="505.6" d:DesignWidth="761.6">
+             d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
         <Grid.ColumnDefinitions>
             <!--<ColumnDefinition Width="0.04*"></ColumnDefinition>-->

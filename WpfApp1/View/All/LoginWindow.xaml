@@ -7,7 +7,7 @@
              xmlns:vm ="clr-namespace:WpfApp1.ViewModels"
              xmlns:local="clr-namespace:WpfApp1.View"
              mc:Ignorable="d" 
-             d:DesignHeight="197" d:DesignWidth="83">
+             d:DesignHeight="780" d:DesignWidth="460">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"></ColumnDefinition>

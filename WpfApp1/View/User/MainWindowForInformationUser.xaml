@@ -6,7 +6,7 @@
              xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:v="clr-namespace:WpfApp1.View"
              mc:Ignorable="d" 
-             d:DesignHeight="505.6" d:DesignWidth="761.6">
+              d:DesignHeight="1080" d:DesignWidth="1920">
     <UserControl.Resources>
         <ResourceDictionary Source="/WpfApp1;component/View/Resources/ResourcesDictionaries/ForMWForInformation.xaml"/>
     </UserControl.Resources>
@@ -61,6 +61,7 @@
                         <TextBlock Text="Комментарии" Margin="20,0,0,0"/>
                     </MenuItem.Header>
                 </MenuItem >
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="6" Margin="426,0,-228,0" Width="6"/>
             </Menu>
         </Grid>
         <Menu Grid.Column="1" Grid.Row="0"  Background="OliveDrab" HorizontalAlignment="Right" Margin="0,0,20,0">
@@ -69,11 +70,11 @@
                     <StackPanel></StackPanel>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Foreground="White" FontSize="25"  Height="70" Header="Имя Фамилия">
+            <MenuItem Foreground="White" FontSize="20"  Height="70" Header="Имя Фамилия">
                 <MenuItem.Icon>
                     <materialDesign:PackIcon Kind="User" Height="31" Width="41" Margin="0,-10,-15,0"/>
                 </MenuItem.Icon>
-                <MenuItem Header="Мой Профиль" />
+                <MenuItem Header="Мой Профиль" Command="{Binding ShowUserProfileWindow}"/>
                 <MenuItem Header="Мои Билеты"/>
                 <MenuItem Header="Выход" Command="{Binding ShowExitUserWindow}"/>
             </MenuItem>
