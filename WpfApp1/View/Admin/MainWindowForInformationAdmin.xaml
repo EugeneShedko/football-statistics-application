@@ -62,7 +62,7 @@
                             <TextBlock Text="Билеты" Margin="20,0,0,0"/>
                         </MenuItem.Header>
                     </MenuItem >
-                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowCommentUserWindow}">
+                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowExitForAdminWindow}">
                         <MenuItem.Header>
                             <TextBlock Text="Выход" Margin="20,0,0,0"/>
                         </MenuItem.Header>
@@ -73,7 +73,6 @@
             <TextBlock Text="Администратор" Grid.Column="1" Grid.Row="0"  Background="OliveDrab" HorizontalAlignment="Right" Margin="0,0,20,0" Foreground="White" FontSize="20"/>
             <Grid Grid.Column="1" Grid.Row="1">
                 <ContentControl x:Name="ForInformation" x:FieldModifier="public">
-
                 </ContentControl>
             </Grid>
         </Grid>

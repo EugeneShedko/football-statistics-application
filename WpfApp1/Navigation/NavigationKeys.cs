@@ -32,5 +32,6 @@ namespace WpfApp1.Navigation
 		public const string StatisticForAdmin = "StatisticForAdmin";
 		public const string ClubsForAdmin = "ClubsForAdmin";
 		public const string TicketsForAdmin = "TicketsForAdmin";
+		public const string ExitForAdmin = "ExitForAdmin";
 	}
 }

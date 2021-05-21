@@ -22,6 +22,7 @@ namespace WpfApp1.ViewModels.Admin
 		public MainWindowForInformationAdminViewModel(NavigationManager navigationManager) : this()
 		{
 			_navigationManager = navigationManager;
+
 		}
 		public MainWindowForInformationAdminViewModel() 
 		{
@@ -31,6 +32,7 @@ namespace WpfApp1.ViewModels.Admin
 			ShowStatisticForAdminWindow = new DelegateCommand(ShowStatisticForAdminCommand, CanShowStatisticForAdminCommand);
 			ShowClubsForAdminWindow = new DelegateCommand(ShowClubsForAdminCommand, CanShowClubsForAdminCommand);
 			ShowTicketsForAdminWindow = new DelegateCommand(ShowTicketsForAdminCommand, CanShowTicketsForAdminCommand);
+			ShowExitForAdminWindow = new DelegateCommand(ShowExitForAdminCommand, CanShowExitForAdminCommand);
 		}
 		#endregion
 		#region Commands
@@ -40,6 +42,7 @@ namespace WpfApp1.ViewModels.Admin
 		public ICommand ShowStatisticForAdminWindow { get; set; }
 		public ICommand ShowClubsForAdminWindow { get; set; }
 		public ICommand ShowTicketsForAdminWindow { get; set;}
+		public ICommand ShowExitForAdminWindow { get; set; }
 		private bool CanShowMatchesForAdminWindowCommand(object parameter)
 		{
 			return true;
@@ -88,6 +91,14 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.TicketsForAdmin);
 		}
+		private bool CanShowExitForAdminCommand(object parameter)
+		{
+			return true;
+		}
+		private void ShowExitForAdminCommand(object parameter)
+		{
+			_smallNavigationInfoManager.Insert(NavigationKeys.ExitForAdmin);
+		}
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}
@@ -101,6 +112,8 @@ namespace WpfApp1.ViewModels.Admin
 			_smallNavigationInfoManager.AddUserControl<StatisticForAdminViewModel, StatisticForAdmin>(new StatisticForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.StatisticForAdmin);
 			_smallNavigationInfoManager.AddUserControl<ClubsForAdminViewModel, ClubsForAdmin>(new ClubsForAdminViewModel(_smallNavigationInfoManager,_navigationManager), NavigationKeys.ClubsForAdmin);
 			_smallNavigationInfoManager.AddUserControl<TicketsForAdminViewModel, TicketsForAdmin>( new TicketsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TicketsForAdmin);
+			_smallNavigationInfoManager.AddUserControl<ExitWindowViewModel, ExitForAdmin>(new ExitWindowViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.ExitForAdmin);
+			_smallNavigationInfoManager.Insert(NavigationKeys.MathesForAdmin);
 		}
 		#endregion
 	}

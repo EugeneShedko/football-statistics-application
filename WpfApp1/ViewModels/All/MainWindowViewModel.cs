@@ -22,8 +22,7 @@ namespace WpfApp1.ViewModels
 		public MainWindowViewModel(NavigationManager navigationActions)
 		{
 			_navigationActions = navigationActions;
-			_navigationActions.Insert(NavigationKeys.MainWindowLoginOrRegister);  
-																
+			_navigationActions.Insert(NavigationKeys.MainWindowLoginOrRegister);  											
 		}
 		public MainWindowViewModel() { }
 		#endregion
