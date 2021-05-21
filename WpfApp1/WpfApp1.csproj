@@ -70,7 +70,13 @@
     <Compile Include="Navigation\INavigationManager.cs" />
     <Compile Include="Navigation\NavigationManager.cs" />
     <Compile Include="Navigation\ParametersForWindow.cs" />
+    <Compile Include="ViewModels\Admin\ClubsForAdminViewModel.cs" />
     <Compile Include="ViewModels\Admin\MainWindowForInformationAdminViewModel.cs" />
+    <Compile Include="ViewModels\Admin\MathesForAdminViewModel.cs" />
+    <Compile Include="ViewModels\Admin\NewsForAdminViewModel.cs" />
+    <Compile Include="ViewModels\Admin\StatisticForAdminViewModel.cs" />
+    <Compile Include="ViewModels\Admin\TicketsForAdminViewModel.cs" />
+    <Compile Include="ViewModels\Admin\TournamentTableForAdminViewModel.cs" />
     <Compile Include="ViewModels\All\LoginForAdminWindowViewModel.cs" />
     <Compile Include="ViewModels\All\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\User\ClubsForUserViewModel.cs" />
@@ -86,8 +92,26 @@
     <Compile Include="ViewModels\User\TournamentTableUserViewModel.cs" />
     <Compile Include="ViewModels\User\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\User\UserTicketsViewModel.cs" />
+    <Compile Include="View\Admin\ClubsForAdmin.xaml.cs">
+      <DependentUpon>ClubsForAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\MainWindowForInformationAdmin.xaml.cs">
       <DependentUpon>MainWindowForInformationAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\MathesForAdmin.xaml.cs">
+      <DependentUpon>MathesForAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\NewForAdmin.xaml.cs">
+      <DependentUpon>NewForAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\StatisticForAdmin.xaml.cs">
+      <DependentUpon>StatisticForAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\TicketsForAdmin.xaml.cs">
+      <DependentUpon>TicketsForAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\TournamentTableForAdmin.xaml.cs">
+      <DependentUpon>TournamentTableForAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\All\LoginForAlminWindow.xaml.cs">
       <DependentUpon>LoginForAlminWindow.xaml</DependentUpon>
@@ -134,7 +158,31 @@
     <Compile Include="View\User\UserTicketsxaml.xaml.cs">
       <DependentUpon>UserTicketsxaml.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Admin\ClubsForAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Admin\MainWindowForInformationAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\MathesForAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\NewForAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\StatisticForAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\TicketsForAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\TournamentTableForAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

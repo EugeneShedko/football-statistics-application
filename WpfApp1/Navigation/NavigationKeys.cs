@@ -26,5 +26,11 @@ namespace WpfApp1.Navigation
 
 		public const string LoginForAdminWindow = "LoginForAdminWindow";
 		public const string MainWindowForInformationAdmin = "MainWindowForInformationAdmin";
+		public const string MathesForAdmin = "MathesForAdmin";
+		public const string NewsForAdmin = "NewForAdmin";
+		public const string TournamentTableForAdmin = "TournamentTableForAdmin";
+		public const string StatisticForAdmin = "StatisticForAdmin";
+		public const string ClubsForAdmin = "ClubsForAdmin";
+		public const string TicketsForAdmin = "TicketsForAdmin";
 	}
 }

@@ -2,11 +2,80 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WpfApp1.View.Admin"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/WpfApp1;component/View/Resources/ResourcesDictionaries/ForMWForInformation.xaml"/>
+    </UserControl.Resources>
     <Grid Background="White">
-            
+        <Grid Background="OliveDrab">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="/WpfApp1;component/View/Resources/WhiteLogo.png" Margin="0,10,50,5"/>
+                <Menu Grid.Column="0" Grid.Row="1" Style="{StaticResource BigMenu}">
+                    <Menu.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel></StackPanel>
+                        </ItemsPanelTemplate>
+                    </Menu.ItemsPanel>
+                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowMatchesForAdminWindow}">
+                        <MenuItem.Header>
+                            <TextBlock Text="Матчи" Margin="20,0,0,0"/>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowNewsForAdminWindow}">
+                        <MenuItem.Header>
+                            <TextBlock Text="Новости" Margin="20,0,0,0"/>
+                        </MenuItem.Header>
+                    </MenuItem >
+                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowTournamentTableForAdminWindow}">
+                        <MenuItem.Header>
+                            <TextBlock Text="Турнирная таблица" Margin="20,0,0,0"/>
+                        </MenuItem.Header>
+                    </MenuItem >
+                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowStatisticForAdminWindow}">
+                        <MenuItem.Header>
+                            <TextBlock Text="Статистика" Margin="20,0,0,0"/>
+                        </MenuItem.Header>
+                    </MenuItem >
+                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowClubsForAdminWindow}">
+                        <MenuItem.Header>
+                            <TextBlock Text="Клубы" Margin="20,0,0,0"/>
+                        </MenuItem.Header>
+                    </MenuItem >
+                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowTicketsForAdminWindow}">
+                        <MenuItem.Header>
+                            <TextBlock Text="Билеты" Margin="20,0,0,0"/>
+                        </MenuItem.Header>
+                    </MenuItem >
+                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowCommentUserWindow}">
+                        <MenuItem.Header>
+                            <TextBlock Text="Выход" Margin="20,0,0,0"/>
+                        </MenuItem.Header>
+                    </MenuItem >
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="6" Margin="426,0,-228,0" Width="6"/>
+                </Menu>
+            </Grid>
+            <TextBlock Text="Администратор" Grid.Column="1" Grid.Row="0"  Background="OliveDrab" HorizontalAlignment="Right" Margin="0,0,20,0" Foreground="White" FontSize="20"/>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <ContentControl x:Name="ForInformation" x:FieldModifier="public">
+
+                </ContentControl>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>
