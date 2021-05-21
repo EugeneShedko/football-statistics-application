@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ForPasswordBox\PasswordBoxAssistant.cs" />
     <Compile Include="Navigation\INavigationActions.cs" />
     <Compile Include="Navigation\INavigationManager.cs" />
     <Compile Include="Navigation\NavigationManager.cs" />

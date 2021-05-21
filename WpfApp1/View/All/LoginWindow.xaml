@@ -6,6 +6,7 @@
              xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:vm ="clr-namespace:WpfApp1.ViewModels"
              xmlns:local="clr-namespace:WpfApp1.View"
+             xmlns:ff="clr-namespace:WpfApp1.ForPasswordBox"
              mc:Ignorable="d" 
              d:DesignHeight="780" d:DesignWidth="460">
     <Grid Background="White">
@@ -28,7 +29,9 @@
             <TextBlock Text="Вход" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
         </Viewbox>
         <TextBox  Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Логин" FontSize="20"/>
-        <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Пароль" FontSize="20"/>
+        <PasswordBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Пароль" FontSize="20"
+                     x:Name="PasswordBox"
+         ff:PasswordBoxAssistant.BindPassword="true"  ff:PasswordBoxAssistant.BoundPassword="{Binding Path = Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Grid.Column="1" Grid.Row="4"  Height="40" Content="Войти" VerticalAlignment="Center" Command="{Binding ShowMainWindowForInformation}"/>
         <Button Grid.Column="1" Grid.Row="5" Height="40" Content="Зарегистрироваться" VerticalAlignment="Top" Command="{Binding ShowRegisterWindow}" />
         <Image Source="/WpfApp1;component/View/Resources/logo.png" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" Margin="0,0,0,50"/>
