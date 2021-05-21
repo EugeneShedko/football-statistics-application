@@ -45,6 +45,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -80,6 +82,7 @@
     <Compile Include="ViewModels\User\TicketsForUserViewModel.cs" />
     <Compile Include="ViewModels\User\TournamentTableUserViewModel.cs" />
     <Compile Include="ViewModels\User\UserProfileViewModel.cs" />
+    <Compile Include="ViewModels\User\UserTicketsViewModel.cs" />
     <Compile Include="View\All\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,9 @@
     <Compile Include="View\User\UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\User\UserTicketsxaml.xaml.cs">
+      <DependentUpon>UserTicketsxaml.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\All\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Resources\ResourcesDictionaries\ForUserProfile.xaml">
+    <Page Include="View\Resources\ResourcesDictionaries\ForUserTickets.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,6 +207,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\User\UserProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UserTicketsxaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

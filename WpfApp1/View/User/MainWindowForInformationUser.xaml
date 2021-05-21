@@ -75,7 +75,7 @@
                     <materialDesign:PackIcon Kind="User" Height="31" Width="41" Margin="0,-10,-15,0"/>
                 </MenuItem.Icon>
                 <MenuItem Header="Мой Профиль" Command="{Binding ShowUserProfileWindow}"/>
-                <MenuItem Header="Мои Билеты"/>
+                <MenuItem Header="Мои Билеты" Command="{Binding ShowUserTicketsWindow}"/>
                 <MenuItem Header="Выход" Command="{Binding ShowExitUserWindow}"/>
             </MenuItem>
         </Menu>

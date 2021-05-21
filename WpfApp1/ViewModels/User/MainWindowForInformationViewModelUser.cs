@@ -33,6 +33,7 @@ namespace WpfApp1.ViewModels
 			ShowClubsUserWindow = new DelegateCommand(ShowClubsUserWindowCommand, CanShowClubsUserWindowCommand);
 			ShowExitUserWindow = new DelegateCommand(ShowExitUserWindowCommand, CanShowExitUserWindowCommand);
 			ShowUserProfileWindow = new DelegateCommand(ShowUserProfileWindowCommand, CanShowUserProfileWindowCommand);
+			ShowUserTicketsWindow = new DelegateCommand(ShowUserTicketsWindowCommand, CanShowUserTicketsWindowCommand);
 		}
 		#endregion
 		#region Commands
@@ -44,6 +45,7 @@ namespace WpfApp1.ViewModels
 		public ICommand ShowClubsUserWindow { get; set;}
 		public ICommand ShowExitUserWindow { get; set; }
 		public ICommand ShowUserProfileWindow { get; set; }
+		public ICommand ShowUserTicketsWindow { get; set; }
 		private bool CanShowMainUserWindowCommand(object parameter)
 		{
 			return true;
@@ -108,6 +110,14 @@ namespace WpfApp1.ViewModels
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.UserProfile);
 		}
+		private bool CanShowUserTicketsWindowCommand(object parameter)
+		{
+			return true;
+		}
+		private void ShowUserTicketsWindowCommand(object parameter)
+		{
+			_smallNavigationInfoManager.Insert(NavigationKeys.UserTickets);
+		}
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}
@@ -124,6 +134,7 @@ namespace WpfApp1.ViewModels
 			_smallNavigationInfoManager.AddUserControl<ClubsForUserViewModel, ClubsForUser>(new ClubsForUserViewModel(_smallNavigationInfoManager,_navigationManager), NavigationKeys.ClubsForUser);
 			_smallNavigationInfoManager.AddUserControl<ExitWindowViewModel,ExitWindowForUser> (new ExitWindowViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.ExitWindowForUser);
 			_smallNavigationInfoManager.AddUserControl<UserProfileViewModel, UserProfile>(new UserProfileViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.UserProfile);
+			_smallNavigationInfoManager.AddUserControl<UserTicketsViewModel, UserTicketsxaml>(new UserTicketsViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.UserTickets);
 			_smallNavigationInfoManager.AddWindow<NewsForUserViewModel, NewsForUser>(new NewsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForUser);
 			//Вызываем функцию для вставки новой страницы
 			_smallNavigationInfoManager.Insert(NavigationKeys.MainForUser);

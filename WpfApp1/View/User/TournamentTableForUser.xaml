@@ -12,6 +12,7 @@
         </Style>
     </UserControl.Resources>
     <Border BorderBrush="White" BorderThickness="2">
+        <ScrollViewer Background="White">
         <Grid Background="White">
             <Viewbox VerticalAlignment="Top">
                 <ListView   ItemsSource="{Binding Teams}">
@@ -72,5 +73,6 @@
                 </ListView>
             </Viewbox>
         </Grid>
+        </ScrollViewer>
     </Border>
-</UserControl>
+   </UserControl>

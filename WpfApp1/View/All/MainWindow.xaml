@@ -11,7 +11,7 @@
         Icon="/WpfApp1;component/View/Resources/logohuman.ico"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized" 
-         d:DesignHeight="1080" d:DesignWidth="1920">
+         d:DesignHeight="1080" d:DesignWidth="1920" MinHeight="650" MinWidth="1000">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>

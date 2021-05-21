@@ -11,6 +11,7 @@ namespace WpfApp1.Navigation
 		public const string MainWindowLoginOrRegister = "MainWindowLoginOrRegister";
 		public const string LoginWindow = "LoginWindow";
 		public const string RegisterWindow = "RegisterWindow";
+
 		public const string MainWindowForInformationUser = "MainWindowForInformationUser";
 		public const string MainForUser = "MainForUser";
 		public const string NewsForUser = "NewsForUser";
@@ -21,5 +22,6 @@ namespace WpfApp1.Navigation
 		public const string ClubsForUser = "ClubsForUser";
 		public const string ExitWindowForUser = "ExitWindowForUser";
 		public const string UserProfile = "UserProfile";
+		public const string UserTickets = "UserTickkets";
 	}
 }

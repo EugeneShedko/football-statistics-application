@@ -12,7 +12,7 @@ namespace WpfApp1.ViewModels.User
 		#region Fields
 		private NavigationManager _navigationManager;
 		private NavigationManager _smallNavigationInfoManager;
-		//Добавить SelectedItem с нужным классом!!!! когда появится Model!!!!!!
+		//Добавить SelectedItem с нужным классом!!!! когда появится Model!!!!!! и вызывать окно, которое у меня есть для новостей
 		#endregion
 		#region Properties
 		#endregion

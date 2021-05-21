@@ -29,8 +29,8 @@
         </Viewbox>
         <TextBox  Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Логин" FontSize="20"/>
         <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Пароль" FontSize="20"/>
-        <Button Grid.Column="1" Grid.Row="4" Content="Войти" VerticalAlignment="Center" Command="{Binding ShowMainWindowForInformation}"/>
-        <Button Grid.Column="1" Grid.Row="5" Content="Зарегистрироваться" VerticalAlignment="Top" Command="{Binding ShowRegisterWindow}" />
+        <Button Grid.Column="1" Grid.Row="4"  Height="40" Content="Войти" VerticalAlignment="Center" Command="{Binding ShowMainWindowForInformation}"/>
+        <Button Grid.Column="1" Grid.Row="5" Height="40" Content="Зарегистрироваться" VerticalAlignment="Top" Command="{Binding ShowRegisterWindow}" />
         <Image Source="/WpfApp1;component/View/Resources/logo.png" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" Margin="0,0,0,50"/>
     </Grid>
 </UserControl>

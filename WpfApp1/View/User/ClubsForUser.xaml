@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:WpfApp1.View.User"
              mc:Ignorable="d" 
              d:DesignHeight="985" d:DesignWidth="1480">
+    <ScrollViewer Background="White">
     <Grid Background="White">
-        <!--<WrapPanel Background="White" Orientation="Horizontal">-->
         <ListBox VerticalAlignment="Top">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -31,4 +31,5 @@
             <ListItem/>
         </ListBox>
     </Grid>
+    </ScrollViewer>
 </UserControl>

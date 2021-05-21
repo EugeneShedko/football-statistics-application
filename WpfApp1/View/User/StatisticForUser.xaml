@@ -12,27 +12,27 @@
                 <TabControl>
                     <TabItem Header="Голы" Width="200" FontSize="14" FontWeight="DemiBold">
                         <TabItem.Content>
-                            <ListView Margin="200,0,200,0">
+                            <ListView Margin="200,0,200,0" ItemsSource="{Binding Z}">
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn>
                                             <GridViewColumn.Header>
-                                                <TextBlock Text="№" />
+                                                <TextBlock Text="№" Margin="-18,0,0,0"/>
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
                                         <GridViewColumn Width="200">
                                             <GridViewColumn.Header>
-                                                <TextBlock Text="Игрок" />
+                                                <TextBlock Text="Игрок" Margin="-18,0,0,0" />
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
                                         <GridViewColumn Width="200">
                                             <GridViewColumn.Header>
-                                                <TextBlock Text="Команда" />
+                                                <TextBlock Text="Команда" Margin="-18,0,0,0" />
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
                                         <GridViewColumn>
                                             <GridViewColumn.Header>
-                                                <TextBlock Text="Голы"/>
+                                                <TextBlock Text="Голы" Margin="-18,0,0,0"/>
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
                                     </GridView>
@@ -42,27 +42,27 @@
                     </TabItem>
                     <TabItem Header="Ассисты" Width="200" FontSize="14" FontWeight="DemiBold">
                         <TabItem.Content>
-                            <ListView Margin="200,0,200,0">
+                            <ListView Margin="200,0,200,0" ItemsSource="{Binding Z}">
                                 <ListView.View>
                                     <GridView >
                                         <GridViewColumn>
                                             <GridViewColumn.Header>
-                                                <TextBlock Text="№" />
+                                                <TextBlock Text="№" Margin="-18,0,0,0" />
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
                                         <GridViewColumn Width="200">
                                             <GridViewColumn.Header>
-                                                <TextBlock Text="Игрок" />
+                                                <TextBlock Text="Игрок" Margin="-18,0,0,0" />
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
                                         <GridViewColumn Width="200">
                                             <GridViewColumn.Header>
-                                                <TextBlock Text="Команда" />
+                                                <TextBlock Text="Команда" Margin="-18,0,0,0" />
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
                                         <GridViewColumn>
                                             <GridViewColumn.Header>
-                                                <TextBlock Text="Ассисты"/>
+                                                <TextBlock Text="Ассисты" Margin="-18,0,0,0"/>
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
                                     </GridView>
