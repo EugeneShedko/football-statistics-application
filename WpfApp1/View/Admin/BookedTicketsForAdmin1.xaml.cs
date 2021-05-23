@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfApp1.View.Admin
 {
 	/// <summary>
-	/// Логика взаимодействия для ClubsForAdmin.xaml
+	/// Логика взаимодействия для BookedTicketsForAdmin1.xaml
 	/// </summary>
-	public partial class ClubsForAdmin : UserControl
+	public partial class BookedTicketsForAdmin1 : UserControl
 	{
-		public ClubsForAdmin()
+		public BookedTicketsForAdmin1()
 		{
 			InitializeComponent();
 		}

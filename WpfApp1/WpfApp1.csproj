@@ -70,7 +70,7 @@
     <Compile Include="Navigation\INavigationManager.cs" />
     <Compile Include="Navigation\NavigationManager.cs" />
     <Compile Include="Navigation\ParametersForWindow.cs" />
-    <Compile Include="ViewModels\Admin\ClubsForAdminViewModel.cs" />
+    <Compile Include="ViewModels\Admin\BookedTicketsForAdminViewModel.cs" />
     <Compile Include="ViewModels\Admin\ExitWindowViewModel.cs" />
     <Compile Include="ViewModels\Admin\MainWindowForInformationAdminViewModel.cs" />
     <Compile Include="ViewModels\Admin\MathesForAdminViewModel.cs" />
@@ -80,7 +80,6 @@
     <Compile Include="ViewModels\Admin\TournamentTableForAdminViewModel.cs" />
     <Compile Include="ViewModels\All\LoginForAdminWindowViewModel.cs" />
     <Compile Include="ViewModels\All\LoginWindowViewModel.cs" />
-    <Compile Include="ViewModels\User\ClubsForUserViewModel.cs" />
     <Compile Include="ViewModels\User\CommentForUserViewModel.cs" />
     <Compile Include="ViewModels\User\ExitWindowViewModel.cs" />
     <Compile Include="ViewModels\User\MainForUserViewModel.cs" />
@@ -93,8 +92,8 @@
     <Compile Include="ViewModels\User\TournamentTableUserViewModel.cs" />
     <Compile Include="ViewModels\User\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\User\UserTicketsViewModel.cs" />
-    <Compile Include="View\Admin\ClubsForAdmin.xaml.cs">
-      <DependentUpon>ClubsForAdmin.xaml</DependentUpon>
+    <Compile Include="View\Admin\BookedTicketsForAdmin1.xaml.cs">
+      <DependentUpon>BookedTicketsForAdmin1.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\ExitForAdmin.xaml.cs">
       <DependentUpon>ExitForAdmin.xaml</DependentUpon>
@@ -122,9 +121,6 @@
     </Compile>
     <Compile Include="View\All\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\User\ClubsForUser.xaml.cs">
-      <DependentUpon>ClubsForUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\User\CommentForUser.xaml.cs">
       <DependentUpon>CommentForUser.xaml</DependentUpon>
@@ -162,7 +158,7 @@
     <Compile Include="View\User\UserTicketsxaml.xaml.cs">
       <DependentUpon>UserTicketsxaml.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Admin\ClubsForAdmin.xaml">
+    <Page Include="View\Admin\BookedTicketsForAdmin1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,14 +224,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Resources\ResourcesDictionaries\ForUserTickets.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Resources\ResourcesDictionaries\StyleForAdmin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\User\ClubsForUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

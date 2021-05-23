@@ -7,21 +7,20 @@ using WpfApp1.Navigation;
 
 namespace WpfApp1.ViewModels.Admin
 {
-	class ClubsForAdminViewModel : ViewModelBase, INavigationActions
+	class BookedTicketsForAdminViewModel : ViewModelBase, INavigationActions
 	{
 		#region Fields
 		private NavigationManager _navigationManager;
-		private NavigationManager _smallNavigationManager;
+		private NavigationManager _smallNavugationInfoManager;
 		#endregion
 		#region Properties
 		#endregion
 		#region Constructors
-		public ClubsForAdminViewModel(NavigationManager smallNavigationManager, NavigationManager navigationManager)
+		public BookedTicketsForAdminViewModel(NavigationManager smallNaviagtionInfoManager, NavigationManager navigationManager)
 		{
 			_navigationManager = navigationManager;
-			_smallNavigationManager = smallNavigationManager;
+			_smallNavugationInfoManager = smallNaviagtionInfoManager;
 		}
-		public ClubsForAdminViewModel() { }
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}

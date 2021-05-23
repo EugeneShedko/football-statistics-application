@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,20 @@ namespace WpfApp1.ViewModels.Admin
 		#region Fields
 		private NavigationManager _navigationManager;
 		private NavigationManager _smallNavigationInfoManager;
+		private ObservableCollection<News> z;
+		public ObservableCollection<News> Z
+		{
+			get { return z; }
+			set { Set(ref z, value);}
+		}
+		public class News
+		{
+			public string Text { get; set; } = "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq" +
+				"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq" +
+				"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq" +
+				"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq" +
+				"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
+		}
 		#endregion
 		#region Properties
 		#endregion
@@ -25,7 +40,10 @@ namespace WpfApp1.ViewModels.Admin
 		#region Methods
 		public void ActionsBeforeClosing(){}
 
-		public void ActionsBeforeInsert(object parameters = null){}
+		public void ActionsBeforeInsert(object parameters = null)
+		{
+			Z = new ObservableCollection<News>() { new News() };
+		}
 		#endregion
 	}
 }

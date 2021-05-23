@@ -52,14 +52,14 @@
                             <TextBlock Text="Статистика" Margin="20,0,0,0"/>
                         </MenuItem.Header>
                     </MenuItem >
-                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowClubsForAdminWindow}">
-                        <MenuItem.Header>
-                            <TextBlock Text="Клубы" Margin="20,0,0,0"/>
-                        </MenuItem.Header>
-                    </MenuItem >
                     <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowTicketsForAdminWindow}">
                         <MenuItem.Header>
                             <TextBlock Text="Билеты" Margin="20,0,0,0"/>
+                        </MenuItem.Header>
+                    </MenuItem >
+                    <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowBookedTicketsForAdminWindow}">
+                        <MenuItem.Header>
+                            <TextBlock Text="Заказанные билеты" Margin="20,0,0,0"/>
                         </MenuItem.Header>
                     </MenuItem >
                     <MenuItem Style="{StaticResource BigMenuItem}" Command="{Binding ShowExitForAdminWindow}">

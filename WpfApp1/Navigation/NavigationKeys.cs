@@ -19,7 +19,6 @@ namespace WpfApp1.Navigation
 		public const string StatisticForUser = "StatisticForUser";
 		public const string TicketsForUser = "TicketsForUser";
 		public const string CommentForUser = "CommentForUser";
-		public const string ClubsForUser = "ClubsForUser";
 		public const string ExitWindowForUser = "ExitWindowForUser";
 		public const string UserProfile = "UserProfile";
 		public const string UserTickets = "UserTickkets";
@@ -30,8 +29,8 @@ namespace WpfApp1.Navigation
 		public const string NewsForAdmin = "NewForAdmin";
 		public const string TournamentTableForAdmin = "TournamentTableForAdmin";
 		public const string StatisticForAdmin = "StatisticForAdmin";
-		public const string ClubsForAdmin = "ClubsForAdmin";
 		public const string TicketsForAdmin = "TicketsForAdmin";
 		public const string ExitForAdmin = "ExitForAdmin";
+		public const string BookedTicketsForUser = "BookedTicketsForUser";
 	}
 }

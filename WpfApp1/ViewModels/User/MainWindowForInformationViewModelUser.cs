@@ -30,7 +30,6 @@ namespace WpfApp1.ViewModels
 			ShowStatisticUserWindow = new DelegateCommand(ShowStatisticWindowCommand, CanShowStatisticWindowCommand);
 			ShowTicketsUserWindow = new DelegateCommand(ShowTicketsUserWindowCommand, CanShowTicketsUserWindowCommand);
 			ShowCommentUserWindow = new DelegateCommand(ShowCommentUserWindowCommand, CanShowCommentUserWindowCommand);
-			ShowClubsUserWindow = new DelegateCommand(ShowClubsUserWindowCommand, CanShowClubsUserWindowCommand);
 			ShowExitUserWindow = new DelegateCommand(ShowExitUserWindowCommand, CanShowExitUserWindowCommand);
 			ShowUserProfileWindow = new DelegateCommand(ShowUserProfileWindowCommand, CanShowUserProfileWindowCommand);
 			ShowUserTicketsWindow = new DelegateCommand(ShowUserTicketsWindowCommand, CanShowUserTicketsWindowCommand);
@@ -42,7 +41,6 @@ namespace WpfApp1.ViewModels
 		public ICommand ShowStatisticUserWindow { get; set; }
 		public ICommand ShowTicketsUserWindow { get; set; }
 		public ICommand ShowCommentUserWindow { get; set; }
-		public ICommand ShowClubsUserWindow { get; set;}
 		public ICommand ShowExitUserWindow { get; set; }
 		public ICommand ShowUserProfileWindow { get; set; }
 		public ICommand ShowUserTicketsWindow { get; set; }
@@ -86,14 +84,6 @@ namespace WpfApp1.ViewModels
 		{
 			_smallNavigationInfoManager.Insert(NavigationKeys.CommentForUser);
 		}
-		private bool CanShowClubsUserWindowCommand(object parameter)
-		{
-			return true;
-		}
-		private void ShowClubsUserWindowCommand(object parameter)
-		{
-			_smallNavigationInfoManager.Insert(NavigationKeys.ClubsForUser);
-		}
 		private bool CanShowExitUserWindowCommand(object parameter)
 		{
 			return true;
@@ -131,7 +121,6 @@ namespace WpfApp1.ViewModels
 			_smallNavigationInfoManager.AddUserControl<StatisticForUserViewModel, StatisticForUser>(new StatisticForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.StatisticForUser);
 			_smallNavigationInfoManager.AddUserControl<TicketsForUserViewModel, TicketsForUser>(new TicketsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TicketsForUser);
 			_smallNavigationInfoManager.AddUserControl<CommentForUserViewModel, CommentForUser>(new CommentForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.CommentForUser);
-			_smallNavigationInfoManager.AddUserControl<ClubsForUserViewModel, ClubsForUser>(new ClubsForUserViewModel(_smallNavigationInfoManager,_navigationManager), NavigationKeys.ClubsForUser);
 			_smallNavigationInfoManager.AddUserControl<ExitWindowViewModel,ExitWindowForUser> (new ExitWindowViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.ExitWindowForUser);
 			_smallNavigationInfoManager.AddUserControl<UserProfileViewModel, UserProfile>(new UserProfileViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.UserProfile);
 			_smallNavigationInfoManager.AddUserControl<UserTicketsViewModel, UserTicketsxaml>(new UserTicketsViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.UserTickets);
