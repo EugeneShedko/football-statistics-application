@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp1.Commands;
+using WpfApp1.Models;
 using WpfApp1.Navigation;
+using WpfApp1.UnitOfWorkAndRepository;
 
 namespace WpfApp1.ViewModels
 {
@@ -16,6 +18,7 @@ namespace WpfApp1.ViewModels
 		private string _Password;
 		private NavigationManager _navigationManager;
 		private NavigationManager _smallNavigationLoginManager;
+
 		#endregion
 		#region Properties
 		public string Login

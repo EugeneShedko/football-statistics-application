@@ -18,7 +18,7 @@
                 <ListView   ItemsSource="{Binding Teams}">
                     <ListView.View>
                         <GridView >
-                            <GridViewColumn  DisplayMemberBinding="{Binding Position}">
+                            <GridViewColumn  DisplayMemberBinding="{Binding XPath= Number}">
                                 <GridViewColumn.Header>
                                     <TextBlock Text="№" />
                                 </GridViewColumn.Header>

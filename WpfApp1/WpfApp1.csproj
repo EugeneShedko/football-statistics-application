@@ -74,10 +74,33 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ForPasswordBox\PasswordBoxAssistant.cs" />
+    <Compile Include="Models\Assist.cs" />
+    <Compile Include="Models\BookedTicket.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\Goal.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserContext.cs" />
     <Compile Include="Navigation\INavigationActions.cs" />
     <Compile Include="Navigation\INavigationManager.cs" />
     <Compile Include="Navigation\NavigationManager.cs" />
     <Compile Include="Navigation\ParametersForWindow.cs" />
+    <Compile Include="UnitOfWorkAndRepository\AssistRepository.cs" />
+    <Compile Include="UnitOfWorkAndRepository\BookedTicketRepository.cs" />
+    <Compile Include="UnitOfWorkAndRepository\CommentRepository.cs" />
+    <Compile Include="UnitOfWorkAndRepository\GameRepository.cs" />
+    <Compile Include="UnitOfWorkAndRepository\GoalRepositorycs.cs" />
+    <Compile Include="UnitOfWorkAndRepository\IRepository.cs" />
+    <Compile Include="UnitOfWorkAndRepository\NewsRepository.cs" />
+    <Compile Include="UnitOfWorkAndRepository\PlayerRepositorycs.cs" />
+    <Compile Include="UnitOfWorkAndRepository\TeamRepository.cs" />
+    <Compile Include="UnitOfWorkAndRepository\TicketRepository.cs" />
+    <Compile Include="UnitOfWorkAndRepository\UnitOfWork.cs" />
+    <Compile Include="UnitOfWorkAndRepository\UserRepository.cs" />
     <Compile Include="ViewModels\Admin\BookedTicketsForAdminViewModel.cs" />
     <Compile Include="ViewModels\Admin\ExitWindowViewModel.cs" />
     <Compile Include="ViewModels\Admin\MainWindowForInformationAdminViewModel.cs" />
@@ -324,9 +347,7 @@
   <ItemGroup>
     <Resource Include="View\Resources\logohuman.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="View\Resources\WhiteLogo.png" />
   </ItemGroup>
