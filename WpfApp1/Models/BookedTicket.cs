@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-	class BookedTicket
+	public class BookedTicket
 	{
 		//Первичный ключ 
 		[Required]

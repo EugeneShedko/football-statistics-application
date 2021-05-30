@@ -34,7 +34,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<Goal> GetAll()
 		{
-			return db.Goals;
+			return db.Goals.ToList();
 		}
 
 		public void Update(Goal item)

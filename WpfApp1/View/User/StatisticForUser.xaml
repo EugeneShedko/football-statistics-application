@@ -12,25 +12,20 @@
                 <TabControl>
                     <TabItem Header="Голы" Width="200" FontSize="14" FontWeight="DemiBold">
                         <TabItem.Content>
-                            <ListView Margin="200,0,200,0" ItemsSource="{Binding Z}">
+                            <ListView Margin="200,0,200,0" ItemsSource="{Binding GoalsPlayers}" FontSize="14" HorizontalAlignment="Center">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn>
-                                            <GridViewColumn.Header>
-                                                <TextBlock Text="№" Margin="-18,0,0,0"/>
-                                            </GridViewColumn.Header>
-                                        </GridViewColumn>
-                                        <GridViewColumn Width="200">
+                                        <GridViewColumn Width="300" DisplayMemberBinding ="{Binding Player.PlayerName}">
                                             <GridViewColumn.Header>
                                                 <TextBlock Text="Игрок" Margin="-18,0,0,0" />
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
-                                        <GridViewColumn Width="200">
+                                        <GridViewColumn Width="300" DisplayMemberBinding="{Binding Player.Team.TeamName}">
                                             <GridViewColumn.Header>
                                                 <TextBlock Text="Команда" Margin="-18,0,0,0" />
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
-                                        <GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding CountOfGoals}">
                                             <GridViewColumn.Header>
                                                 <TextBlock Text="Голы" Margin="-18,0,0,0"/>
                                             </GridViewColumn.Header>
@@ -42,25 +37,20 @@
                     </TabItem>
                     <TabItem Header="Ассисты" Width="200" FontSize="14" FontWeight="DemiBold">
                         <TabItem.Content>
-                            <ListView Margin="200,0,200,0" ItemsSource="{Binding Z}">
+                            <ListView Margin="200,0,200,0" ItemsSource="{Binding AssistsPlayers}" FontSize="14" HorizontalAlignment="Center">
                                 <ListView.View>
                                     <GridView >
-                                        <GridViewColumn>
-                                            <GridViewColumn.Header>
-                                                <TextBlock Text="№" Margin="-18,0,0,0" />
-                                            </GridViewColumn.Header>
-                                        </GridViewColumn>
-                                        <GridViewColumn Width="200">
+                                        <GridViewColumn Width="300" DisplayMemberBinding="{Binding Player.PlayerName}">
                                             <GridViewColumn.Header>
                                                 <TextBlock Text="Игрок" Margin="-18,0,0,0" />
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
-                                        <GridViewColumn Width="200">
+                                        <GridViewColumn Width="300" DisplayMemberBinding="{Binding Player.Team.TeamName}">
                                             <GridViewColumn.Header>
                                                 <TextBlock Text="Команда" Margin="-18,0,0,0" />
                                             </GridViewColumn.Header>
                                         </GridViewColumn>
-                                        <GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding CountOfAssists}">
                                             <GridViewColumn.Header>
                                                 <TextBlock Text="Ассисты" Margin="-18,0,0,0"/>
                                             </GridViewColumn.Header>

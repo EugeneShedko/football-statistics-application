@@ -17,7 +17,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 		}
 		public IEnumerable<Assist> GetAll()
 		{
-			return db.Assists;
+			return db.Assists.ToList();
 		}
 		public Assist Get(int id)
 		{

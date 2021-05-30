@@ -34,7 +34,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<Player> GetAll()
 		{
-			return db.Players;
+			return db.Players.ToList();
 		}
 
 		public void Update(Player item)

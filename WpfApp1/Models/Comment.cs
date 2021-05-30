@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-	class Comment
+	public class Comment
 	{
 		//Первичный ключ 
 		[Required]

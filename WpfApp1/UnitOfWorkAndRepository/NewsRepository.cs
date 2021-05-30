@@ -34,7 +34,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<News> GetAll()
 		{
-			return db.Newses;
+			return db.Newses.ToList();
 		}
 
 		public void Update(News item)

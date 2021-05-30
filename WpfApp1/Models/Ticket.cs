@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-	class Ticket
+	public class Ticket
 	{
 		//Первичный клю Id из таблицы Игра
 		[Key]

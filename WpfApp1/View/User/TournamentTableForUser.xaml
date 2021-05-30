@@ -13,16 +13,10 @@
     </UserControl.Resources>
     <Border BorderBrush="White" BorderThickness="2">
         <ScrollViewer Background="White">
-        <Grid Background="White">
-            <Viewbox VerticalAlignment="Top">
-                <ListView   ItemsSource="{Binding Teams}">
+            <Grid Background="White">
+                <ListView ItemsSource="{Binding Teams}" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center">
                     <ListView.View>
-                        <GridView >
-                            <GridViewColumn  DisplayMemberBinding="{Binding XPath= Number}">
-                                <GridViewColumn.Header>
-                                    <TextBlock Text="№" />
-                                </GridViewColumn.Header>
-                            </GridViewColumn>
+                        <GridView>
                             <GridViewColumn Width="300" DisplayMemberBinding="{Binding TeamName}">
                                 <GridViewColumn.Header>
                                     <TextBlock Text="Команда" />
@@ -31,9 +25,9 @@
                             <GridViewColumn  DisplayMemberBinding="{Binding CountOfGame}">
                                 <GridViewColumn.Header>
                                     <TextBlock Text="И" />
-                                    </GridViewColumn.Header>
+                                </GridViewColumn.Header>
                             </GridViewColumn>
-                            <GridViewColumn  DisplayMemberBinding="{Binding CountOfWinGame}">
+                            <GridViewColumn  DisplayMemberBinding="{Binding CountOfWins}">
                                 <GridViewColumn.Header>
                                     <TextBlock Text="В" />
                                 </GridViewColumn.Header>
@@ -48,12 +42,12 @@
                                     <TextBlock Text="П" />
                                 </GridViewColumn.Header>
                             </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding CountOfGoalsScored}">
+                            <GridViewColumn DisplayMemberBinding="{Binding CountOfScoredGoals}">
                                 <GridViewColumn.Header>
                                     <TextBlock Text="ЗМ" />
                                 </GridViewColumn.Header>
                             </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding CountOfGoalsConseded}">
+                            <GridViewColumn DisplayMemberBinding="{Binding CountOfConsededGoals}">
                                 <GridViewColumn.Header>
                                     <TextBlock Text="ПМ" />
                                 </GridViewColumn.Header>
@@ -71,8 +65,7 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-            </Viewbox>
-        </Grid>
+            </Grid>
         </ScrollViewer>
     </Border>
    </UserControl>

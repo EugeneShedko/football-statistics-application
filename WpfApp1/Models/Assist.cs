@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-	class Assist
+	public class Assist
 	{
 		//Первичный ключ id игрока из таблицы Игрок
 		[Key]

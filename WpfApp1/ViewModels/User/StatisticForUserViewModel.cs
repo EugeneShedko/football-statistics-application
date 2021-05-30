@@ -4,7 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Models;
 using WpfApp1.Navigation;
+using WpfApp1.UnitOfWorkAndRepository;
 
 namespace WpfApp1.ViewModels.User
 {
@@ -13,14 +15,12 @@ namespace WpfApp1.ViewModels.User
 		#region Fields
 		private NavigationManager _navigationManager;
 		private NavigationManager _smallNavigationInfoManager;
-		private ObservableCollection<int> z; 
-		public ObservableCollection<int> Z
-		{
-			get { return z; }
-			set { Set(ref z, value); }
-		}
 		#endregion
 		#region Properties
+		public ObservableCollection<Goal> GoalsPlayers { get; set; }
+		public ObservableCollection<Assist> AssistsPlayers { get; set; }
+		#endregion
+		#region Constructors
 		public StatisticForUserViewModel(NavigationManager smallNavigationManager, NavigationManager navigationManager)
 		{
 			_smallNavigationInfoManager = smallNavigationManager;
@@ -28,14 +28,16 @@ namespace WpfApp1.ViewModels.User
 		}
 		public StatisticForUserViewModel() { }
 		#endregion
-		#region Constructors
-		#endregion
 		#region Methods
 		public void ActionsBeforeClosing() {}
 
 		public void ActionsBeforeInsert(object parameters = null)
 		{
-			Z = new ObservableCollection<int> { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, };
+			using (UnitOfWork db = new UnitOfWork())
+			{
+				GoalsPlayers = new ObservableCollection<Goal>(db.Goals.GetAll().OrderBy(t => t.Player.Team.TeamName).OrderByDescending(t =>Convert.ToInt32(t.CountOfGoals)));
+				AssistsPlayers = new ObservableCollection<Assist>(db.Assists.GetAll().OrderBy(t => t.Player.Team.TeamName).OrderByDescending(t => Convert.ToInt32(t.CountOfAssists)));
+			}
 		}
 		#endregion
 }

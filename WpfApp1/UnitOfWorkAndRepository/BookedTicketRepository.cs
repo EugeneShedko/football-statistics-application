@@ -34,7 +34,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<BookedTicket> GetAll()
 		{
-			return db.BookedTickets;
+			return db.BookedTickets.ToList();
 		}
 
 		public void Update(BookedTicket item)

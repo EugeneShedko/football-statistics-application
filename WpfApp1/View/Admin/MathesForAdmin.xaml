@@ -19,9 +19,9 @@
         <TextBox  materialDesign:HintAssist.Hint="Id матча" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="50,0,0,0" FontSize="20"/>
         <Button Content="Найти" HorizontalAlignment="Center"/>
         <ScrollViewer Grid.Column="0" Grid.Row="1">
-            <DataGrid HorizontalAlignment="Center">
+            <DataGrid HorizontalAlignment="Center" ItemsSource="{Binding Games}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID матча"/>
+                    <DataGridTextColumn Header="ID матча" />
                     <DataGridTextColumn Header="Дата матча"/>
                     <DataGridTextColumn Header="Команда 1"/>
                     <DataGridTextColumn Header="Команда 2"/>

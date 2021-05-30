@@ -18,7 +18,7 @@
             <!-- Контейнер для матчей-->
             <Border Style="{StaticResource WhiteBorder}" Grid.Column="0" Grid.Row="0">
                 <Grid>
-                    <ListBox IsHitTestVisible="False" ItemsSource="{Binding Match}" ItemContainerStyle="{StaticResource MaterialDesignCardsListBoxItem}">
+                    <ListBox IsHitTestVisible="False" ItemsSource="{Binding Games}" ItemContainerStyle="{StaticResource MaterialDesignCardsListBoxItem}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Style="{StaticResource OliveDrabBorder}" Height="55"  VerticalAlignment="Top">
@@ -34,15 +34,13 @@
                                             <ColumnDefinition/>
                                             <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
-                                        <Viewbox>
-                                        <TextBlock Grid.Column="0" Text="{Binding Time}" HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}" Margin="9,0,0,0"/>
-                                        </Viewbox>
-                                         <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Firstteam}" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" />
-                                        <TextBlock Grid.Column="3" Text="{Binding Firstgoal}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"  />
+                                        <TextBlock Grid.Column="0" Text="{Binding DateOfMatch}" HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}" Margin="9,0,0,0"/>
+                                        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Team1.TeamName}" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" />
+                                        <TextBlock Grid.Column="3" Text="{Binding FirstTeamCountOfGoals}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"  />
                                         <TextBlock Grid.Column="4" Text="-" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
-                                        <TextBlock Grid.Column="5" Text="{Binding Secondgoal}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
-                                        <TextBlock Grid.Column="6" Grid.ColumnSpan="2" Text="{Binding Secondteam}" HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}" />
-                                        <TextBlock Grid.Column="8" Text="{Binding Tur}" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Margin="0,0,9,0" />
+                                        <TextBlock Grid.Column="5" Text="{Binding SecondTeamCountOfGoals}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
+                                        <TextBlock Grid.Column="6" Grid.ColumnSpan="2" Text="{Binding Team2.TeamName}" HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}" />
+                                        <TextBlock Grid.Column="8" Text="{Binding Tour}" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Margin="0,0,9,0" />
                                     </Grid>
                                 </Border>
                             </DataTemplate>
@@ -53,7 +51,7 @@
             <!--Контейнер для новостей -->
             <Border Style="{StaticResource WhiteBorder}" Grid.Column="1" Grid.Row="0">
                 <Grid>
-                    <ListBox ItemsSource="{Binding Newses}" SelectedItem="{Binding SelectedItem}">
+                    <ListBox ItemsSource="{Binding News}" SelectedItem="{Binding SelectedItem}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Style="{StaticResource OliveDrabBorder}" Height="173" VerticalAlignment="Top">
@@ -62,11 +60,9 @@
                                             <RowDefinition Height="0.7*"></RowDefinition>
                                             <RowDefinition></RowDefinition>
                                         </Grid.RowDefinitions>
-                                        <Viewbox>
-                                            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Zaglavie}" Foreground="Black" FontSize="23" VerticalAlignment="Center" Margin="15,0,15,0" />
-                                        </Viewbox>
-                                        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Info}"
-                                        Foreground="Gray" FontSize="17" Margin="10,0,10,0" VerticalAlignment="Top" TextAlignment="Justify"/>
+                                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Header}" Foreground="Black" FontSize="23" VerticalAlignment="Center" Margin="15,0,15,0"  TextTrimming="CharacterEllipsis"/>
+                                        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding NewsText}"
+                                        Foreground="Gray" FontSize="17" Margin="10,0,10,0" VerticalAlignment="Top" TextAlignment="Justify" TextTrimming="CharacterEllipsis"/>
                                     </Grid>
                                 </Border>
                             </DataTemplate>

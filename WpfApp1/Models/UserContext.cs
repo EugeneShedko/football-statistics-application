@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace WpfApp1.Models
 {
-	class UserContext : DbContext
+	public class UserContext : DbContext
 	{
 		public UserContext() : base("DbConnection")
 		{ }

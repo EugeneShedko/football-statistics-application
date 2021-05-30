@@ -15,6 +15,7 @@ namespace WpfApp1.ViewModels.User
 		#region Fields
 		private NavigationManager _navigationManager;
 		private NavigationManager _smallNavigationManager;
+		#endregion
 		#region Properties
 		public ObservableCollection<Team> Teams { get; set; }
 		public ObservableCollection<int> Number { get; set; }
@@ -25,10 +26,7 @@ namespace WpfApp1.ViewModels.User
 			_smallNavigationManager = smallNaviagtionManager;
 			_navigationManager = navigationManager;
 		}
-		public TournamentTableUserViewModel()
-		{
-		}
-		#endregion
+		public TournamentTableUserViewModel(){}
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}
@@ -38,7 +36,7 @@ namespace WpfApp1.ViewModels.User
 			Number = new ObservableCollection<int>();
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				Teams = new ObservableCollection<Team>(db.Teams.GetAll());
+				Teams = new ObservableCollection<Team>(db.Teams.GetAll().OrderByDescending(p => p.Points));
 			}
 			for (int i = 0; i < Teams.Count; i++)
 			{

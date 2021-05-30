@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-	class Game
+	public class Game
 	{
 		//Первичный ключ
 		[Required]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Models;
 using WpfApp1.Navigation;
 using static WpfApp1.ViewModels.User.MainForUserViewModel; //Потом нужно будет удалить
 
@@ -44,8 +45,8 @@ namespace WpfApp1.ViewModels.User
 
 		public void ActionsBeforeInsert(object parameters = null)
 		{
-			_heading = ((New)parameters).Zaglavie;
-			_text = ((New)parameters).Info;
+			_heading = ((News)parameters).Header;
+			_text = ((News)parameters).NewsText;
 		}
 		#endregion
 	}

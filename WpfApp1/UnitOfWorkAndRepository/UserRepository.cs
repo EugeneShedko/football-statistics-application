@@ -34,7 +34,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<User> GetAll()
 		{
-			return db.Users;
+			return db.Users.ToList();
 		}
 
 		public void Update(User item)

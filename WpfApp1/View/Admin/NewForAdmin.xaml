@@ -50,7 +50,7 @@
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
                                     <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Width="300"  materialDesign:HintAssist.Hint="Заголовок" HorizontalAlignment="Left" Margin="30,0,0,0" FontSize="20"/>
-                                    <TextBox Grid.Row="1" Grid.Column="0" BorderBrush="OliveDrab" BorderThickness="2"  materialDesign:HintAssist.Hint="Введите текст" FontSize="20" TextWrapping="Wrap" MaxLength="2000"/>
+                                    <TextBox Grid.Row="1" Grid.Column="0" BorderBrush="OliveDrab" BorderThickness="2"  materialDesign:HintAssist.Hint="Введите текст" FontSize="20" TextWrapping="Wrap"/>
                                 </Grid>
                     </Border>
                 </DataTemplate>
