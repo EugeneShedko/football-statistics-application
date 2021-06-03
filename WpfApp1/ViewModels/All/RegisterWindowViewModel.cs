@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,36 +10,36 @@ using WpfApp1.Navigation;
 
 namespace WpfApp1.ViewModels
 {
-	class RegisterWindowViewModel : ViewModelBase, INavigationActions
+	class RegisterWindowViewModel : ViewModelBase, INavigationActions, IDataErrorInfo
 	{
 		#region Fields
-		private string _FamilyName;
-		private string _Name;
-		private string _Login;
-		private string _Password;
+		private string _familyName;
+		private string _name;
+		private string _login;
+		private string _password;
 		private NavigationManager _navigationManager;
 		private NavigationManager _smallNavigationLoginManager;
 		#endregion
 		#region Properties
 		public string FamilyName
 		{
-			get { return _FamilyName; }
-			set { Set(ref _FamilyName, value); }
+			get { return _familyName; }
+			set { Set(ref _familyName, value); }
 		}
 		public string Name
 		{
-			get { return _Name; }
-			set { Set(ref _Name, value); }
+			get { return _name; }
+			set { Set(ref _name, value); }
 		}
 		public string Login
 		{
-			get { return _Login; }
-			set { Set(ref _Login, value); }
+			get { return _login; }
+			set { Set(ref _login, value); }
 		}
 		public string Password
 		{
-			get { return _Password; }
-			set { Set(ref _Password, value); }
+			get { return _password; }
+			set { Set(ref _password, value); }
 		}
 		#endregion
 		#region Constructors

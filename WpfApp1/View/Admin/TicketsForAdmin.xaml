@@ -10,28 +10,29 @@
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.4*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox  materialDesign:HintAssist.Hint="Id билета" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="50,0,0,0" FontSize="20"/>
-        <Button Content="Найти" HorizontalAlignment="Center"/>
+        <TextBox  materialDesign:HintAssist.Hint="Id билета" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="50,0,0,0" FontSize="20" Text="{Binding SearchTicketId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Найти" HorizontalAlignment="Center" Command="{Binding SearchTicket}"/>
+        <Button Content="Назад" HorizontalAlignment="Center"  Margin="180,0,0,0" Command="{Binding Back}"/>
         <ScrollViewer Grid.Column="0" Grid.Row="1">
-            <DataGrid HorizontalAlignment="Center">
+            <DataGrid HorizontalAlignment="Center" ItemsSource="{Binding UserTickets}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID билета"/>
-                    <DataGridTextColumn Header="Дата матча" Width="120"/>
-                    <DataGridTextColumn Header="Команда 1" Width="120"/>
-                    <DataGridTextColumn Header="Команда 2" Width="120"/>
-                    <DataGridTextColumn Header="Город" Width="120"/>
-                    <DataGridTextColumn Header="Стадион" Width="120"/>
-                    <DataGridTextColumn Header="Тур"/>
+                    <DataGridTextColumn Header="ID билета" Binding="{Binding Game.Id}"/>
+                    <DataGridTextColumn Header="Дата матча" Width="120" Binding="{Binding Game.DateOfMatch}" />
+                    <DataGridTextColumn Header="Команда 1" Width="120" Binding="{Binding Game.Team1.TeamName}"/>
+                    <DataGridTextColumn Header="Команда 2" Width="120" Binding="{Binding Game.Team2.TeamName}"/>
+                    <DataGridTextColumn Header="Город" Width="120" Binding="{Binding Town}"/>
+                    <DataGridTextColumn Header="Стадион" Width="120" Binding="{Binding Stadium}"/>
+                    <DataGridTextColumn Header="Тур" Binding="{Binding Game.Tour}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-        <Border Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" BorderBrush="OliveDrab" BorderThickness="2" Margin="0,0,30,0" >
+        <Border Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" BorderBrush="OliveDrab" BorderThickness="2" Margin="0,0,10,0" >
             <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -50,17 +51,15 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="1" Text="Добавить билет" FontSize="25" HorizontalAlignment="Center"/>
-                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Id билета" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                <TextBox Grid.Row="3"  materialDesign:HintAssist.Hint="Дата матча" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Команда 1" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                <TextBox Grid.Row="5"  materialDesign:HintAssist.Hint="Команда 2" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                <TextBox Grid.Row="6"  materialDesign:HintAssist.Hint="Город" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                <TextBox Grid.Row="7"  materialDesign:HintAssist.Hint="Стадион" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                <TextBox Grid.Row="8"  materialDesign:HintAssist.Hint="Тур" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                <Button Grid.Row="9"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" />
-                <TextBlock Grid.Row="10" Text="Удалить билет" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                <TextBox Grid.Row="11"  materialDesign:HintAssist.Hint="Id билета" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                <Button Grid.Row="12" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" />
+                <ComboBox Grid.Row="2"  materialDesign:HintAssist.Hint="Команда 1" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" ItemsSource="{Binding SelectedTeams}" Text="{Binding InsertFirstTeamName}" />
+                <ComboBox Grid.Row="3"  materialDesign:HintAssist.Hint="Команда 2" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" ItemsSource="{Binding SelectedTeams}" Text="{Binding InsertSecondTeamName}"/>
+                <ComboBox Grid.Row="4"  materialDesign:HintAssist.Hint="Дата и Время" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" ItemsSource="{Binding Time}" Text="{Binding InsertTime}"/>
+                <TextBox Grid.Row="5"  materialDesign:HintAssist.Hint="Город" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertStadium, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Row="6"  materialDesign:HintAssist.Hint="Стадион" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertTown, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Grid.Row="7"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding CreateTicket}" />
+                <TextBlock Grid.Row="8" Text="Удалить билет" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Row="9"  materialDesign:HintAssist.Hint="Id билета" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding DeleteTicketId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Grid.Row="10" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding DeleteTicket}" />
             </Grid>
         </Border>
     </Grid>

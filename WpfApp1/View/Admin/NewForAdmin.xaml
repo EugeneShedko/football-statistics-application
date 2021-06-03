@@ -42,7 +42,8 @@
                 <Button Grid.Row="4" Width="200" Content="Удалить новость" Background="Red" Command="{Binding DeleteNews}"/>
                 <TextBox Grid.Row="5" materialDesign:HintAssist.Hint="Id новости" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Text="{Binding SearchNewsId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Grid.Row="6" Width="200" Content="Поиск" Command="{Binding SearchNews}"/>
-                <Button Grid.Row="8" Width="200" Content="Сохранить" Command="{Binding SaveChanges}"/>
+                <Button Grid.Row="7" Width="200" Content="Сохранить" Command="{Binding SaveChanges}"/>
+                <Button Grid.Row="8" Width="200" Content="Назад" Command="{Binding Back}"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Margin="0,20,0,0">

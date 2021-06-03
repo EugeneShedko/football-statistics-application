@@ -35,7 +35,6 @@ namespace WpfApp1.ViewModels.Admin
 		public string Error => throw new NotImplementedException();
 		#endregion
 		#region Properties
-		//Regex.IsMatch
 		public string SearchTeamId
 		{
 			get { return _searchTeamId; }

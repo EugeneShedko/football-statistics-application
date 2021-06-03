@@ -16,6 +16,15 @@ namespace WpfApp1.Models
 		public int Id { get; set; }
 		public string Town { get; set; }
 		public string Stadium { get; set; }
+
+		public Ticket(int id, string town, string stadium)
+		{
+			Id = id;
+			Town = town;
+			Stadium = stadium;
+		}
+		public Ticket() { }
+
 		public virtual ICollection<BookedTicket> BookedTickets { get; set; }
 		public virtual Game Game { get; set; }
 	}

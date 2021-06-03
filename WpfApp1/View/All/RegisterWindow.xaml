@@ -25,11 +25,11 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Viewbox Grid.Column="1" Grid.Row="0">
-            <TextBlock Text="Регистрация" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"></TextBlock>
+            <TextBlock Text="Регистрация" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
         </Viewbox>
-        <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Фамилия" FontSize="20"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Имя" FontSize="20"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Логин" FontSize="20"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Фамилия" FontSize="20"/>
+        <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Имя" FontSize="20"/>
+        <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Логин" FontSize="20"/>
         <PasswordBox Grid.Column="1" Grid.Row="4" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Пароль" FontSize="20"
                       x:Name="PasswordBox"
          ff:PasswordBoxAssistant.BindPassword="true"  ff:PasswordBoxAssistant.BoundPassword="{Binding Path = Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"

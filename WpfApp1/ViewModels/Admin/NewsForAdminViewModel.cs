@@ -107,6 +107,7 @@ namespace WpfApp1.ViewModels.Admin
 			DeleteNews = new DelegateCommand(DeleteNewsCommand, CanDeleteNewsCommamd);
 			SearchNews = new DelegateCommand(SearchNewsCommand, CanSearchNewsCommand);
 			SaveChanges = new DelegateCommand(SaveChangesCommand, CanSaveChangesCommand);
+			Back = new DelegateCommand(BackCommand, CanBackCommand);
 
 		}
 		#endregion
@@ -115,6 +116,20 @@ namespace WpfApp1.ViewModels.Admin
 		public ICommand DeleteNews { get; set; }
 		public ICommand SearchNews { get; set; }
 		public ICommand SaveChanges { get; set; }
+		public ICommand Back { get; set; }
+		//------------------------------------------------------------
+		public bool CanBackCommand(object parameter)
+		{
+			return true;
+		}
+		public void BackCommand(object parameter)
+		{
+			using (UnitOfWork db = new UnitOfWork())
+			{
+				UserNews = new ObservableCollection<News>(db.Newses.GetAll().OrderByDescending(p => p.Id));
+			}
+		}
+		//------------------------------------------------------------
 		//------------------------------------------------------------
 		private bool CanSaveChangesCommand(object parameters)
 		{
