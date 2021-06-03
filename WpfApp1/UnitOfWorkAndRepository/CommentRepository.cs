@@ -20,11 +20,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 			db.Comments.Add(item);
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
 			Comment comment = db.Comments.Find(id);
 			if (comment != null)
+			{
 				db.Comments.Remove(comment);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public Comment Get(int id)

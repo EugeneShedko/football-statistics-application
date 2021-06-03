@@ -20,11 +20,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 			db.BookedTickets.Add(item);
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
 			BookedTicket bookedTicket = db.BookedTickets.Find(id);
 			if (bookedTicket != null)
+			{
 				db.BookedTickets.Remove(bookedTicket);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public BookedTicket Get(int id)
@@ -39,7 +46,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public void Update(BookedTicket item)
 		{
-			db.Entry(item).State = EntityState.Modified;          //?????????????
+			db.Entry(item).State = EntityState.Modified;         
 		}
 	}
 }

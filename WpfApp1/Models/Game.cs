@@ -16,7 +16,7 @@ namespace WpfApp1.Models
 		public string FirstTeamCountOfGoals { get; set; }
 		public string SecondTeamCountOfGoals { get; set; }
 		public string Tour { get; set; }
-		
+
 		//2 вторичных ключа к таблице Team
 		public int TeamId1 { get; set; }
 		public int TeamId2 { get; set; }
@@ -26,5 +26,15 @@ namespace WpfApp1.Models
 
 		public virtual Ticket Ticket { get; set; }
 
+		public Game(int teamid1, int teamid2, string date, string firstTeamGoals, string secondTeamGoals, string tour)
+		{
+			TeamId1 = teamid1;
+			TeamId2 = teamid2;
+			DateOfMatch = date;
+			FirstTeamCountOfGoals = firstTeamGoals;
+			SecondTeamCountOfGoals = secondTeamGoals;
+			Tour = tour;
+		}
+		public Game() { }
 	}
 }

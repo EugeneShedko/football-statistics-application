@@ -31,11 +31,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 		{
 			db.Entry(assist).State = EntityState.Modified;
 		}
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
 			Assist assist = db.Assists.Find(id);
 			if (assist != null)
+			{
 				db.Assists.Remove(assist);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 }

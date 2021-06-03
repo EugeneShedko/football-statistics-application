@@ -20,11 +20,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 			db.Newses.Add(item);
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
 			News news = db.Newses.Find(id);
 			if (news != null)
+			{
 				db.Newses.Remove(news);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public News Get(int id)

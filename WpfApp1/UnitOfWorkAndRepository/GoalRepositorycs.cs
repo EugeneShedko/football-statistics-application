@@ -20,11 +20,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 			db.Goals.Add(item);
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
 			Goal goal = db.Goals.Find(id);
 			if (goal != null)
+			{
 				db.Goals.Remove(goal);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public Goal Get(int id)

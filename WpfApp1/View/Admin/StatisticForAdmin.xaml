@@ -50,18 +50,17 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
+                                    
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="1" Text="Добавить игрока" FontSize="25" HorizontalAlignment="Center"/>
                                 <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Id игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="3"  materialDesign:HintAssist.Hint="Позиция" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="5"  materialDesign:HintAssist.Hint="Команда" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="6"  materialDesign:HintAssist.Hint="Голы" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                                <TextBox Grid.Row="3"  materialDesign:HintAssist.Hint="Игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                                <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Команда" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
+                                <TextBox Grid.Row="5"  materialDesign:HintAssist.Hint="Голы" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
                                 <Button Grid.Row="7"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" />
                                 <TextBlock Grid.Row="8" Text="Удалить игрока" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
                                 <TextBox Grid.Row="9"  materialDesign:HintAssist.Hint="Id матча" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <Button Grid.Row="10" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" />
+                                <Button Grid.Row="11" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" />
                             </Grid>
                         </Border>
                     </Grid>

@@ -20,11 +20,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 			db.Players.Add(item);
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
 			Player player = db.Players.Find(id);
 			if (player != null)
+			{
 				db.Players.Remove(player);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public Player Get(int id)

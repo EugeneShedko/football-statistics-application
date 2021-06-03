@@ -36,7 +36,7 @@ namespace WpfApp1.ViewModels.User
 			Number = new ObservableCollection<int>();
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				Teams = new ObservableCollection<Team>(db.Teams.GetAll().OrderByDescending(p => p.Points));
+				Teams = new ObservableCollection<Team>(db.Teams.GetAll().OrderByDescending(p=> Convert.ToInt32(p.GoalsDifference)).OrderByDescending(p => Convert.ToInt32(p.Points)));
 			}
 			for (int i = 0; i < Teams.Count; i++)
 			{

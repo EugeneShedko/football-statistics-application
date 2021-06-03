@@ -19,8 +19,23 @@ namespace WpfApp1.Models
 		public int CountOfLoses { get; set; }
 		public int CountOfScoredGoals { get; set; }
 		public int CountOfConsededGoals { get; set; }
-		public int GoalsDifference { get { return CountOfScoredGoals - CountOfConsededGoals; } set { } }
-		public int Points { get { return CountOfWins * 3 + CountOfDraws * 1; } set { } }
+		public int GoalsDifference { get; set; }
+		public int Points { get; set; }
+
+		public Team(string teamName, string countOfGame, int countOfWins, int countOfDraws, int countOfLoses, int countOfScoredGoals,
+			int countOfConsededGoals)
+		{
+			TeamName = teamName;
+			CountOfGame = countOfGame;
+			CountOfWins = countOfWins;
+			CountOfDraws = countOfDraws;
+			CountOfLoses = countOfLoses;
+			CountOfScoredGoals = countOfScoredGoals;
+			CountOfConsededGoals = countOfConsededGoals;
+			GoalsDifference = CountOfScoredGoals - CountOfConsededGoals;
+			Points = CountOfWins * 3 + CountOfDraws * 1;
+		}
+		public Team() { }
 
 		public virtual ICollection<Player> Players { get; set; }
 		public virtual ICollection<Game> Games1 { get; set; }

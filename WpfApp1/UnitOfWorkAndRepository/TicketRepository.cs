@@ -20,11 +20,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 			db.Tickets.Add(item);
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
 			Ticket ticket = db.Tickets.Find(id);
 			if (ticket != null)
+			{
 				db.Tickets.Remove(ticket);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public Ticket Get(int id)

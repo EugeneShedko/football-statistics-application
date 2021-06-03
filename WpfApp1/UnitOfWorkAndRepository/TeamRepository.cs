@@ -18,7 +18,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 		public  IEnumerable<Team> GetAll()
 		{
 
-			return db.Teams.ToList();
+			return db.Teams.AsNoTracking().ToList();
 		}
 
 		public Team Get(int id)
@@ -36,9 +36,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 			db.Entry(item).State = EntityState.Modified;
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
-			throw new NotImplementedException();
+			Team team = db.Teams.Find(id);
+			if (team != null)
+			{
+				db.Teams.Remove(team);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 }

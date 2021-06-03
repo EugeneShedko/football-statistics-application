@@ -20,11 +20,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 			db.Users.Add(item);
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
 			User user = db.Users.Find(id);
 			if (user != null)
+			{
 				db.Users.Remove(user);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public User Get(int id)

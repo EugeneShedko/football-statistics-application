@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfApp1.Models;
 
 namespace WpfApp1.UnitOfWorkAndRepository
@@ -20,11 +21,18 @@ namespace WpfApp1.UnitOfWorkAndRepository
 			db.Games.Add(item);
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
 			Game game = db.Games.Find(id);
 			if (game != null)
+			{
 				db.Games.Remove(game);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		public Game Get(int id)
@@ -34,12 +42,12 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<Game> GetAll()
 		{
-			return db.Games.Include(t => t.Team1).Include(p => p.Team2).ToList();
+			return db.Games.Include(p=>p.Team1).Include(p=>p.Team2).ToList();
 		}
 
 		public void Update(Game item)
 		{
-			db.Entry(item).State = EntityState.Modified; ;
+			db.Entry(item).State = EntityState.Modified;
 		}
 	}
 }
