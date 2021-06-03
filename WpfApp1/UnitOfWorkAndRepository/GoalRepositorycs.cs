@@ -41,7 +41,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<Goal> GetAll()
 		{
-			return db.Goals.ToList();
+			return db.Goals.Include(t=>t.Player).Include(t=>t.Player.Team).ToList();
 		}
 
 		public void Update(Goal item)

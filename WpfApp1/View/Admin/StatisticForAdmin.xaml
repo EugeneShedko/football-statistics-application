@@ -20,17 +20,17 @@
                             <RowDefinition Height="0.1*"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <TextBox  materialDesign:HintAssist.Hint="Id игрока" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="70,0,0,0" FontSize="20"/>
-                        <Button Content="Найти" HorizontalAlignment="Center" Margin="50,0,0,0"/>
-                        <Button Content="Cортировать" HorizontalAlignment="Right" Margin="0,0,80,0"/>
+                        <TextBox  materialDesign:HintAssist.Hint="Id игрока" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="70,0,0,0" FontSize="20" Text="{Binding SearchGoalsPlayerId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Button Content="Найти" HorizontalAlignment="Center" Margin="50,0,0,0" Command="{Binding SearchGoalsPlayers}"/>
+                        <Button Content="Назад" HorizontalAlignment="Center" Margin="220,0,0,0" Command="{Binding BackGoals}"/>
+                        <Button Content="Cортировать" HorizontalAlignment="Right" Margin="0,0,80,0" Command="{Binding SortedGoals}"/>
                         <ScrollViewer Grid.Column="0" Grid.Row="1">
-                            <DataGrid HorizontalAlignment="Center">
+                            <DataGrid HorizontalAlignment="Center" ItemsSource="{Binding UserGoalsPlayer}" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="ID игрока"/>
-                                    <DataGridTextColumn Header="Позиция"/>
-                                    <DataGridTextColumn Header="Игрок" Width="200" />
-                                    <DataGridTextColumn Header="Команда" Width="200"/>
-                                    <DataGridTextColumn Header="Голы"/>
+                                    <DataGridTextColumn Header="ID игрока" Binding="{Binding Player.Id}"/>
+                                    <DataGridTextColumn Header="Игрок" Width="200" Binding="{Binding Player.PlayerName}"/>
+                                    <DataGridTextColumn Header="Команда" Width="200" Binding="{Binding Player.Team.TeamName}"/>
+                                    <DataGridTextColumn Header="Голы" Binding="{Binding CountOfGoals}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </ScrollViewer>
@@ -49,18 +49,15 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
-                                    
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="1" Text="Добавить игрока" FontSize="25" HorizontalAlignment="Center"/>
-                                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Id игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="3"  materialDesign:HintAssist.Hint="Игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Команда" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="5"  materialDesign:HintAssist.Hint="Голы" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <Button Grid.Row="7"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" />
-                                <TextBlock Grid.Row="8" Text="Удалить игрока" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                                <TextBox Grid.Row="9"  materialDesign:HintAssist.Hint="Id матча" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <Button Grid.Row="11" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" />
+                                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Имя Игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertPlayerNameGoals,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                                <ComboBox Grid.Row="3"  materialDesign:HintAssist.Hint="Команда" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" ItemsSource="{Binding SelectedTeams}" Text="{Binding InsertTeamNameGoals}"/>
+                                <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Количество голов" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertCountOfGoals,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                                <Button Grid.Row="6"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding CreatePlayersGoals}" />
+                                <TextBlock Grid.Row="7" Text="Удалить игрока" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                                <TextBox Grid.Row="8"  materialDesign:HintAssist.Hint="Id игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding DeletePlayersIdGoals, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                                <Button Grid.Row="10" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding DeletePlayersGoals}" />
                             </Grid>
                         </Border>
                     </Grid>
@@ -77,17 +74,17 @@
                             <RowDefinition Height="0.1*"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <TextBox  materialDesign:HintAssist.Hint="Id игрока" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="60,0,0,0" FontSize="20"/>
-                        <Button Content="Найти" HorizontalAlignment="Center" Margin="30,0,0,0"/>
-                        <Button Content="Cортировать" HorizontalAlignment="Right" Margin="0,0,70,0"/>
+                        <TextBox  materialDesign:HintAssist.Hint="Id игрока" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="60,0,0,0" FontSize="20" Text="{Binding SearchAssistsPlayerId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged }"/>
+                        <Button Content="Найти" HorizontalAlignment="Center" Margin="30,0,0,0" Command="{Binding SearchAssistsPlayers}"/>
+                        <Button Content="Назад" HorizontalAlignment="Center" Margin="220,0,0,0" Command="{Binding BackAssists}"/>
+                        <Button Content="Cортировать" HorizontalAlignment="Right" Margin="0,0,70,0" Command="{Binding SortedAssists}" />
                         <ScrollViewer Grid.Column="0" Grid.Row="1">
-                            <DataGrid HorizontalAlignment="Center">
+                            <DataGrid HorizontalAlignment="Center" AutoGenerateColumns="False" ItemsSource="{Binding UserAssistsPlayer}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="ID игркоа"/>
-                                    <DataGridTextColumn Header="Позиция"/>
-                                    <DataGridTextColumn Header="Игрок" Width="200"/>
-                                    <DataGridTextColumn Header="Команда" Width="200"/>
-                                    <DataGridTextColumn Header="Ассисты"/>
+                                    <DataGridTextColumn Header="ID игрока" Binding="{Binding Player.Id}"/>
+                                    <DataGridTextColumn Header="Игрок" Width="200" Binding="{Binding Player.PlayerName}"/>
+                                    <DataGridTextColumn Header="Команда" Width="200" Binding="{Binding Player.Team.TeamName}"/>
+                                    <DataGridTextColumn Header="Ассисты" Binding="{Binding CountOfAssists}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </ScrollViewer>
@@ -106,19 +103,16 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                    
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="1" Text="Добавить игрока" FontSize="25" HorizontalAlignment="Center"/>
-                                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Id игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="3"  materialDesign:HintAssist.Hint="Позиция" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Игрок" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="5"  materialDesign:HintAssist.Hint="Команда" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <TextBox Grid.Row="6"  materialDesign:HintAssist.Hint="Ассисты" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <Button Grid.Row="7"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" />
-                                <TextBlock Grid.Row="8" Text="Удалить игрока" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                                <TextBox Grid.Row="9"  materialDesign:HintAssist.Hint="Id игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />
-                                <Button Grid.Row="10" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" />
+                                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Имя игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertPlayerNameAssists,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                                <ComboBox Grid.Row="3"  materialDesign:HintAssist.Hint="Команда" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" ItemsSource="{Binding SelectedTeams}" Text="{Binding InsertTeamNameAssists}"/>
+                                <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Количество ассистов" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertCountOfAssists,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                                <Button Grid.Row="6"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding CreatePlayersAssists}" />
+                                <TextBlock Grid.Row="7" Text="Удалить игрока" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                                <TextBox Grid.Row="8"  materialDesign:HintAssist.Hint="Id игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding DeletePlayersIdAssists, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                                <Button Grid.Row="10" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding DeletePlayersAssists}" />
                             </Grid>
                         </Border>
                     </Grid>

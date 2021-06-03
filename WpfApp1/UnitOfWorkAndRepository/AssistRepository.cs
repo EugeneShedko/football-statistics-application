@@ -17,7 +17,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 		}
 		public IEnumerable<Assist> GetAll()
 		{
-			return db.Assists.ToList();
+			return db.Assists.Include(t => t.Player).Include(t => t.Player.Team).ToList();
 		}
 		public Assist Get(int id)
 		{

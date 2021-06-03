@@ -16,6 +16,13 @@ namespace WpfApp1.Models
 		//Вторичный ключ к таблице Команда
 		public int TeamId { get; set; }
 
+		public Player(string playerName, int teamId)
+		{
+			PlayerName = playerName;
+			TeamId = teamId;
+		}
+		public Player() { }
+
 		public virtual Team Team { get; set; }
 		public virtual Goal Goal { get; set; }
 		public virtual Assist Assist { get; set; }

@@ -15,7 +15,12 @@ namespace WpfApp1.Models
 		[ForeignKey("Player")]
 		public int Id { get; set; }
 		public string CountOfGoals { get; set; }
-
+		public Goal(int id, string countOfGoals)
+		{
+			Id = id;
+			CountOfGoals = countOfGoals;
+		}
+		public Goal() { }
 		public virtual Player Player { get; set; }
 	}
 }

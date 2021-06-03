@@ -227,7 +227,7 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				UserGames = new ObservableCollection<Game>(db.Games.GetAll());
+				UserGames = new ObservableCollection<Game>(db.Games.GetAll().OrderBy(p => p.Id));
 			}
 		}
 		//---------------------------------------------------------
@@ -296,7 +296,9 @@ namespace WpfApp1.ViewModels.Admin
 				(errors["InsertTime"] == null && InsertTime != null) &&
 				(errors["InsertSecondTeamGoals"] == null && InsertSecondTeamGoals != null) &&
 				(errors["InsertFirstTeamGoals"] == null && InsertFirstTeamGoals != null) &&
-				(errors["InsertTour"] == null && InsertTour != null))
+				(errors["InsertTour"] == null && InsertTour != null) &&
+				(InsertFirstTeam !=null) &&
+				(InsertSecondTeam !=null))
 			{
 				return true;
 			}

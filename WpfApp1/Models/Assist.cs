@@ -15,6 +15,13 @@ namespace WpfApp1.Models
 		[ForeignKey("Player")]
 		public int Id { get; set; }
 		public string CountOfAssists { get; set; }
+
+		public Assist(int id, string countOfAssists)
+		{
+			Id = id;
+			CountOfAssists = countOfAssists;
+		}
+		public Assist() { }
 		public virtual Player Player { get; set; }
 	}
 }
