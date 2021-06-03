@@ -51,7 +51,7 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="1" Text="Добавить игрока" FontSize="25" HorizontalAlignment="Center"/>
-                                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Имя Игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertPlayerNameGoals,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Имя, фамилия игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertPlayerNameGoals,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
                                 <ComboBox Grid.Row="3"  materialDesign:HintAssist.Hint="Команда" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" ItemsSource="{Binding SelectedTeams}" Text="{Binding InsertTeamNameGoals}"/>
                                 <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Количество голов" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertCountOfGoals,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Button Grid.Row="6"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding CreatePlayersGoals}" />
@@ -106,7 +106,7 @@
                                     
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="1" Text="Добавить игрока" FontSize="25" HorizontalAlignment="Center"/>
-                                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Имя игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertPlayerNameAssists,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Имя, фамилия игрока" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertPlayerNameAssists,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
                                 <ComboBox Grid.Row="3"  materialDesign:HintAssist.Hint="Команда" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" ItemsSource="{Binding SelectedTeams}" Text="{Binding InsertTeamNameAssists}"/>
                                 <TextBox Grid.Row="4"  materialDesign:HintAssist.Hint="Количество ассистов" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertCountOfAssists,  ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
                                 <Button Grid.Row="6"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding CreatePlayersAssists}" />

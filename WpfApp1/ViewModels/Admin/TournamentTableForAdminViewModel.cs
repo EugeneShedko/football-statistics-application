@@ -165,16 +165,27 @@ namespace WpfApp1.ViewModels.Admin
 			set 
 			{
 				Set(ref _insertTeamName, value);
-				string str = @"^[А-Яа-я0-9]+$";
+				string str = @"^[А-Яа-я0-9]+|[А-Яа-я0-9]+[' '][А-Яа-я0-9]+ $";
 				if (InsertTeamName != null)
 				{
-					if (!Regex.IsMatch(InsertTeamName, str))
+					using (UnitOfWork db = new UnitOfWork())
 					{
-						errors["InsertTeamName"] = "Неверный формат данных, недопустимы символы .";
-					}
-					else
-					{
-						errors["InsertTeamName"] = null;
+						bool isTeam = db.Teams.GetAll().Any(t => t.TeamName == InsertTeamName);
+						if (isTeam == true)
+						{
+							errors["InsertTeamName"] = "Такая команда уже существует";
+						}
+						else
+						{
+							if (!Regex.IsMatch(InsertTeamName, str))
+							{
+								errors["InsertTeamName"] = "Неверный формат данных";
+							}
+							else
+							{
+								errors["InsertTeamName"] = null;
+							}
+						}
 					}
 				}
 

@@ -21,42 +21,48 @@
                 <RowDefinition Height="0.3*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Width="300"  materialDesign:HintAssist.Hint="Заголовок" HorizontalAlignment="Left" Margin="30,0,0,0" FontSize="20"/>
-            <TextBox Grid.Row="1" Grid.Column="0" BorderBrush="OliveDrab" BorderThickness="2"  materialDesign:HintAssist.Hint="Введите текст" FontSize="20" TextWrapping="Wrap" MaxLength="2000"/>
-            <TextBox Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Id новости" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"/>
-            <Grid Grid.Row="1" Grid.Column="1">
+            <TextBox Grid.Row="1" Grid.Column="0" BorderBrush="OliveDrab" BorderThickness="2"  materialDesign:HintAssist.Hint="Введите текст" FontSize="20" TextWrapping="Wrap" MaxLength="2000" Text="{Binding InsertText}"/>
+            <TextBox Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Заголовок" FontSize="20" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" Width="400" Text="{Binding InsertHeader}"/>
+            <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" Width="200" Content="Добавить новость"/>
-                <TextBlock Grid.Row="1" FontSize="25" HorizontalAlignment="Center" Text="Удалить новость" VerticalAlignment="Bottom"/>
-                <TextBox Grid.Row="2" materialDesign:HintAssist.Hint="Id новости" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"/>
-                <Button Grid.Row="3" Width="200" Content="Удалить новость" Background="Red"/>
+                <Button Grid.Row="1" Width="200" Content="Добавить новость" Command="{Binding CreateNews}"/>
+                <TextBlock Grid.Row="2" FontSize="25" HorizontalAlignment="Center" Text="Удалить новость" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Row="3" materialDesign:HintAssist.Hint="Id новости" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Text="{Binding DeleteNewsId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Grid.Row="4" Width="200" Content="Удалить новость" Background="Red" Command="{Binding DeleteNews}"/>
+                <TextBox Grid.Row="5" materialDesign:HintAssist.Hint="Id новости" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Text="{Binding SearchNewsId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Grid.Row="6" Width="200" Content="Поиск" Command="{Binding SearchNews}"/>
+                <Button Grid.Row="8" Width="200" Content="Сохранить" Command="{Binding SaveChanges}"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Margin="0,20,0,0">
             <ScrollViewer>
-        <ListBox HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                    <Border BorderBrush="OliveDrab" BorderThickness="2">
-                        <Grid Height="300">
+                <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding UserNews}" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="OliveDrab" BorderThickness="2">
+                                <Grid Height="300">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="0.2*"/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Width="300"  materialDesign:HintAssist.Hint="Заголовок" HorizontalAlignment="Left" Margin="30,0,0,0" FontSize="20"/>
-                                    <TextBox Grid.Row="1" Grid.Column="0" BorderBrush="OliveDrab" BorderThickness="2"  materialDesign:HintAssist.Hint="Введите текст" FontSize="20" TextWrapping="Wrap"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="0"  VerticalAlignment="Center"  HorizontalAlignment="Right"  Margin="0,0,100,0" Text="{Binding Id}" FontSize="20" FontWeight="DemiBold"/>
+                                    <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Width="700"  materialDesign:HintAssist.Hint="Заголовок" HorizontalAlignment="Left" Margin="30,0,0,0" FontSize="15" Text="{Binding Header, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <TextBox Grid.Row="1" Grid.Column="0" BorderBrush="OliveDrab" BorderThickness="2"  materialDesign:HintAssist.Hint="Введите текст" FontSize="15" TextWrapping="Wrap" Text="{Binding NewsText, UpdateSourceTrigger=PropertyChanged}"/>
                                 </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-            <ListItem/>
-                    <ListItem/>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </ScrollViewer>
         </Grid>

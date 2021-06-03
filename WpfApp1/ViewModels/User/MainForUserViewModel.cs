@@ -48,7 +48,7 @@ namespace WpfApp1.ViewModels.User
 		{
 			using (UnitOfWork db = new UnitOfWork() )
 			{
-				Games = new ObservableCollection<Game>(db.Games.GetAll());
+				Games = new ObservableCollection<Game>(db.Games.GetAll().OrderBy(t=>t.Id));
 				News = new ObservableCollection<News>(db.Newses.GetAll().OrderByDescending(t=>t.Id));
 			}
 		}

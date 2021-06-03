@@ -110,7 +110,7 @@ namespace WpfApp1.ViewModels.Admin
 			set
 			{
 				Set(ref _insertPlayerNameAssists, value);
-				string str = @"^[А-Яа-я]+$";
+				string str = @"^[А-Яа-я0-9]+|[А-Яа-я0-9]+[' '][А-Яа-я0-9]+ $";
 				if (InsertPlayerNameAssists != null)
 				{
 					if (!Regex.IsMatch(InsertPlayerNameAssists, str))
@@ -156,7 +156,7 @@ namespace WpfApp1.ViewModels.Admin
 			set
 			{
 				Set(ref _insertPlayerNameGoals, value);
-				string str = @"^[А-Яа-я]+$";
+				string str = @"^[А-Яа-я0-9]+|[А-Яа-я0-9]+[' '][А-Яа-я0-9]+ $";
 				if (InsertPlayerNameGoals != null)
 				{
 					if (!Regex.IsMatch(InsertPlayerNameGoals, str))

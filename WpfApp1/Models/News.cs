@@ -14,5 +14,12 @@ namespace WpfApp1.Models
 		public int Id { get; set; }
 		public string Header { get; set; }
 		public string NewsText { get; set; }
+
+		public News(string header, string newsText)
+		{
+			Header = header;
+			NewsText = newsText;
+		}
+		public News() { }
 	}
 }
