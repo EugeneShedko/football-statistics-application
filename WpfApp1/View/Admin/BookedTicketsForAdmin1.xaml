@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-            <ResourceDictionary Source="/WpfApp1;component/View/Resources/ResourcesDictionaries/ForUserTickets.xaml" />
-        </UserControl.Resources>
+        <ResourceDictionary Source="/WpfApp1;component/View/Resources/ResourcesDictionaries/ForMainForUser.xaml"/>
+    </UserControl.Resources>
     <ScrollViewer Background="White">
         <Grid Background="White">
             <Grid  Margin="50,20,50,0">
@@ -17,10 +17,12 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="OliveDrab" BorderThickness="2" Height="75" VerticalAlignment="top">
-                                <Grid ShowGridLines="True">
+                                <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.1*"/>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
@@ -28,13 +30,16 @@
                                         <RowDefinition Height="0.5*"/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Логин Пользователя" Style="{StaticResource Style1}"/>
-                                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="1" Text="Матч" HorizontalAlignment="Center"  TextWrapping="Wrap" Style="{StaticResource Style1}" />
-                                    <TextBlock Grid.Row="0" Grid.Column="4" Text="Статус" Style="{StaticResource Style1}" HorizontalAlignment="Center" />
-                                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource Style1}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding UserId}" />
-                                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource Style1}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Ticket.Game.Team1.TeamName}"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource Style1}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Ticket.Game.Team2.TeamName}"/>
-                                    <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource Style1}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Status}" />
+                                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Имя" FontWeight="DemiBold" FontSize="15"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Фамилия" FontWeight="DemiBold" FontSize="15"/>
+                                    <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="2" Text="Матч" HorizontalAlignment="Center"  TextWrapping="Wrap" FontWeight="DemiBold" FontSize="15"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="5" Text="Статус" HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="15"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding User.Name}"  Style="{StaticResource TextBlockStyle}" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding User.FamilyName}"  Style="{StaticResource TextBlockStyle}" />
+                                    <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Ticket.Game.Team1.TeamName}"  Style="{StaticResource TextBlockStyle}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="3" Text="-" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="4"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Ticket.Game.Team2.TeamName}"  Style="{StaticResource TextBlockStyle}"/>
+                                    <TextBox Grid.Row="1" Grid.Column="5"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Status}" FontWeight="DemiBold" FontSize="17"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>

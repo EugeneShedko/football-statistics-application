@@ -137,14 +137,12 @@ namespace WpfApp1.ViewModels
 			errors["Login"] = null;
 			errors["Password"] = null;
 			Register = new DelegateCommand(RegisterCommand, CanRegisterCommand);
+			ShowLoginWindow = new DelegateCommand(ShowLoginWindowCommand, CanShowLoginWindowCommand);
 		}
-		#endregion
-		#region Methods
-		public void ActionsBeforeInsert(object parameters = null){}
-		public void ActionsBeforeClosing(){}
 		#endregion
 		#region Commands
 		public ICommand Register { get; set; }
+		public ICommand ShowLoginWindow { get; set; }
 		private bool CanRegisterCommand(object parameter)
 		{
 			if ((errors["FamilyName"] == null && FamilyName != null) &&
@@ -173,11 +171,19 @@ namespace WpfApp1.ViewModels
 				catch { }
 			}
 		}
+		private bool CanShowLoginWindowCommand(object parameter)
+		{
+			return true;
+		}
 		private void ShowLoginWindowCommand(object parameter)
 		{
 			_smallNavigationLoginManager.AddUserControl<LoginWindowViewModel, LoginWindow>(new LoginWindowViewModel(_smallNavigationLoginManager, _navigationManager), NavigationKeys.LoginWindow);
 			_smallNavigationLoginManager.Insert(NavigationKeys.LoginWindow);
 		}
+		#endregion
+		#region Methods
+		public void ActionsBeforeInsert(object parameters = null) { }
+		public void ActionsBeforeClosing() { }
 		private string GetHach(string input)
 		{
 			var md5 = MD5.Create();

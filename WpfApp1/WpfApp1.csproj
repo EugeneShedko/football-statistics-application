@@ -346,16 +346,10 @@
     <Resource Include="View\Resources\WhiteLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Resources\1560495323_2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="View\Resources\picture.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resources\ticket %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\Resources\shahter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

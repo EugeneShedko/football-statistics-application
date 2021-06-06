@@ -93,7 +93,7 @@ namespace WpfApp1.ViewModels
 				}
 				else
 				{
-					Mistake = "Неверно введен логи или пароль";
+					Mistake = "Неверно введен логин или пароль";
 				}
 			}
 		}

@@ -74,7 +74,7 @@ namespace WpfApp1.ViewModels.All
 				}
 				else
 				{
-					Mistake = "Неверно введен логи или пароль";
+					Mistake = "Неверно введен логин или пароль";
 				}
 			}
 		}

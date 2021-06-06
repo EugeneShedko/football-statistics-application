@@ -16,6 +16,8 @@ namespace WpfApp1.Models
 			modelBuilder.Entity<Team>().HasMany(t => t.Games1).WithRequired(g => g.Team1).HasForeignKey(s => s.TeamId1);
 			modelBuilder.Entity<Team>().HasMany(t => t.Games2).WithRequired(g => g.Team2).HasForeignKey(s => s.TeamId2).WillCascadeOnDelete(false);
 			modelBuilder.Entity<User>().HasMany(t => t.Comments).WithRequired(g => g.User).HasForeignKey(s => s.UserId);
+			modelBuilder.Entity<User>().HasMany(t => t.BookedTickets).WithRequired(g => g.User).HasForeignKey(s => s.UserId);
+			modelBuilder.Entity<Ticket>().HasMany(t => t.BookedTickets).WithRequired(g => g.Ticket).HasForeignKey(s => s.TicketId);
 		}
 		public DbSet<User> Users { get; set; }
 		public DbSet<Team> Teams { get; set; }

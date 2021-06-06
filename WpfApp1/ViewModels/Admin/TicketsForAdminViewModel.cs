@@ -28,6 +28,7 @@ namespace WpfApp1.ViewModels.Admin
 		private string _insertTime;
 		private string _searchTicketId;
 		private string _deleteTicketId;
+		private string _mistake;
 		public ObservableCollection<string> _time;
 
 		Dictionary<string, string> errors;
@@ -36,6 +37,11 @@ namespace WpfApp1.ViewModels.Admin
 
 		#endregion
 		#region Properties
+		public string Mistake
+		{
+			get { return _mistake; }
+			set { Set(ref _mistake, value); }
+		}
 		public string InsertTime
 		{
 			get { return _insertTime; }
@@ -109,6 +115,7 @@ namespace WpfApp1.ViewModels.Admin
 			get { return _insertFirstTeamName; }
 			set 
 			{
+				Mistake = null;
 				Set(ref _insertFirstTeamName, value);
 				using (UnitOfWork db = new UnitOfWork())
 				{
@@ -121,10 +128,15 @@ namespace WpfApp1.ViewModels.Admin
 			get { return _insertSecondTeamName; }
 			set 
 			{
+				Mistake = null;
 				Set(ref _insertSecondTeamName, value);
 				using (UnitOfWork db = new UnitOfWork())
 				{
 					Time = new ObservableCollection<string>(db.Games.GetAll().Where(t => t.Team1.TeamName == InsertFirstTeamName && t.Team2.TeamName == InsertSecondTeamName).Select(t => t.DateOfMatch));
+				}
+				if (Time.Count == 0)
+				{
+					Mistake = "Такого матча нет";
 				}
 			}
 		}
@@ -315,7 +327,6 @@ namespace WpfApp1.ViewModels.Admin
 				SelectedTeams = new ObservableCollection<string>(db.Teams.GetAll().Select(t => t.TeamName));
 			}
 		}
-		//Проверка на то или есть уже такой билет!!!
 		#endregion
 	}
 }

@@ -5,17 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1.View.User"
              mc:Ignorable="d" 
-               d:DesignHeight="985" d:DesignWidth="1480">
+               d:DesignHeight="985" d:DesignWidth="1480"
+             x:Name="Root">
     <UserControl.Resources>
         <ResourceDictionary Source="/WpfApp1;component/View/Resources/ResourcesDictionaries/ForMainForUser.xaml"/>
     </UserControl.Resources>
     <ScrollViewer Background="White">
     <Grid Background="White">
             <Grid  Margin="50,20,50,0">
-                <ListBox IsHitTestVisible="False" ItemsSource="{Binding BookedTicket}" ItemContainerStyle="{StaticResource MaterialDesignCardsListBoxItem}">
+                <ListBox  ItemsSource="{Binding BookedTicket}" HorizontalContentAlignment="Stretch">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Style="{StaticResource OliveDrabBorder}" Height="75"  VerticalAlignment="Top">
+                            <Border Style="{StaticResource OliveDrabBorder}" Height="135"  VerticalAlignment="Top">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="1.2*"/>
@@ -25,20 +26,19 @@
                                         <ColumnDefinition />
                                         <ColumnDefinition/>
                                         <ColumnDefinition />
-      
-                                       
-                                    </Grid.ColumnDefinitions>
+                                        </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
+                                        <RowDefinition Height="0.3*"/>
+                                        <RowDefinition Height="0.3*"/>
+                                        <RowDefinition Height="0.5*"/>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Дата" HorizontalAlignment="Center" FontSize="15"/>
-                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="Команда 1" HorizontalAlignment="Center" FontSize="15"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Дата" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="Команда 1" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold"/>
                                     <TextBlock Grid.Column="2" Grid.Row="0" Text=""/>
-                                    <TextBlock Grid.Column="3" Grid.Row="0" Text="Команда 2" HorizontalAlignment="Center" FontSize="15"/>
-                                    <TextBlock Grid.Column="4" Grid.Row="0" Text="Город" HorizontalAlignment="Center" FontSize="15"/>
-                                    <TextBlock Grid.Column="5" Grid.Row="0" Text="Стадион" HorizontalAlignment="Center" FontSize="15"/>
-                                    <TextBlock Grid.Column="6" Grid.Row="0" Text="Статус" HorizontalAlignment="Center" FontSize="15"/>
+                                    <TextBlock Grid.Column="3" Grid.Row="0" Text="Команда 2" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold"/>
+                                    <TextBlock Grid.Column="4" Grid.Row="0" Text="Город" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold"/>
+                                    <TextBlock Grid.Column="5" Grid.Row="0" Text="Стадион" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold"/>
+                                    <TextBlock Grid.Column="6" Grid.Row="0" Text="Статус" HorizontalAlignment="Center" FontSize="15" FontWeight="DemiBold"/>
                                     <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Ticket.Game.DateOfMatch}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" Margin="9,0,0,0"/>
                                     <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Ticket.Game.Team1.TeamName}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
                                     <TextBlock Grid.Column="2" Grid.Row="1" Text="-" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
@@ -46,6 +46,7 @@
                                     <TextBlock Grid.Column="4" Grid.Row="1" Text="{Binding Ticket.Stadium}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
                                     <TextBlock Grid.Column="5" Grid.Row="1" Text="{Binding Ticket.Town}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
                                     <TextBlock Grid.Column="6" Grid.Row="1" Text="{Binding Status}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
+                                    <Button Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="3" Content="Отменить" Background="Red" Width="200" Command="{Binding ElementName = Root,Path = DataContext.Cancel}" CommandParameter="{Binding}"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>
