@@ -28,7 +28,8 @@
         <Viewbox  Grid.Column="1" Grid.Row="1">
             <TextBlock Text="Вход" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
         </Viewbox>
-        <TextBox  Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Логин" FontSize="20"/>
+        <TextBox  Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"  materialDesign:HintAssist.Hint="Логин" FontSize="20" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Foreground="red" Text="{Binding Mistake}"/>
         <PasswordBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Пароль" FontSize="20"
                      x:Name="PasswordBox"
          ff:PasswordBoxAssistant.BindPassword="true"  ff:PasswordBoxAssistant.BoundPassword="{Binding Path = Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

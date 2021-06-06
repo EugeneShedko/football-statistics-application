@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WpfApp1.App" Collapsed="true">
+    <Position X="52.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="56" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>View\All\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.Commands.BaseCommand" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\BaseCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.Commands.DelegateCommand" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQCAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.ForPasswordBox.PasswordBoxAssistant" Collapsed="true">
+    <Position X="63" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBABAAAAAAAAAAEAAAAAAACoABAgAAAAAAAAAICAAAg=</HashCode>
+      <FileName>ForPasswordBox\PasswordBoxAssistant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.Assist" Collapsed="true">
+    <Position X="54.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Assist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.BookedTicket" Collapsed="true">
+    <Position X="57.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAEAAAAAAACAAAAAAgAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BookedTicket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.Comment" Collapsed="true">
+    <Position X="63" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAABAAAAAAAAAAAAAgAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Models\Comment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.Game" Collapsed="true">
+    <Position X="57.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAAAAAACACAAAAAAAQAgAAAAAAAAAADAAQQAA=</HashCode>
+      <FileName>Models\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.Goal" Collapsed="true">
+    <Position X="61.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Goal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.News" Collapsed="true">
+    <Position X="56" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\News.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.Player" Collapsed="true">
+    <Position X="64.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQECAAAAAAAAAAAAAAAAAAACAAQAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Models\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.Team" Collapsed="true">
+    <Position X="63" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAADAAAAAAAAgQAAAAAAAAABAgAkAAAAAEAAQAAAAQA=</HashCode>
+      <FileName>Models\Team.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.Ticket" Collapsed="true">
+    <Position X="52.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAIAAAGAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Ticket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.User" Collapsed="true">
+    <Position X="64.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAAAAIAAEAEAQQAAAIQAAACAAAAAAAAIAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Models.UserContext" Collapsed="true">
+    <Position X="52.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQACCAAAAAAAAIAAAAAAAAAEAAgAAAAAAIAAAAAIAA=</HashCode>
+      <FileName>Models\UserContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Navigation.NavigationKeys" Collapsed="true">
+    <Position X="64.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIBQACAAAAAABCAAAAGAZABAQQFkAEAAAgAAAABAA=</HashCode>
+      <FileName>Navigation\NavigationKeys.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Navigation.NavigationManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAUAAEAAAAAAAAIAAAAEQAAAEAAAAAgQEAEAAgAA=</HashCode>
+      <FileName>Navigation\NavigationManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.Navigation.ParametersForWindow" Collapsed="true">
+    <Position X="61.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Navigation\ParametersForWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Properties.Resources" Collapsed="true">
+    <Position X="56" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.Properties.Settings" Collapsed="true">
+    <Position X="57.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.AssistRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="56" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\AssistRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.BookedTicketRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\BookedTicketRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.CommentRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\CommentRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.GameRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\GameRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.GoalRepositorycs" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\GoalRepositorycs.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.NewsRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\NewsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.PlayerRepositorycs" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\PlayerRepositorycs.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.TeamRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\TeamRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.TicketRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="54.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\TicketRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.UnitOfWork" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYACKAgACAQAAIAEAQAIAAAAAAgAAgBAAoAAIAAIhA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.UnitOfWorkAndRepository.UserRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="54.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.Admin.BookedTicketsForAdmin1" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Admin\BookedTicketsForAdmin1.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.Admin.ExitForAdmin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="54.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Admin\ExitForAdmin.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.Admin.MainWindowForInformationAdmin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Admin\MainWindowForInformationAdmin.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.Admin.MathesForAdmin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Admin\MathesForAdmin.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.Admin.NewForAdmin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="54.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Admin\NewForAdmin.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.Admin.StatisticForAdmin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Admin\StatisticForAdmin.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.Admin.TicketsForAdmin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="56" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Admin\TicketsForAdmin.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.Admin.TournamentTableForAdmin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Admin\TournamentTableForAdmin.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.All.LoginForAlminWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\All\LoginForAlminWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.LoginWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\All\LoginWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.MainWindowLoginOrRegister" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\All\MainWindowLoginOrRegister.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.RegisterWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="54.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\All\RegisterWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.MainWindowForInformation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="57.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\User\MainWindowForInformationUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.User.CommentForUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\User\CommentForUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.User.ExitWindowForUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="56" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\User\ExitWindowForUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.User.MainForUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="54.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\User\MainForUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.User.NewsForUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="57.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\User\NewsForUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.User.StatisticForUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\User\StatisticForUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.User.TicketsForUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="57.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\User\TicketsForUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.User.TournamentTableForUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\User\TournamentTableForUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.View.User.UserTicketsxaml" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="56" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\User\UserTicketsxaml.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.Admin.BookedTicketsForAdminViewModel" Collapsed="true">
+    <Position X="11.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAEIABAAAAEgAAAAgAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>ViewModels\Admin\BookedTicketsForAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.Admin.ExitWindowViewModel" Collapsed="true">
+    <Position X="18.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAgAAARAAAAAggAIAgAAAABAAEAAAAAAA=</HashCode>
+      <FileName>ViewModels\Admin\ExitWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.Admin.MainWindowForInformationAdminViewModel" Collapsed="true">
+    <Position X="25.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBAAAAAAABAAAAgABAgAAAgAYKAgACAYBAkQACIKAAA=</HashCode>
+      <FileName>ViewModels\Admin\MainWindowForInformationAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.Admin.MathesForAdminViewModel" Collapsed="true">
+    <Position X="32" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASEAIIACAAAAiUQATAEAACpAAMCkIAIRhAEAAAGhoAQ=</HashCode>
+      <FileName>ViewModels\Admin\MathesForAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.Admin.NewsForAdminViewModel" Collapsed="true">
+    <Position X="38.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAAAQAQAAAACUAEDgGAIChIQAIgAAIAhAAEQBBAgBg=</HashCode>
+      <FileName>ViewModels\Admin\NewsForAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.Admin.StatisticForAdminViewModel" Collapsed="true">
+    <Position X="43.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAYQAlAAaAECAaIAHmMAgAgGiEAgYIABFRAlQDQAChA=</HashCode>
+      <FileName>ViewModels\Admin\StatisticForAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.Admin.TicketsForAdminViewModel" Collapsed="true">
+    <Position X="47.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQMAAAIgAAygCQAQDEFAAAgIAMAgggAEAAMIRQAAgQA=</HashCode>
+      <FileName>ViewModels\Admin\TicketsForAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.Admin.TournamentTableForAdminViewModel" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQQABAGABQCCCUAgDAEIAAggBEGggAABAACkECIAoQA=</HashCode>
+      <FileName>ViewModels\Admin\TournamentTableForAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.All.LoginForAdminWindowViewModel" Collapsed="true">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgBCAAAAQAAAAABAAACAgAADAiAAACAiAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\All\LoginForAdminWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.LoginWindowViewModel" Collapsed="true">
+    <Position X="14" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABIBAAEACQIAEQgBAAAAAgAgAAgAAACAAQQAAAABAA=</HashCode>
+      <FileName>ViewModels\All\LoginWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.MainWindowLoginOrRegisterViewModel" Collapsed="true">
+    <Position X="20.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAgAAAAgAAAAACAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\All\MainWindowLoginOrRegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.MainWindowViewModel" Collapsed="true">
+    <Position X="27.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\All\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfApp1.ViewModels.RegisterWindowViewModel" Collapsed="true">
+    <Position X="34.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIIAAAAAAAAQAADAEEAAwAAAEhAACCAgAQIAAAAAg=</HashCode>
+      <FileName>ViewModels\All\RegisterWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.ViewModelBase" Collapsed="true">
+    <Position X="26.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\All\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.MainWindowForInformationViewModelUser" Collapsed="true">
+    <Position X="45.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABACgAgADBABABQSAAAgBAEIgIAAEBAAEAAguyAA=</HashCode>
+      <FileName>ViewModels\User\MainWindowForInformationViewModelUser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.User.CommentForUserViewModel" Collapsed="true">
+    <Position X="50" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAgAAAAgAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\User\CommentForUserViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.User.ExitWindowViewModel" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAABgAAAAAAABAAAQAgAAIAgAAAABAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\User\ExitWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.User.MainForUserViewModel" Collapsed="true">
+    <Position X="9.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAEAAAAAAAAAAAAABABAAAgAAQAgAAAABBAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\User\MainForUserViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.User.NewsForUserViewModel" Collapsed="true">
+    <Position X="16.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAgAAAggAAAIBAAACCAAAAA=</HashCode>
+      <FileName>ViewModels\User\NewsForUserViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.User.StatisticForUserViewModel" Collapsed="true">
+    <Position X="23" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAABAAAAAgAAAAgAAABBAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\User\StatisticForUserViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.User.TicketsForUserViewModel" Collapsed="true">
+    <Position X="29.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAQAADABAAAACgAAAAgAAAADAAAAIAAACA=</HashCode>
+      <FileName>ViewModels\User\TicketsForUserViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.User.TournamentTableUserViewModel" Collapsed="true">
+    <Position X="36.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAFEAAAAgAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\User\TournamentTableUserViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WpfApp1.ViewModels.User.UserTicketsViewModel" Collapsed="true">
+    <Position X="41" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgCAAAABAAAAAgAAAAgAAAABAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\User\UserTicketsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="WpfApp1.Navigation.INavigationActions" Collapsed="true">
+    <Position X="52.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Navigation\INavigationActions.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WpfApp1.Navigation.INavigationManager" Collapsed="true">
+    <Position X="54.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Navigation\INavigationManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WpfApp1.UnitOfWorkAndRepository.IRepository&lt;T&gt;" Collapsed="true">
+    <Position X="56" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>UnitOfWorkAndRepository\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

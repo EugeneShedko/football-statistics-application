@@ -293,8 +293,8 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			if ((errors["InsertDate"] == null && InsertDate != null) &&
 				(errors["InsertTime"] == null && InsertTime != null) &&
-				(errors["InsertSecondTeamGoals"] == null && InsertSecondTeamGoals != null) &&
-				(errors["InsertFirstTeamGoals"] == null && InsertFirstTeamGoals != null) &&
+				(errors["InsertSecondTeamGoals"] == null ) &&
+				(errors["InsertFirstTeamGoals"] == null ) &&
 				(errors["InsertTour"] == null && InsertTour != null) &&
 				(InsertFirstTeam !=null) &&
 				(InsertSecondTeam !=null))
@@ -317,7 +317,7 @@ namespace WpfApp1.ViewModels.Admin
 					Game newGame = new Game(id1, id2, InsertDate + ' ' + InsertTime, InsertFirstTeamGoals, InsertSecondTeamGoals, "Тур " + InsertTour);
 					db.Games.Create(newGame);
 					db.Save();
-					UserGames = new ObservableCollection<Game>(db.Games.GetAll());
+					UserGames = new ObservableCollection<Game>(db.Games.GetAll().OrderBy(t=>t.Tour));
 					MessageBox.Show("Новый матч добавлен!");
 					InsertDate = null;
 					InsertFirstTeam = null;

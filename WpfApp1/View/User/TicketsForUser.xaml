@@ -37,24 +37,9 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Имя" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,20,5">
-                <TextBlock.InputBindings>
-                    <MouseBinding Gesture="LeftClick" Command="{Binding ShowWindow}"/>
-                </TextBlock.InputBindings>
-            </TextBlock>
-            <TextBox Grid.Column="1" Grid.Row="1" FontSize="20" VerticalAlignment="Bottom" Margin="30,0,90,0"/>
-            <TextBlock Text="Фамилия" Grid.Column="0" Grid.Row="2"/>
-            <TextBox Grid.Column="1" Grid.Row="2" FontSize="20" VerticalAlignment="Center" Margin="30,0,90,0"/>
-            <TextBlock Text="Отчество" Grid.Column="0" Grid.Row="3"/>
-            <TextBox Grid.Column="1" Grid.Row="3" FontSize="20" VerticalAlignment="Center" Margin="30,0,90,0"/>
-            <TextBlock Text="Матч" Grid.Column="0" Grid.Row="4"/>
-            <ComboBox  Grid.Column="1" Grid.Row="4" Margin="30,0,90,0"  FontSize="17" VerticalAlignment="Center" IsEditable="True" FontWeight="DemiBold">
-                <ComboBoxItem>Динамо-Минск - Минск</ComboBoxItem>
-            </ComboBox>
-            <TextBlock Text="Сектор/Место" Grid.Column="0" Grid.Row="5"/>
-            <ComboBox  Grid.Column="1" Grid.Row="5" Width="60" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="30,0,0,0"/>
-            <ComboBox  Grid.Column="1" Grid.Row="5" Width="60" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-            <Button Grid.Column="1" Grid.Row="6" Content="Заказать" Height="40" FontSize="20" Margin="50,0,150,0" VerticalAlignment="Top" Command="{Binding ShowMessageBox}"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,90,0" Text="Заказать билет" FontSize="25" />
+            <ComboBox  Grid.Column="1" Grid.Row="3" Margin="30,0,90,0"  FontSize="17" VerticalAlignment="Center" IsEditable="True" FontWeight="DemiBold" materialDesign:HintAssist.Hint="Выберите матч" ItemsSource="{Binding Matches}" Text="{Binding SelectedMatch}"/>
+            <Button Grid.Column="1" Grid.Row="5" Content="Заказать" Height="40" FontSize="20" Margin="50,0,150,0" VerticalAlignment="Top" Command="{Binding CreateOrder}"/>
         </Grid>
     </Grid>
 </UserControl>

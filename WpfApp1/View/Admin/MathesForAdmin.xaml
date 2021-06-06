@@ -52,7 +52,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="1" Text="Добавить команду" FontSize="25" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Text="Добавить матч" FontSize="25" HorizontalAlignment="Center"/>
                 <TextBox Grid.Row="2"  materialDesign:HintAssist.Hint="Дата" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertDate,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged }" />
                 <TextBox Grid.Row="3"  materialDesign:HintAssist.Hint="Время" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertTime,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged }" />
                 <ComboBox Text="{Binding InsertFirstTeam}" ItemsSource="{Binding SelectedTeams}" Grid.Row="4"  materialDesign:HintAssist.Hint="Команда 1" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" />

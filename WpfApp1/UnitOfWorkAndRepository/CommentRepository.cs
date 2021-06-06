@@ -41,7 +41,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<Comment> GetAll()
 		{
-			return db.Comments.ToList();
+			return db.Comments.Include(t=>t.User).ToList();
 		}
 
 		public void Update(Comment item)

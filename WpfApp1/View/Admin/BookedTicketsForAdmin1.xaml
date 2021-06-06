@@ -12,11 +12,12 @@
     <ScrollViewer Background="White">
         <Grid Background="White">
             <Grid  Margin="50,20,50,0">
-                <ListBox HorizontalContentAlignment="Stretch">
+                <Button Content="Сохранить изменения" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Command="{Binding SaveChanges}"/>
+                <ListBox Margin="0,50,0,0" HorizontalContentAlignment="Stretch" ItemsSource="{Binding BookedTickets}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="OliveDrab" BorderThickness="2" Height="75" VerticalAlignment="top">
-                                <Grid >
+                                <Grid ShowGridLines="True">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -27,20 +28,17 @@
                                         <RowDefinition Height="0.5*"/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Дата" Style="{StaticResource Style1}"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Матч"  TextWrapping="Wrap" Style="{StaticResource Style1}" />
-                                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Город" Style="{StaticResource Style1}" />
-                                    <TextBlock Grid.Row="0" Grid.Column="3" Text="Стадион" Style="{StaticResource Style1}" />
-                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="01.01.2020 00:00:00" Style="{StaticResource Style2}" />
-                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Динамо Минск - Минск" Style="{StaticResource Style2}" />
-                                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Минск" Style="{StaticResource Style2}" />
-                                    <TextBlock Grid.Row="1" Grid.Column="3" Text="Динамо" Style="{StaticResource Style2}"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Логин Пользователя" Style="{StaticResource Style1}"/>
+                                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="1" Text="Матч" HorizontalAlignment="Center"  TextWrapping="Wrap" Style="{StaticResource Style1}" />
+                                    <TextBlock Grid.Row="0" Grid.Column="4" Text="Статус" Style="{StaticResource Style1}" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource Style1}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding UserId}" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource Style1}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Ticket.Game.Team1.TeamName}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource Style1}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Ticket.Game.Team2.TeamName}"/>
+                                    <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource Style1}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Status}" />
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                    <ListItem/>
-                    <ListItem/>
                 </ListBox>
             </Grid>
         </Grid>

@@ -41,7 +41,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<BookedTicket> GetAll()
 		{
-			return db.BookedTickets.ToList();
+			return db.BookedTickets.Include(t=>t.Ticket.Game.Team1).Include(t => t.Ticket.Game.Team2).ToList();
 		}
 
 		public void Update(BookedTicket item)

@@ -42,7 +42,7 @@ namespace WpfApp1.UnitOfWorkAndRepository
 
 		public IEnumerable<Game> GetAll()
 		{
-			return db.Games.Include(p=>p.Team1).Include(p=>p.Team2).ToList();
+			return db.Games.Include(p => p.Team1).Include(p => p.Team2).ToList();
 		}
 
 		public void Update(Game item)

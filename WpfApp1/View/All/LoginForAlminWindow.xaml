@@ -27,6 +27,7 @@
         <Viewbox  Grid.Column="1" Grid.Row="1">
             <TextBlock Text="Вход" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
         </Viewbox>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Mistake}" Foreground="Red"/>
         <PasswordBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Пароль" FontSize="20"
                      x:Name="PasswordBox"
          ff:PasswordBoxAssistant.BindPassword="true"  ff:PasswordBoxAssistant.BoundPassword="{Binding Path = Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

@@ -14,8 +14,18 @@ namespace WpfApp1.Models
 		public int Id { get; set; }
 		public string CommentDate { get; set; }
 		public string CommentText { get; set; }
+
 		//Вторичный ключ к таблицце Пользователь
-		public int UserId { get; set; }
+		public string UserId { get; set; }
+
+		public Comment(string userId, string commentDate, string commentText)
+		{
+			UserId = userId;
+			CommentDate = commentDate;
+			CommentText = commentText;
+		}
+		public Comment() { }
+
 		public virtual User User { get; set; } 
 	}
 }

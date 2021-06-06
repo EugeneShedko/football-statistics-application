@@ -34,7 +34,7 @@ namespace WpfApp1.ViewModels
 			//Регистрируем все страницы, которые возможно поместить в выбранный ContentControl
 			_smallnavigationLoginManager.AddUserControl<LoginWindowViewModel, LoginWindow>(new LoginWindowViewModel(_smallnavigationLoginManager, _navigationManager), NavigationKeys.LoginWindow);
 			_smallnavigationLoginManager.AddUserControl<RegisterWindowViewModel, RegisterWindow>(new RegisterWindowViewModel(_smallnavigationLoginManager, _navigationManager), NavigationKeys.RegisterWindow);
-			_smallnavigationLoginManager.AddUserControl<LoginForAdminWindowViewModel,LoginForAlminWindow>(new LoginForAdminWindowViewModel(_smallnavigationLoginManager, _navigationManager), NavigationKeys.LoginForAdminWindow);
+			_smallnavigationLoginManager.AddUserControl<LoginForAdminWindowViewModel, LoginForAlminWindow>(new LoginForAdminWindowViewModel(_smallnavigationLoginManager, _navigationManager), NavigationKeys.LoginForAdminWindow);
 			//Вызываем функцию для вставки новой страницы
 			_smallnavigationLoginManager.Insert(NavigationKeys.LoginWindow);
 		}

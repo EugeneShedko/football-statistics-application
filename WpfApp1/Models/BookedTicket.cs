@@ -13,9 +13,18 @@ namespace WpfApp1.Models
 		[Required]
 		public int Id { get; set; }
 		//Вторичный ключ к таблице Пользователь
-		public int UserId { get; set; }
+		public string UserId { get; set; }
 		//Вторичный ключ к таблице Билеты
 		public int TicketId { get; set; }
+		public string Status { get; set; }
+
+		public BookedTicket(string userId, int ticketId, string status)
+		{
+			UserId = userId;
+			TicketId = ticketId;
+			Status = status;
+		}
+		public BookedTicket() { }
 		public virtual Ticket Ticket { get; set; }
 		public virtual User User { get; set; }
 	}

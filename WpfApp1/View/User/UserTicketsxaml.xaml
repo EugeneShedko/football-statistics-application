@@ -7,46 +7,51 @@
              mc:Ignorable="d" 
                d:DesignHeight="985" d:DesignWidth="1480">
     <UserControl.Resources>
-        <ResourceDictionary Source="/WpfApp1;component/View/Resources/ResourcesDictionaries/ForUserTickets.xaml" />
+        <ResourceDictionary Source="/WpfApp1;component/View/Resources/ResourcesDictionaries/ForMainForUser.xaml"/>
     </UserControl.Resources>
     <ScrollViewer Background="White">
     <Grid Background="White">
-        <Grid  Margin="50,20,50,0">
-            <ListBox HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-        <Border BorderBrush="OliveDrab" BorderThickness="2" Height="75" VerticalAlignment="top">
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Дата" Style="{StaticResource Style1}"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Матч"  TextWrapping="Wrap" Style="{StaticResource Style1}" />
-                <TextBlock Grid.Row="0" Grid.Column="2" Text="Город" Style="{StaticResource Style1}" />
-                <TextBlock Grid.Row="0" Grid.Column="3" Text="Стадион" Style="{StaticResource Style1}" />
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="01.01.2020 00:00:00" Style="{StaticResource Style2}" />
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="Динамо Минск - Минск" Style="{StaticResource Style2}" />
-                <TextBlock Grid.Row="1" Grid.Column="2" Text="Минск" Style="{StaticResource Style2}" />
-                <TextBlock Grid.Row="1" Grid.Column="3" Text="Динамо" Style="{StaticResource Style2}"/>
-                <Viewbox Grid.RowSpan="2" Height="40" Grid.Column="4" Grid.Row="0">
-                <Button Content="Отменить заказ" Background="Red" Margin="30,0,30,0"  Command="{Binding DataContext.ShowWindow}" />
-                 </Viewbox>
-                 </Grid>
-                </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                <ListItem/>
-                <ListItem/>
-            </ListBox>
-        </Grid>
+            <Grid  Margin="50,20,50,0">
+                <ListBox IsHitTestVisible="False" ItemsSource="{Binding BookedTicket}" ItemContainerStyle="{StaticResource MaterialDesignCardsListBoxItem}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource OliveDrabBorder}" Height="75"  VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.2*"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.1*" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+      
+                                       
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Дата" HorizontalAlignment="Center" FontSize="15"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="Команда 1" HorizontalAlignment="Center" FontSize="15"/>
+                                    <TextBlock Grid.Column="2" Grid.Row="0" Text=""/>
+                                    <TextBlock Grid.Column="3" Grid.Row="0" Text="Команда 2" HorizontalAlignment="Center" FontSize="15"/>
+                                    <TextBlock Grid.Column="4" Grid.Row="0" Text="Город" HorizontalAlignment="Center" FontSize="15"/>
+                                    <TextBlock Grid.Column="5" Grid.Row="0" Text="Стадион" HorizontalAlignment="Center" FontSize="15"/>
+                                    <TextBlock Grid.Column="6" Grid.Row="0" Text="Статус" HorizontalAlignment="Center" FontSize="15"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Ticket.Game.DateOfMatch}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" Margin="9,0,0,0"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Ticket.Game.Team1.TeamName}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
+                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="-" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+                                    <TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding Ticket.Game.Team2.TeamName}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
+                                    <TextBlock Grid.Column="4" Grid.Row="1" Text="{Binding Ticket.Stadium}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
+                                    <TextBlock Grid.Column="5" Grid.Row="1" Text="{Binding Ticket.Town}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
+                                    <TextBlock Grid.Column="6" Grid.Row="1" Text="{Binding Status}" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
     </Grid>
     </ScrollViewer>
 </UserControl>

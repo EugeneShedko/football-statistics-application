@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp1.Commands;
 using WpfApp1.Navigation;
+using WpfApp1.UnitOfWorkAndRepository;
+using WpfApp1.View;
+using WpfApp1.View.Admin;
+using WpfApp1.ViewModels.Admin;
 
 namespace WpfApp1.ViewModels.All
 {
@@ -15,8 +19,15 @@ namespace WpfApp1.ViewModels.All
 		private string _password;
 		private NavigationManager _navigationManager;
 		private NavigationManager _smallNavigationLoginManagaer;
+		private NavigationManager _smallnavigationLoginManager;
+		private string mistake;
 		#endregion
 		#region Properties
+		public string Mistake
+		{
+			get { return mistake; }
+			set { Set(ref mistake, value); }
+		}
 		public string Password
 		{
 			get { return _password;}
@@ -44,6 +55,7 @@ namespace WpfApp1.ViewModels.All
 		}
 		private void ShowLoginWindowCommand(object parameter)
 		{
+			_smallNavigationLoginManagaer.AddUserControl<LoginWindowViewModel, LoginWindow>(new LoginWindowViewModel(_smallnavigationLoginManager, _navigationManager), NavigationKeys.LoginWindow);
 			_smallNavigationLoginManagaer.Insert(NavigationKeys.LoginWindow);
 		}
 		private bool CanShowMainWindowForInformationAdminCommand(object parameter)
@@ -52,7 +64,19 @@ namespace WpfApp1.ViewModels.All
 		}
 		private void ShowMainWindowForInformationAdminCommand(object parameter)
 		{
-			_navigationManager.Insert(NavigationKeys.MainWindowForInformationAdmin);
+			using (UnitOfWork db = new UnitOfWork())
+			{
+				bool isUser = db.Users.GetAll().Any(t => t.LoginId == "Admin" && t.Password == Password);
+				if (isUser == true)
+				{
+					_navigationManager.AddUserControl<MainWindowForInformationAdminViewModel, MainWindowForInformationAdmin>(new MainWindowForInformationAdminViewModel(_navigationManager), NavigationKeys.MainWindowForInformationAdmin);
+					_navigationManager.Insert(NavigationKeys.MainWindowForInformationAdmin);
+				}
+				else
+				{
+					Mistake = "Неверно введен логи или пароль";
+				}
+			}
 		}
 		#endregion
 		#region Methods

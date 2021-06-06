@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp1.Commands;
 using WpfApp1.Navigation;
+using WpfApp1.UnitOfWorkAndRepository;
 using WpfApp1.View;
 using WpfApp1.View.User;
 using WpfApp1.ViewModels.User;
@@ -17,6 +18,15 @@ namespace WpfApp1.ViewModels
 		#region Fields
 		private NavigationManager _navigationManager;
 		private NavigationManager _smallNavigationInfoManager;
+		private string currentuser;
+		private string showUser;
+		#endregion
+		#region Properties
+		public string ShowUser
+		{
+			get { return showUser; }
+			set { Set(ref showUser, value); }
+		}
 		#endregion
 		#region Constructors
 		public MainWindowForInformationViewModelUser(NavigationManager navigationManager) : this()
@@ -31,7 +41,6 @@ namespace WpfApp1.ViewModels
 			ShowTicketsUserWindow = new DelegateCommand(ShowTicketsUserWindowCommand, CanShowTicketsUserWindowCommand);
 			ShowCommentUserWindow = new DelegateCommand(ShowCommentUserWindowCommand, CanShowCommentUserWindowCommand);
 			ShowExitUserWindow = new DelegateCommand(ShowExitUserWindowCommand, CanShowExitUserWindowCommand);
-			ShowUserProfileWindow = new DelegateCommand(ShowUserProfileWindowCommand, CanShowUserProfileWindowCommand);
 			ShowUserTicketsWindow = new DelegateCommand(ShowUserTicketsWindowCommand, CanShowUserTicketsWindowCommand);
 		}
 		#endregion
@@ -50,6 +59,7 @@ namespace WpfApp1.ViewModels
 		}
 		private void ShowMainUserWindowCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<MainForUserViewModel, MainForUser>(new MainForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.MainForUser);
 			_smallNavigationInfoManager.Insert(NavigationKeys.MainForUser);
 		}
 		private bool CanShowTournamentTableUserWindowCommand(object parameter)
@@ -58,6 +68,7 @@ namespace WpfApp1.ViewModels
 		}
 		private void ShowTournamentTableUserWindowCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<TournamentTableUserViewModel, TournamentTableForUser>(new TournamentTableUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TournamentTableForUser);
 			_smallNavigationInfoManager.Insert(NavigationKeys.TournamentTableForUser);
 		}
 		private bool CanShowStatisticWindowCommand(object parameter)
@@ -66,6 +77,7 @@ namespace WpfApp1.ViewModels
 		}
 		private void ShowStatisticWindowCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<StatisticForUserViewModel, StatisticForUser>(new StatisticForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.StatisticForUser);
 			_smallNavigationInfoManager.Insert(NavigationKeys.StatisticForUser);
 		}
 		private bool CanShowTicketsUserWindowCommand(object parameter)
@@ -74,7 +86,8 @@ namespace WpfApp1.ViewModels
 		}
 		private void ShowTicketsUserWindowCommand(object parameter)
 		{
-			_smallNavigationInfoManager.Insert(NavigationKeys.TicketsForUser);
+			_smallNavigationInfoManager.AddUserControl<TicketsForUserViewModel, TicketsForUser>(new TicketsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TicketsForUser);
+			_smallNavigationInfoManager.Insert(NavigationKeys.TicketsForUser, currentuser);
 		}
 		private bool CanShowCommentUserWindowCommand(object parameter)
 		{
@@ -82,7 +95,8 @@ namespace WpfApp1.ViewModels
 		}
 		private void ShowCommentUserWindowCommand(object parammeter)
 		{
-			_smallNavigationInfoManager.Insert(NavigationKeys.CommentForUser);
+			_smallNavigationInfoManager.AddUserControl<CommentForUserViewModel, CommentForUser>(new CommentForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.CommentForUser);
+			_smallNavigationInfoManager.Insert(NavigationKeys.CommentForUser, currentuser);
 		}
 		private bool CanShowExitUserWindowCommand(object parameter)
 		{
@@ -90,15 +104,8 @@ namespace WpfApp1.ViewModels
 		}
 		private void ShowExitUserWindowCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<ExitWindowViewModel, ExitWindowForUser>(new ExitWindowViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.ExitWindowForUser);
 			_smallNavigationInfoManager.Insert(NavigationKeys.ExitWindowForUser);
-		}
-		private bool CanShowUserProfileWindowCommand(object parameter)
-		{
-			return true;
-		}
-		private void ShowUserProfileWindowCommand(object parameter)
-		{
-			_smallNavigationInfoManager.Insert(NavigationKeys.UserProfile);
 		}
 		private bool CanShowUserTicketsWindowCommand(object parameter)
 		{
@@ -106,14 +113,20 @@ namespace WpfApp1.ViewModels
 		}
 		private void ShowUserTicketsWindowCommand(object parameter)
 		{
-			_smallNavigationInfoManager.Insert(NavigationKeys.UserTickets);
+			_smallNavigationInfoManager.AddUserControl<UserTicketsViewModel, UserTicketsxaml>(new UserTicketsViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.UserTickets);
+			_smallNavigationInfoManager.Insert(NavigationKeys.UserTickets, currentuser);
 		}
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}
 		public void ActionsBeforeInsert(object parameters = null)
 		{
-			//Достаем из коллекции объект данного типа, преобразеуем его и берем от него ContentControl
+			currentuser = (string)parameters;
+			using (UnitOfWork db = new UnitOfWork())
+			{
+				ShowUser = db.Users.GetAll().Where(t => t.LoginId == currentuser).Select(t => t.Name).First();
+			}
+				//Достаем из коллекции объект данного типа, преобразеуем его и берем от него ContentControl
 			_smallNavigationInfoManager = new NavigationManager(_navigationManager._Dispatcher, ((MainWindowForInformation)_navigationManager.ViewTypesByViewModelTypes[this.GetType()]).ForInformation, _navigationManager.Mainwindow);
 			//Регистрируем все страницы, которые возможно поместить и использовать в рамках выбранного ContentControl
 			_smallNavigationInfoManager.AddUserControl<MainForUserViewModel, MainForUser>(new MainForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.MainForUser);
@@ -122,7 +135,6 @@ namespace WpfApp1.ViewModels
 			_smallNavigationInfoManager.AddUserControl<TicketsForUserViewModel, TicketsForUser>(new TicketsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TicketsForUser);
 			_smallNavigationInfoManager.AddUserControl<CommentForUserViewModel, CommentForUser>(new CommentForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.CommentForUser);
 			_smallNavigationInfoManager.AddUserControl<ExitWindowViewModel,ExitWindowForUser> (new ExitWindowViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.ExitWindowForUser);
-			_smallNavigationInfoManager.AddUserControl<UserProfileViewModel, UserProfile>(new UserProfileViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.UserProfile);
 			_smallNavigationInfoManager.AddUserControl<UserTicketsViewModel, UserTicketsxaml>(new UserTicketsViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.UserTickets);
 			_smallNavigationInfoManager.AddWindow<NewsForUserViewModel, NewsForUser>(new NewsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForUser);
 			//Вызываем функцию для вставки новой страницы

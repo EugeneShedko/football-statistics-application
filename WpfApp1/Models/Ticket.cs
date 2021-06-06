@@ -16,6 +16,7 @@ namespace WpfApp1.Models
 		public int Id { get; set; }
 		public string Town { get; set; }
 		public string Stadium { get; set; }
+		public int GameId { get; set; }
 
 		public Ticket(int id, string town, string stadium)
 		{
