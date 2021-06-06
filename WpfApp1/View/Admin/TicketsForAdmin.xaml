@@ -29,6 +29,7 @@
                     <DataGridTextColumn Header="Город" Width="120" Binding="{Binding Town}"/>
                     <DataGridTextColumn Header="Стадион" Width="120" Binding="{Binding Stadium}"/>
                     <DataGridTextColumn Header="Тур" Binding="{Binding Game.Tour}"/>
+                    <DataGridTextColumn Header="Кол. Мест" Binding="{Binding CountOfPlace}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
@@ -57,10 +58,11 @@
                 <ComboBox Grid.Row="4"  materialDesign:HintAssist.Hint="Дата и Время" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" ItemsSource="{Binding Time}" Text="{Binding InsertTime}"/>
                 <TextBox Grid.Row="5"  materialDesign:HintAssist.Hint="Город" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertStadium, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBox Grid.Row="6"  materialDesign:HintAssist.Hint="Стадион" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding InsertTown, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Grid.Row="7"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding CreateTicket}" />
-                <TextBlock Grid.Row="8" Text="Удалить билет" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                <TextBox Grid.Row="9"  materialDesign:HintAssist.Hint="Id билета" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding DeleteTicketId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
-                <Button Grid.Row="10" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding DeleteTicket}" />
+                <TextBox Grid.Row="7"  materialDesign:HintAssist.Hint="Количество мест" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding CountOfPlace, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Grid.Row="8"  Content="Добавить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding CreateTicket}" />
+                <TextBlock Grid.Row="9" Text="Удалить билет" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Row="10"  materialDesign:HintAssist.Hint="Id билета" FontSize="20" VerticalAlignment="Center" Margin="50,0,50,0" Text="{Binding DeleteTicketId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Grid.Row="11" Background="Red"  Content="Удалить" FontSize="20" Margin="50,0,50,0" Height="35" Command="{Binding DeleteTicket}" />
             </Grid>
         </Border>
     </Grid>

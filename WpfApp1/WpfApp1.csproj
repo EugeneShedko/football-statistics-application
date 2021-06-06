@@ -121,6 +121,7 @@
     <Compile Include="ViewModels\User\StatisticForUserViewModel.cs" />
     <Compile Include="ViewModels\User\TicketsForUserViewModel.cs" />
     <Compile Include="ViewModels\User\TournamentTableUserViewModel.cs" />
+    <Compile Include="ViewModels\User\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\User\UserTicketsViewModel.cs" />
     <Compile Include="View\Admin\BookedTicketsForAdmin1.xaml.cs">
       <DependentUpon>BookedTicketsForAdmin1.xaml</DependentUpon>
@@ -181,6 +182,9 @@
     </Compile>
     <Compile Include="View\User\TournamentTableForUser.xaml.cs">
       <DependentUpon>TournamentTableForUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\UserProfile.xaml.cs">
+      <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\User\UserTicketsxaml.xaml.cs">
       <DependentUpon>UserTicketsxaml.xaml</DependentUpon>
@@ -295,6 +299,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\User\TournamentTableForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UserProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

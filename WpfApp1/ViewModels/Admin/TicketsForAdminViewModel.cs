@@ -28,6 +28,7 @@ namespace WpfApp1.ViewModels.Admin
 		private string _insertTime;
 		private string _searchTicketId;
 		private string _deleteTicketId;
+		private string _countOfPlace;
 		private string _mistake;
 		public ObservableCollection<string> _time;
 
@@ -37,6 +38,26 @@ namespace WpfApp1.ViewModels.Admin
 
 		#endregion
 		#region Properties
+		public string CountOfPlace
+		{
+			get { return _countOfPlace; }
+			set 
+			{ 
+				Set(ref _countOfPlace, value);
+				string str = @"[0-9]";
+				if (CountOfPlace != null)
+				{
+					if (!Regex.IsMatch(CountOfPlace, str))
+					{
+						errors["CountOfPlace"] = "Неверный формат данных, возможны только цифры";
+					}
+					else
+					{
+						errors["CountOfPlace"] = null;
+					}
+				}
+			}
+		}
 		public string Mistake
 		{
 			get { return _mistake; }
@@ -134,7 +155,7 @@ namespace WpfApp1.ViewModels.Admin
 				{
 					Time = new ObservableCollection<string>(db.Games.GetAll().Where(t => t.Team1.TeamName == InsertFirstTeamName && t.Team2.TeamName == InsertSecondTeamName).Select(t => t.DateOfMatch));
 				}
-				if (Time.Count == 0)
+				if (Time.Count == 0 && InsertFirstTeamName!= null && InsertSecondTeamName != null)
 				{
 					Mistake = "Такого матча нет";
 				}
@@ -185,6 +206,7 @@ namespace WpfApp1.ViewModels.Admin
 			errors["InsertStadium"] = null;
 			errors["InsertTown"] = null;
 			errors["DeleteTicketId"] = null;
+			errors["CountOfPlace"] = null;
 			SearchTicket = new DelegateCommand(SearchTicketCommand, CanSearchTicketCommand);
 			Back = new DelegateCommand(BackCommand, CanBackCommand);
 			CreateTicket = new DelegateCommand(CreateTicketCommand, CanCreateTicketCommand);
@@ -253,7 +275,7 @@ namespace WpfApp1.ViewModels.Admin
 						IEnumerable<Game> allid = db.Games.GetAll().Where(t => t.Team1.TeamName == InsertFirstTeamName && t.Team2.TeamName == InsertSecondTeamName);
 						int id = allid.Where(t => t.DateOfMatch == InsertTime).Select(t => t.Id).First();
 						//Поменять немного класс и конструктор
-						Ticket newTicket = new Ticket(id, InsertTown, InsertStadium);
+						Ticket newTicket = new Ticket(id, InsertTown, InsertStadium, Convert.ToInt32(CountOfPlace));
 						db.Tickets.Create(newTicket);
 						db.Save();
 						UserTickets = new ObservableCollection<Ticket>(db.Tickets.GetAll().OrderByDescending(t => t.Id));

@@ -42,6 +42,7 @@ namespace WpfApp1.ViewModels
 			ShowCommentUserWindow = new DelegateCommand(ShowCommentUserWindowCommand, CanShowCommentUserWindowCommand);
 			ShowExitUserWindow = new DelegateCommand(ShowExitUserWindowCommand, CanShowExitUserWindowCommand);
 			ShowUserTicketsWindow = new DelegateCommand(ShowUserTicketsWindowCommand, CanShowUserTicketsWindowCommand);
+			ShowUserProfileWindow = new DelegateCommand(ShowUserProfileWindowCommand, CanShowUserProfileWindowCommand);
 		}
 		#endregion
 		#region Commands
@@ -115,6 +116,15 @@ namespace WpfApp1.ViewModels
 		{
 			_smallNavigationInfoManager.AddUserControl<UserTicketsViewModel, UserTicketsxaml>(new UserTicketsViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.UserTickets);
 			_smallNavigationInfoManager.Insert(NavigationKeys.UserTickets, currentuser);
+		}
+		private bool CanShowUserProfileWindowCommand(object parameter)
+		{
+			return true;
+		}
+		private void ShowUserProfileWindowCommand(object parameter)
+		{
+			_smallNavigationInfoManager.AddUserControl<UserProfileViewModel, UserProfile>(new UserProfileViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.UserProfile);
+			_smallNavigationInfoManager.Insert(NavigationKeys.UserProfile, currentuser);
 		}
 		#endregion
 		#region Methods

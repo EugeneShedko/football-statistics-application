@@ -39,6 +39,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,90,0" Text="Заказать билет" FontSize="25" />
             <ComboBox  Grid.Column="1" Grid.Row="3" Margin="30,0,90,0"  FontSize="17" VerticalAlignment="Center" IsEditable="True" FontWeight="DemiBold" materialDesign:HintAssist.Hint="Выберите матч" ItemsSource="{Binding Matches}" Text="{Binding SelectedMatch}"/>
+            <ComboBox  Grid.Column="1" Grid.Row="4" Margin="30,0,90,0"  FontSize="17" VerticalAlignment="Center" IsEditable="True" FontWeight="DemiBold" materialDesign:HintAssist.Hint="Выберите место" ItemsSource="{Binding Matches}" Text="{Binding SelectedMatch}"/>
             <Button Grid.Column="1" Grid.Row="5" Content="Заказать" Height="40" FontSize="20" Margin="50,0,150,0" VerticalAlignment="Top" Command="{Binding CreateOrder}"/>
         </Grid>
     </Grid>

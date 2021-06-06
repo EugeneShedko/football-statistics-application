@@ -20,7 +20,7 @@
         <Button Command="{Binding SearchGames}" Content="Найти" HorizontalAlignment="Center"/>
         <Button Command="{Binding Back}" Content="Назад" HorizontalAlignment="Center" Margin="180,0,0,0"/>
         <ScrollViewer Grid.Column="0" Grid.Row="1">
-            <DataGrid HorizontalAlignment="Center" ItemsSource="{Binding UserGames}" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid HorizontalAlignment="Center" ItemsSource="{Binding UserGames}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id матча" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Дата матча" Binding="{Binding DateOfMatch}"/>

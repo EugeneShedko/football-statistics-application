@@ -16,12 +16,11 @@ namespace WpfApp1.Models
 		public string Name { get; set; }
 		public string Age {get;set;}
 		public string DateOfBirthd { get; set; }
-		public string Email { get; set; }
 		public string Country { get; set; }
 		public string Town { get; set; }
 
 		public User(string loginId, string password, string familyName, string name, string age = null, string dataOfBitrh = null,
-			string email = null, string country = null, string town = null)
+			 string country = null, string town = null)
 		{
 			LoginId = loginId;
 			Password = password;
@@ -29,7 +28,6 @@ namespace WpfApp1.Models
 			Name = name;
 			Age = age;
 			DateOfBirthd = dataOfBitrh;
-			Email = email;
 			Country = country;
 			Town = town;
 		}
