@@ -16,13 +16,16 @@ namespace WpfApp1.Models
 		public string UserId { get; set; }
 		//Вторичный ключ к таблице Билеты
 		public int TicketId { get; set; }
+		
+		public string Place { get; set; }
 		public string Status { get; set; }
 
-		public BookedTicket(string userId, int ticketId, string status)
+		public BookedTicket(string userId, int ticketId, string status, string place)
 		{
 			UserId = userId;
 			TicketId = ticketId;
 			Status = status;
+			Place = place;
 		}
 		public BookedTicket() { }
 		public virtual Ticket Ticket { get; set; }

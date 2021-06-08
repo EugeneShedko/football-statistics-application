@@ -60,7 +60,7 @@ namespace WpfApp1.ViewModels.User
 					Comment newComment = new Comment(userId, Convert.ToString(DateTime.Now), Message);
 					db.Comments.Create(newComment);
 					db.Save();
-					HistoryMessage = new ObservableCollection<Comment>(db.Comments.GetAll());
+					HistoryMessage = new ObservableCollection<Comment>(db.Comments.GetAll().OrderByDescending(t=>t.Id));
 					Message = null;
 				}
 			}
@@ -74,7 +74,7 @@ namespace WpfApp1.ViewModels.User
 			currentUser = (string)parameters;
 			using (UnitOfWork db = new UnitOfWork() )
 			{
-				HistoryMessage = new ObservableCollection<Comment>(db.Comments.GetAll());
+				HistoryMessage = new ObservableCollection<Comment>(db.Comments.GetAll().OrderByDescending(t=>t.Id));
 			}
 		}
 		#endregion

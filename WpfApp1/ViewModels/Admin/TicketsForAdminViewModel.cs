@@ -289,6 +289,7 @@ namespace WpfApp1.ViewModels.Admin
 					InsertSecondTeamName = null;
 					InsertStadium = null;
 					InsertTown = null;
+					CountOfPlace = null;
 				}
 				catch { }
 			}

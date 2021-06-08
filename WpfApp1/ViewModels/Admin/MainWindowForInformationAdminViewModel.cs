@@ -50,6 +50,7 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void ShowMatchesForAdminWindowCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<MathesForAdminViewModel, MathesForAdmin>(new MathesForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.MathesForAdmin);
 			_smallNavigationInfoManager.Insert(NavigationKeys.MathesForAdmin);
 		}
 		private bool CanShowNewsForAdminWindowCommand(object parameter)
@@ -58,6 +59,7 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void ShowNewsForAdminCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<NewsForAdminViewModel, NewForAdmin>(new NewsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForAdmin);
 			_smallNavigationInfoManager.Insert(NavigationKeys.NewsForAdmin);
 		}
 		private bool CanShowTournamentTableForAdminCommand(object parameter)
@@ -66,6 +68,7 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void ShowTournamentTableForAdminCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<TournamentTableForAdminViewModel, TournamentTableForAdmin>(new TournamentTableForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TournamentTableForAdmin);
 			_smallNavigationInfoManager.Insert(NavigationKeys.TournamentTableForAdmin);
 		}
 		private bool CanShowStatisticForAdminCommand(object parameter)
@@ -74,6 +77,7 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void ShowStatisticForAdminCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<StatisticForAdminViewModel, StatisticForAdmin>(new StatisticForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.StatisticForAdmin);
 			_smallNavigationInfoManager.Insert(NavigationKeys.StatisticForAdmin);
 		}
 		private bool CanShowTicketsForAdminCommand(object parameter)
@@ -82,6 +86,7 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void ShowTicketsForAdminCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<TicketsForAdminViewModel, TicketsForAdmin>(new TicketsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TicketsForAdmin);
 			_smallNavigationInfoManager.Insert(NavigationKeys.TicketsForAdmin);
 		}
 		private bool CanShowExitForAdminCommand(object parameter)
@@ -90,6 +95,7 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void ShowExitForAdminCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<ExitWindowViewModel, ExitForAdmin>(new ExitWindowViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.ExitForAdmin);
 			_smallNavigationInfoManager.Insert(NavigationKeys.ExitForAdmin);
 		}
 		private bool CanShowBookedForAdminCommand(object parameter)
@@ -98,6 +104,7 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void ShowBookedForAdminCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<BookedTicketsForAdminViewModel, BookedTicketsForAdmin1>(new BookedTicketsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.BookedTicketsForUser);
 			_smallNavigationInfoManager.Insert(NavigationKeys.BookedTicketsForUser);
 		}
 		#endregion
@@ -108,12 +115,12 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			_smallNavigationInfoManager = new NavigationManager(_navigationManager._Dispatcher, ((MainWindowForInformationAdmin)_navigationManager.ViewTypesByViewModelTypes[this.GetType()]).ForInformation, _navigationManager.Mainwindow);
 			_smallNavigationInfoManager.AddUserControl<MathesForAdminViewModel, MathesForAdmin>(new MathesForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.MathesForAdmin);
-			_smallNavigationInfoManager.AddUserControl<NewsForAdminViewModel, NewForAdmin>(new NewsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForAdmin);
-			_smallNavigationInfoManager.AddUserControl<TournamentTableForAdminViewModel, TournamentTableForAdmin>(new TournamentTableForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TournamentTableForAdmin);
-			_smallNavigationInfoManager.AddUserControl<StatisticForAdminViewModel, StatisticForAdmin>(new StatisticForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.StatisticForAdmin);
-			_smallNavigationInfoManager.AddUserControl<TicketsForAdminViewModel, TicketsForAdmin>( new TicketsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TicketsForAdmin);
-			_smallNavigationInfoManager.AddUserControl<ExitWindowViewModel, ExitForAdmin>(new ExitWindowViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.ExitForAdmin);
-			_smallNavigationInfoManager.AddUserControl<BookedTicketsForAdminViewModel, BookedTicketsForAdmin1>(new BookedTicketsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.BookedTicketsForUser);
+			//_smallNavigationInfoManager.AddUserControl<NewsForAdminViewModel, NewForAdmin>(new NewsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForAdmin);
+			//_smallNavigationInfoManager.AddUserControl<TournamentTableForAdminViewModel, TournamentTableForAdmin>(new TournamentTableForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TournamentTableForAdmin);
+			//_smallNavigationInfoManager.AddUserControl<StatisticForAdminViewModel, StatisticForAdmin>(new StatisticForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.StatisticForAdmin);
+			//_smallNavigationInfoManager.AddUserControl<TicketsForAdminViewModel, TicketsForAdmin>( new TicketsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.TicketsForAdmin);
+			//_smallNavigationInfoManager.AddUserControl<ExitWindowViewModel, ExitForAdmin>(new ExitWindowViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.ExitForAdmin);
+			//_smallNavigationInfoManager.AddUserControl<BookedTicketsForAdminViewModel, BookedTicketsForAdmin1>(new BookedTicketsForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.BookedTicketsForUser);
 			_smallNavigationInfoManager.Insert(NavigationKeys.MathesForAdmin);
 		}
 		#endregion

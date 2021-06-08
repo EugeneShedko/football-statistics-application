@@ -20,13 +20,31 @@ namespace WpfApp1.ViewModels.User
 		private NavigationManager _smallNavigationInfoManager;
 		private string currentUser;
 		private string _selectedMatch;
+		private string _selectedPlace;
 		private ObservableCollection<string> _matches;
+		private ObservableCollection<int> _freePlaces;
 		#endregion
 		#region Properties
+		public ObservableCollection<int> FreePlaces
+		{
+			get { return _freePlaces; }
+			set { Set(ref _freePlaces, value); }
+		}
+		public string SelectedPlace
+		{
+			get { return _selectedPlace; }
+			set { Set(ref _selectedPlace, value); }
+		}
 		public string SelectedMatch
 		{
 			get { return _selectedMatch; }
-			set { Set(ref _selectedMatch, value); }
+			set {
+				Set(ref _selectedMatch, value);
+				if (SelectedMatch != null)
+				{
+					FreePlacesForMatch();
+				}
+			}
 		}
 		public ObservableCollection<string> Matches
 		{
@@ -63,11 +81,14 @@ namespace WpfApp1.ViewModels.User
 			using (UnitOfWork db = new UnitOfWork())
 			{
 				int id = db.Tickets.GetAll().Where(t => t.Game.Team1.TeamName + " - " + t.Game.Team2.TeamName == SelectedMatch).Select(t=>t.Id).First();
-				BookedTicket orderTicket = new BookedTicket(currentUser, id, "Обрабатывается" );
+				BookedTicket orderTicket = new BookedTicket(currentUser, id, "Обрабатывается", SelectedPlace );
 				db.BookedTickets.Create(orderTicket);
 				db.Save();
 				MessageBox.Show("Ваш билет заказан!");
 			}
+			SelectedMatch = null;
+			SelectedPlace = null;
+			FreePlaces.Clear();
 		}
 		#endregion
 		#region Methods
@@ -80,7 +101,29 @@ namespace WpfApp1.ViewModels.User
 			{
 				Matches = new ObservableCollection<string>(db.Tickets.GetAll().Select(t=>t.Game.Team1.TeamName + " - " + t.Game.Team2.TeamName));
 			}
-
+		}
+		private void FreePlacesForMatch()
+		{
+			using (UnitOfWork db = new UnitOfWork())
+			{
+				FreePlaces = new ObservableCollection<int>();
+				//Находим билет, который создал админ
+				int id = db.Tickets.GetAll().Where(t => t.Game.Team1.TeamName + " - " + t.Game.Team2.TeamName == SelectedMatch).Select(t => t.Id).First();
+				//Затем узнаем количество мест в этом билете
+				int countOfPlace = db.Tickets.GetAll().Where(t => t.Id == id).Select(t => t.CountOfPlace).First();
+				//Затем создаю коллецию размером с количеством мест в билете, созданным администартором
+				for (int i = 1; i <= countOfPlace; i++)
+				{
+					FreePlaces.Add(i);
+				}
+				//Затем получаем все заказанные места из заказанных билетов, которые соответсвуют выбраному типу
+				IEnumerable<string> occupiedPlaces = db.BookedTickets.GetAll().Where(t => t.TicketId == id).Select(t => t.Place);
+				//Затем удаляю из созданной коллекции все заказанные места, тем самым получаю все свободные
+				for (int i = 0; i < occupiedPlaces.ToList().Count; i++)
+				{
+					FreePlaces.Remove(Convert.ToInt32(occupiedPlaces.ToList()[i]));
+				}
+			}
 		}
 		#endregion
 	}

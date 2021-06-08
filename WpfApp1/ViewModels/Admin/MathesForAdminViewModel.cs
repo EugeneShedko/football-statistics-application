@@ -275,17 +275,38 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				if (db.Games.Delete(Convert.ToInt32(DeleteTeamId)))
+				bool isTickets = db.Tickets.GetAll().Any(t => t.Id == Convert.ToInt32(DeleteTeamId));
+				if (isTickets == true)
 				{
-					db.Save();
-					UserGames = new ObservableCollection<Game>(db.Games.GetAll());
-					MessageBox.Show("Данные успешно удалены!");
+					if (db.Tickets.Delete(Convert.ToInt32(DeleteTeamId)))
+					{
+						if (db.Games.Delete(Convert.ToInt32(DeleteTeamId)))
+						{
+							db.Save();
+							UserGames = new ObservableCollection<Game>(db.Games.GetAll().OrderBy(p => Convert.ToInt32(p.Tour.Substring(4))));
+							MessageBox.Show("Данные успешно удалены!");
+						}
+						else
+						{
+							MessageBox.Show("Не удалось найти матч с указанным Id");
+						}
+						DeleteTeamId = null;
+					}
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти матч с указанным Id");
+					if (db.Games.Delete(Convert.ToInt32(DeleteTeamId)))
+					{
+						db.Save();
+						UserGames = new ObservableCollection<Game>(db.Games.GetAll().OrderBy(p => Convert.ToInt32(p.Tour.Substring(4))));
+						MessageBox.Show("Данные успешно удалены!");
+					}
+					else
+					{
+						MessageBox.Show("Не удалось найти матч с указанным Id");
+					}
+					DeleteTeamId = null;
 				}
-				DeleteTeamId = null;
 			}
 		}
 		//--------------------------------------------------------
@@ -317,7 +338,7 @@ namespace WpfApp1.ViewModels.Admin
 					Game newGame = new Game(id1, id2, InsertDate + ' ' + InsertTime, InsertFirstTeamGoals, InsertSecondTeamGoals, "Тур " + InsertTour);
 					db.Games.Create(newGame);
 					db.Save();
-					UserGames = new ObservableCollection<Game>(db.Games.GetAll().OrderBy(t=>t.Tour));
+					UserGames = new ObservableCollection<Game>(db.Games.GetAll().OrderBy(p => Convert.ToInt32(p.Tour.Substring(4))));
 					MessageBox.Show("Новый матч добавлен!");
 					InsertDate = null;
 					InsertFirstTeam = null;
@@ -338,7 +359,7 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				UserGames = new ObservableCollection<Game>(db.Games.GetAll().OrderBy(p=>p.Id));
+				UserGames = new ObservableCollection<Game>(db.Games.GetAll().OrderBy(p => Convert.ToInt32(p.Tour.Substring(4))));
 				SelectedTeams = new ObservableCollection<string>(db.Teams.GetAll().Select(t => t.TeamName));
 			}
 		}

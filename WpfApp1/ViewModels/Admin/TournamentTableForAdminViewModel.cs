@@ -287,15 +287,37 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				if (db.Teams.Delete(Convert.ToInt32(DeleteTeamId)))
+				bool isMatch = db.Games.GetAll().Any(t=>t.TeamId1 == Convert.ToInt32(DeleteTeamId) || t.TeamId2 == Convert.ToInt32(DeleteTeamId));
+				if (isMatch == true)
 				{
-					db.Save();
-					UserTeams = new ObservableCollection<Team>(db.Teams.GetAll());
-					MessageBox.Show("Данные успешно удалены!");
+					IEnumerable<int> idMatches = db.Games.GetAll().Where(t => t.TeamId1 == Convert.ToInt32(DeleteTeamId) || t.TeamId2 == Convert.ToInt32(DeleteTeamId)).Select(t => t.Id);
+					for (int i = 0; i < idMatches.ToList().Count; i++)
+					{
+						db.Games.Delete(idMatches.ToList()[i]);
+					}
+					if (db.Teams.Delete(Convert.ToInt32(DeleteTeamId)))
+					{
+						db.Save();
+						UserTeams = new ObservableCollection<Team>(db.Teams.GetAll());
+						MessageBox.Show("Данные успешно удалены!");
+					}
+					else
+					{
+						MessageBox.Show("Не удалось найти команду с указанным Id");
+					}
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти команду с указанным Id");
+					if (db.Teams.Delete(Convert.ToInt32(DeleteTeamId)))
+					{
+						db.Save();
+						UserTeams = new ObservableCollection<Team>(db.Teams.GetAll());
+						MessageBox.Show("Данные успешно удалены!");
+					}
+					else
+					{
+						MessageBox.Show("Не удалось найти команду с указанным Id");
+					}
 				}
 				DeleteTeamId = null;
 			}
@@ -329,7 +351,7 @@ namespace WpfApp1.ViewModels.Admin
 						Convert.ToInt32(InsertCountOfLose), Convert.ToInt32(InsertCountOfScoredGoals), Convert.ToInt32(InsertCountOfConsededGoals));
 					db.Teams.Create(newTeam);
 					db.Save();
-					UserTeams = new ObservableCollection<Team>(db.Teams.GetAll());
+					UserTeams = new ObservableCollection<Team>(db.Teams.GetAll().OrderByDescending(p => Convert.ToInt32(p.GoalsDifference)).OrderByDescending(t => Convert.ToInt32(t.Points)));
 					MessageBox.Show("Новая команда добавлена!");
 					InsertTeamName = null;
 					InsertCountOfGame = null;
@@ -337,7 +359,7 @@ namespace WpfApp1.ViewModels.Admin
 					InsertCountOfDraws = null;
 					InsertCountOfLose = null;
 					InsertCountOfScoredGoals = null;
-					_insertCountOfConsededGoals = null;
+					InsertCountOfConsededGoals = null;
 				}
 				catch { }
 			}
