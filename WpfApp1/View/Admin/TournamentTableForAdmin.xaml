@@ -19,7 +19,6 @@
         <TextBox  materialDesign:HintAssist.Hint="Id команды" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="60,0,0,0" FontSize="20" Text="{Binding SearchTeamId,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Content="Найти" HorizontalAlignment="Center" Margin="30,0,0,0" Command="{Binding SearchTeams}"/>
         <Button Content="Назад" HorizontalAlignment="Center" Margin="210,0,0,0" Command="{Binding Back}"/>
-        <Button Content="Cортировать" HorizontalAlignment="Right" Margin="0,0,80,0" Command="{Binding Sorted}"/>
         <ScrollViewer Grid.Column="0" Grid.Row="1">
             <DataGrid HorizontalAlignment="Center" IsReadOnly="True" ItemsSource="{Binding UserTeams}" AutoGenerateColumns="False">
                 <DataGrid.Columns>

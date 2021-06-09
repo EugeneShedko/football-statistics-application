@@ -18,7 +18,6 @@ namespace WpfApp1.ViewModels.User
 		#endregion
 		#region Properties
 		public ObservableCollection<Team> Teams { get; set; }
-		public ObservableCollection<int> Number { get; set; }
 		#endregion
 		#region Constructors
 		public TournamentTableUserViewModel(NavigationManager smallNaviagtionManager, NavigationManager navigationManager) : this()
@@ -33,14 +32,9 @@ namespace WpfApp1.ViewModels.User
 
 		public void ActionsBeforeInsert(object parameters = null)
 		{
-			Number = new ObservableCollection<int>();
 			using (UnitOfWork db = new UnitOfWork())
 			{
 				Teams = new ObservableCollection<Team>(db.Teams.GetAll().OrderByDescending(p=> Convert.ToInt32(p.GoalsDifference)).OrderByDescending(p => Convert.ToInt32(p.Points)));
-			}
-			for (int i = 0; i < Teams.Count; i++)
-			{
-				Number.Add(i);
 			}
 		}
 		#endregion

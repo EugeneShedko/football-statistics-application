@@ -216,7 +216,6 @@ namespace WpfApp1.ViewModels.Admin
 		public ICommand DeleteGames { get; set; }
 		public ICommand SearchGames { get; set; }
 		public ICommand Back { get; set; }
-
 		//---------------------------------------------------------
 		public bool CanBackCommand(object parameter)
 		{
@@ -246,14 +245,18 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				Game searchGame = db.Games.GetAll().Where(t=>t.Id == Convert.ToInt32(SearchTeamId)).First();             
-				if (searchGame != null)
+				bool isGame = db.Games.GetAll().Any(t => t.Id == Convert.ToInt32(SearchTeamId));
+				if (isGame == true)
 				{
-					UserGames = new ObservableCollection<Game>() { searchGame };
+					Game searchGame = db.Games.GetAll().Where(t => t.Id == Convert.ToInt32(SearchTeamId)).First();
+					if (searchGame != null)
+					{
+						UserGames = new ObservableCollection<Game>() { searchGame };
+					}
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти матч с указанным Id");
+					MessageBox.Show("Не удалось найти матч по указанному Id");
 				}
 				SearchTeamId = null;
 			}
@@ -288,7 +291,7 @@ namespace WpfApp1.ViewModels.Admin
 						}
 						else
 						{
-							MessageBox.Show("Не удалось найти матч с указанным Id");
+							MessageBox.Show("Не удалось найти матч по указанному Id");
 						}
 						DeleteTeamId = null;
 					}

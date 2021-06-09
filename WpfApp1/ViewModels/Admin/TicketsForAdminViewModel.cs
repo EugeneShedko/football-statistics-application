@@ -243,7 +243,7 @@ namespace WpfApp1.ViewModels.Admin
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти билет с указанным Id");
+					MessageBox.Show("Не удалось найти билет по указанному Id");
 				}
 				DeleteTicketId = null;
 			}
@@ -254,6 +254,7 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			if ((errors["InsertStadium"] == null && InsertStadium != null) && 
 				(errors["InsertTown"] == null && InsertTown != null) &&
+				(errors["CountOfPlace"] == null && CountOfPlace != null) &&
 				(InsertFirstTeamName != null && InsertSecondTeamName != null && InsertTime != null))
 			{
 				return true;
@@ -274,7 +275,6 @@ namespace WpfApp1.ViewModels.Admin
 					{
 						IEnumerable<Game> allid = db.Games.GetAll().Where(t => t.Team1.TeamName == InsertFirstTeamName && t.Team2.TeamName == InsertSecondTeamName);
 						int id = allid.Where(t => t.DateOfMatch == InsertTime).Select(t => t.Id).First();
-						//Поменять немного класс и конструктор
 						Ticket newTicket = new Ticket(id, InsertTown, InsertStadium, Convert.ToInt32(CountOfPlace));
 						db.Tickets.Create(newTicket);
 						db.Save();
@@ -324,14 +324,18 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				Ticket searchTicket = db.Tickets.GetAll().Where(t => t.Id == Convert.ToInt32(SearchTicketId)).First();
-				if (searchTicket != null)
+				bool isTicket = db.Tickets.GetAll().Any(t => t.Id == Convert.ToInt32(SearchTicketId));
+				if (isTicket == true)
 				{
-					UserTickets = new ObservableCollection<Ticket>() { searchTicket };
+					Ticket searchTicket = db.Tickets.GetAll().Where(t => t.Id == Convert.ToInt32(SearchTicketId)).First();
+					if (searchTicket != null)
+					{
+						UserTickets = new ObservableCollection<Ticket>() { searchTicket };
+					}
 				}
 				else
 				{
-					MessageBox.Show("Не удалось новость с указанным Id");
+					MessageBox.Show("Не удалось найти билет по указанному Id");
 				}
 				SearchTicketId = null;
 			}

@@ -19,7 +19,6 @@ namespace WpfApp1.ViewModels.All
 		private string _password;
 		private NavigationManager _navigationManager;
 		private NavigationManager _smallNavigationLoginManagaer;
-		private NavigationManager _smallnavigationLoginManager;
 		private string mistake;
 		#endregion
 		#region Properties
@@ -55,7 +54,7 @@ namespace WpfApp1.ViewModels.All
 		}
 		private void ShowLoginWindowCommand(object parameter)
 		{
-			_smallNavigationLoginManagaer.AddUserControl<LoginWindowViewModel, LoginWindow>(new LoginWindowViewModel(_smallnavigationLoginManager, _navigationManager), NavigationKeys.LoginWindow);
+			_smallNavigationLoginManagaer.AddUserControl<LoginWindowViewModel, LoginWindow>(new LoginWindowViewModel(_smallNavigationLoginManagaer, _navigationManager), NavigationKeys.LoginWindow);
 			_smallNavigationLoginManagaer.Insert(NavigationKeys.LoginWindow);
 		}
 		private bool CanShowMainWindowForInformationAdminCommand(object parameter)

@@ -9,6 +9,7 @@ using System.Windows;
 using System.Threading;
 using WpfApp1.UnitOfWorkAndRepository;
 using WpfApp1.Models;
+using WpfApp1.View.User;
 
 namespace WpfApp1.ViewModels.User
 {
@@ -30,6 +31,7 @@ namespace WpfApp1.ViewModels.User
 			set
 			{
 				Set(ref _selectedItem, value);
+				_smallNavigationInfoManager.AddWindow<NewsForUserViewModel, NewsForUser>(new NewsForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.NewsForUser);
 				_smallNavigationInfoManager.Show(NavigationKeys.NewsForUser, SelectedItem);
 			}
 		}

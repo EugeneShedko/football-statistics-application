@@ -40,7 +40,14 @@ namespace WpfApp1.ViewModels.Admin
 		public ICommand SaveChanges { get; set; }
 		private bool CanSaveChangesCommand(object parameters)
 		{
-			return true;
+			if (BookedTickets.Count > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		private void SaveChangesCommand(object parameters)
 		{
@@ -50,7 +57,7 @@ namespace WpfApp1.ViewModels.Admin
 				{
 					db.BookedTickets.Update(BookedTickets[i]);
 				}
-					db.Save();
+				db.Save();
 				MessageBox.Show("Данные успешно сохранены!");
 			}
 		}

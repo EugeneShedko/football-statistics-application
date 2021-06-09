@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp1.Commands;
 using WpfApp1.Navigation;
+using WpfApp1.View;
+using WpfApp1.View.Admin;
 
 namespace WpfApp1.ViewModels.Admin
 {
@@ -38,6 +40,7 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void ShowMathesForAdminWindowCommand(object parameter)
 		{
+			_smallNavigationInfoManager.AddUserControl<MathesForAdminViewModel, MathesForAdmin>(new MathesForAdminViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.MathesForAdmin);
 			_smallNavigationInfoManager.Insert(NavigationKeys.MathesForAdmin);
 		}
 		private bool CanShowLoginForAdminWindowCommand(object parameter)
@@ -46,6 +49,8 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void ShowLoginForAdminWindowCommand(object parameter)
 		{
+			_navigationManager.AddUserControl<MainWindowLoginOrRegisterViewModel, MainWindowLoginOrRegister>(new MainWindowLoginOrRegisterViewModel(_navigationManager),
+				NavigationKeys.MainWindowLoginOrRegister);
 			_navigationManager.Insert(NavigationKeys.MainWindowLoginOrRegister);
 		}
 		#endregion

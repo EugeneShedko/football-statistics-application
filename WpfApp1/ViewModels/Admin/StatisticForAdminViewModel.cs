@@ -244,8 +244,6 @@ namespace WpfApp1.ViewModels.Admin
 			SearchAssistsPlayers = new DelegateCommand(SearchAssistsPlayersCommand, CanSearchAssistsPlayersCommand);
 			BackGoals = new DelegateCommand(BackGoalsCommand, CanBackGoalsCommand);
 			BackAssists = new DelegateCommand(BackAssistsCommand, CanBackAssistsCommand);
-			SortedGoals = new DelegateCommand(SortedGoalsCommand, CanSortedGoalsCommand);
-			SortedAssists = new DelegateCommand(SortedAssistsCommand, CanSortedAssistsCommand);
 			CreatePlayersGoals = new DelegateCommand(CreatePlayersGoalsCommand, CanCreatePlayersGoalsCommand);
 			DeletePlayersGoals = new DelegateCommand(DeletePlayersGoalsCommand, CanDeletePlayersGoalsCommamd);
 			CreatePlayersAssists = new DelegateCommand(CreatePlayersAssistsCommand, CanCreatePlayersAssistsCommand);
@@ -258,8 +256,6 @@ namespace WpfApp1.ViewModels.Admin
 		public ICommand SearchAssistsPlayers { get; set; }
 		public ICommand BackGoals { get; set; }
 		public ICommand BackAssists { get; set; }
-		public ICommand SortedGoals { get; set; }
-		public ICommand SortedAssists { get; set; }
 		public ICommand CreatePlayersGoals { get; set; } 
 		public ICommand CreatePlayersAssists { get; set; }
 		public ICommand DeletePlayersGoals { get; set; }
@@ -285,11 +281,8 @@ namespace WpfApp1.ViewModels.Admin
 					db.Save();
 					UserAssistsPlayer = new ObservableCollection<Assist>(db.Assists.GetAll().OrderByDescending(t => Convert.ToInt32(t.CountOfAssists)));
 					MessageBox.Show("Данные успешно удалены!");
-					try
-					{
-						Goal goal = db.Goals.GetAll().Where(t => t.Id == Convert.ToInt32(DeletePlayersIdAssists)).First();
-					}
-					catch
+					bool isGoal = db.Goals.GetAll().Any(t => t.Id == Convert.ToInt32(DeletePlayersIdAssists));
+					if (isGoal == false)
 					{
 						db.Players.Delete(Convert.ToInt32(DeletePlayersIdAssists));
 						db.Save();
@@ -297,7 +290,7 @@ namespace WpfApp1.ViewModels.Admin
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти игрока с указанным Id");
+					MessageBox.Show("Не удалось найти игрока по указанному Id");
 				}
 				DeletePlayersIdAssists = null;
 			}
@@ -329,9 +322,9 @@ namespace WpfApp1.ViewModels.Admin
 					{
 						int id1 = db.Teams.GetAll().Where(t => t.TeamName == InsertTeamNameAssists).Select(p => p.Id).First();
 						Player newPlayer = new Player(InsertPlayerNameAssists, id1);
-
 						db.Players.Create(newPlayer);
 						db.Save();
+						
 						int id2 = db.Players.GetAll().Where(t => t.PlayerName == InsertPlayerNameAssists).Select(p => p.Id).First();
 						Assist newPlayerAssist = new Assist(id2, InsertCountOfAssists);
 						db.Assists.Create(newPlayerAssist);
@@ -343,7 +336,7 @@ namespace WpfApp1.ViewModels.Admin
 					{
 						int playerid = db.Players.GetAll().Where(t => t.PlayerName == InsertPlayerNameAssists && t.Team.TeamName == InsertTeamNameAssists).Select(t => t.Id).First();
 						bool isAssist = db.Assists.GetAll().Any(t => t.Id == playerid);
-						//Если нет в таблице Player и в таблице Assist
+						//Если есть в таблице Player, но нет в таблице Assist
 						if (isAssist == false)
 						{
 							Assist newPlayerAssist = new Assist(playerid, InsertCountOfAssists);
@@ -386,11 +379,8 @@ namespace WpfApp1.ViewModels.Admin
 					db.Save();
 					UserGoalsPlayer = new ObservableCollection<Goal>(db.Goals.GetAll().OrderByDescending(t => Convert.ToInt32(t.CountOfGoals)));
 					MessageBox.Show("Данные успешно удалены!");
-					try
-					{
-						Assist assist = db.Assists.GetAll().Where(t => t.Id == Convert.ToInt32(DeletePlayersIdGoals))?.First();
-					}
-					catch 
+					bool isAssists = db.Assists.GetAll().Any(t => t.Id == Convert.ToInt32(DeletePlayersIdGoals));
+					if (isAssists == false)
 					{
 						db.Players.Delete(Convert.ToInt32(DeletePlayersIdGoals));
 						db.Save();
@@ -398,7 +388,7 @@ namespace WpfApp1.ViewModels.Admin
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти игрока с указанным Id");
+					MessageBox.Show("Не удалось найти игрока по указанному Id");
 				}
 				DeletePlayersIdGoals = null;
 			}
@@ -465,26 +455,7 @@ namespace WpfApp1.ViewModels.Admin
 			}
 			catch { }
 		}
-		//------------------------------------------------------------
-		//------------------------------------------------------------
-		private bool CanSortedAssistsCommand(object parameter)
-		{
-			return true;
-		}
-		private void SortedAssistsCommand(object parameter)
-		{
-			UserAssistsPlayer = new ObservableCollection<Assist>(UserAssistsPlayer.OrderByDescending(t => Convert.ToInt32(t.CountOfAssists)));
-		}
-		//------------------------------------------------------------
-		//------------------------------------------------------------
-		private bool CanSortedGoalsCommand(object parameter)
-		{
-			return true;
-		}
-		private void SortedGoalsCommand(object parameter)
-		{
-			UserGoalsPlayer = new ObservableCollection<Goal>(UserGoalsPlayer.OrderByDescending(t => Convert.ToInt32(t.CountOfGoals)));
-		}
+
 		//------------------------------------------------------------
 		//------------------------------------------------------------
 		public bool CanSearchAssistsPlayersCommand(object parameter)
@@ -502,14 +473,18 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				Assist searchPlayer = db.Assists.GetAll().Where(t => t.Player.Id == Convert.ToInt32(SearchAssistsPlayerId)).First();
-				if (searchPlayer != null)
+				bool isAssistsPlayer = db.Assists.GetAll().Any(t => t.Player.Id == Convert.ToInt32(SearchAssistsPlayerId));
+				if (isAssistsPlayer == true)
 				{
-					UserAssistsPlayer = new ObservableCollection<Assist>() { searchPlayer };
+					Assist searchPlayer = db.Assists.GetAll().Where(t => t.Player.Id == Convert.ToInt32(SearchAssistsPlayerId)).First();
+					if (searchPlayer != null)
+					{
+						UserAssistsPlayer = new ObservableCollection<Assist>() { searchPlayer };
+					}
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти матч с указанным Id");
+					MessageBox.Show("Не удалось найти игрока по указанному Id");
 				}
 				SearchAssistsPlayerId = null;
 			}
@@ -557,14 +532,18 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				Goal searchPlayer = db.Goals.GetAll().Where(t => t.Player.Id == Convert.ToInt32(SearchGoalsPlayerId)).First();
-				if (searchPlayer != null)
+				bool isGoalsPlayer = db.Goals.GetAll().Any(t => t.Player.Id == Convert.ToInt32(SearchGoalsPlayerId));
+				if (isGoalsPlayer == true)
 				{
-					UserGoalsPlayer = new ObservableCollection<Goal>() { searchPlayer };
+					Goal searchPlayer = db.Goals.GetAll().Where(t => t.Player.Id == Convert.ToInt32(SearchGoalsPlayerId)).First();
+					if (searchPlayer != null)
+					{
+						UserGoalsPlayer = new ObservableCollection<Goal>() { searchPlayer };
+					}
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти матч с указанным Id");
+					MessageBox.Show("Не удалось найти игрока по указанному Id");
 				}
 				SearchGoalsPlayerId = null;
 			}

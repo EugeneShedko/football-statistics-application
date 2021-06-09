@@ -38,7 +38,8 @@ namespace WpfApp1.ViewModels.User
 		public string SelectedMatch
 		{
 			get { return _selectedMatch; }
-			set {
+			set 
+			{
 				Set(ref _selectedMatch, value);
 				if (SelectedMatch != null)
 				{

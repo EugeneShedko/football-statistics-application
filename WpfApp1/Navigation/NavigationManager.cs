@@ -73,13 +73,12 @@ namespace WpfApp1.Navigation
 				view.Owner = Mainwindow;
 				view.Show();
 			}
-			catch (Exception) { }
+			catch (Exception ) { }
 		}
 		public void Insert(string navigationKey, object parameters = null)
 		{
 			InvokeInMainThread(() =>
 			{
-				// Нужен ли метод InvokeNavigationFrom
 				object viewModel = GetViewModel(navigationKey);
 				BeforeInsert(viewModel, parameters);
 

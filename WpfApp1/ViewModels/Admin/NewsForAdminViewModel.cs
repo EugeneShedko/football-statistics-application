@@ -103,7 +103,7 @@ namespace WpfApp1.ViewModels.Admin
 			errors = new Dictionary<string, string>();
 			errors["DeleteNewsId"] = null;
 			errors["SearchNewsId"] = null;
-			CreateNews = new DelegateCommand(CreateGamesCommand, CanCreateGamesCommand);
+			CreateNews = new DelegateCommand(CreateNewsCommand, CanCreateNewsCommand);
 			DeleteNews = new DelegateCommand(DeleteNewsCommand, CanDeleteNewsCommamd);
 			SearchNews = new DelegateCommand(SearchNewsCommand, CanSearchNewsCommand);
 			SaveChanges = new DelegateCommand(SaveChangesCommand, CanSaveChangesCommand);
@@ -111,6 +111,7 @@ namespace WpfApp1.ViewModels.Admin
 
 		}
 		#endregion
+
 		#region Commands
 		public ICommand CreateNews { get; set; }
 		public ICommand DeleteNews { get; set; }
@@ -133,7 +134,14 @@ namespace WpfApp1.ViewModels.Admin
 		//------------------------------------------------------------
 		private bool CanSaveChangesCommand(object parameters)
 		{
-			return true;
+			if (UserNews.Count > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		private void SaveChangesCommand(object parameters)
 		{
@@ -165,14 +173,18 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				News searchNews = db.Newses.GetAll().Where(t => t.Id == Convert.ToInt32(SearchNewsId)).First();
-				if (searchNews != null)
+				bool isNews = db.Newses.GetAll().Any(t=>t.Id == Convert.ToInt32(SearchNewsId));
+				if (isNews == true)
 				{
-					UserNews = new ObservableCollection<News>() { searchNews };
+					News searchNews = db.Newses.GetAll().Where(t => t.Id == Convert.ToInt32(SearchNewsId)).First();
+					if (searchNews != null)
+					{
+						UserNews = new ObservableCollection<News>() { searchNews };
+					}
 				}
 				else
 				{
-					MessageBox.Show("Не удалось новость с указанным Id");
+					MessageBox.Show("Не удалось новость по указанному Id");
 				}
 				SearchNewsId = null;
 			}
@@ -202,14 +214,14 @@ namespace WpfApp1.ViewModels.Admin
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти новость с указанным Id");
+					MessageBox.Show("Не удалось найти новость по указанному Id");
 				}
 				DeleteNewsId = null;
 			}
 		}
 		//---------------------------------------------------------
 		//---------------------------------------------------------
-		private bool CanCreateGamesCommand(object parameter)
+		private bool CanCreateNewsCommand(object parameter)
 		{
 			if (InsertHeader !=null && InsertText !=null)
 			{
@@ -220,7 +232,7 @@ namespace WpfApp1.ViewModels.Admin
 				return false;
 			}
 		}
-		private void CreateGamesCommand(object parameter)
+		private void CreateNewsCommand(object parameter)
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
@@ -239,6 +251,7 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		//---------------------------------------------------------
 		#endregion
+
 		#region Methods
 		public void ActionsBeforeClosing(){}
 

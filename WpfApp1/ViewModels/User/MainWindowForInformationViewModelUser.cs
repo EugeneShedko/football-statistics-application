@@ -136,7 +136,7 @@ namespace WpfApp1.ViewModels
 			{
 				ShowUser = db.Users.GetAll().Where(t => t.LoginId == currentuser).Select(t => t.Name).First();
 			}
-				//Достаем из коллекции объект данного типа, преобразеуем его и берем от него ContentControl
+			//Достаем из коллекции объект данного типа, преобразеуем его и берем от него ContentControl
 			_smallNavigationInfoManager = new NavigationManager(_navigationManager._Dispatcher, ((MainWindowForInformation)_navigationManager.ViewTypesByViewModelTypes[this.GetType()]).ForInformation, _navigationManager.Mainwindow);
 			//Регистрируем все страницы, которые возможно поместить и использовать в рамках выбранного ContentControl
 			_smallNavigationInfoManager.AddUserControl<MainForUserViewModel, MainForUser>(new MainForUserViewModel(_smallNavigationInfoManager, _navigationManager), NavigationKeys.MainForUser);

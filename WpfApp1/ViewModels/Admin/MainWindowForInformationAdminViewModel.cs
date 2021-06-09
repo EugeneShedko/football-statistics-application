@@ -22,7 +22,6 @@ namespace WpfApp1.ViewModels.Admin
 		public MainWindowForInformationAdminViewModel(NavigationManager navigationManager) : this()
 		{
 			_navigationManager = navigationManager;
-
 		}
 		public MainWindowForInformationAdminViewModel() 
 		{
@@ -110,7 +109,6 @@ namespace WpfApp1.ViewModels.Admin
 		#endregion
 		#region Methods
 		public void ActionsBeforeClosing(){}
-
 		public void ActionsBeforeInsert(object parameters = null)
 		{
 			_smallNavigationInfoManager = new NavigationManager(_navigationManager._Dispatcher, ((MainWindowForInformationAdmin)_navigationManager.ViewTypesByViewModelTypes[this.GetType()]).ForInformation, _navigationManager.Mainwindow);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp1.Commands;
 using WpfApp1.Navigation;
+using WpfApp1.View;
 
 namespace WpfApp1.ViewModels.User
 {
@@ -38,6 +39,8 @@ namespace WpfApp1.ViewModels.User
 		}
 		private void ShowMainWindowLoginOrRegisterCommand(object parameter)
 		{
+			_navigationManager.AddUserControl<MainWindowLoginOrRegisterViewModel, MainWindowLoginOrRegister>(new MainWindowLoginOrRegisterViewModel(_navigationManager),
+			   NavigationKeys.MainWindowLoginOrRegister);
 			_navigationManager.Insert(NavigationKeys.MainWindowLoginOrRegister);
 		}
 		private bool CanShowMainForUserWindowCommand(object parameter)
@@ -46,6 +49,8 @@ namespace WpfApp1.ViewModels.User
 		}
 		private void ShowMainForUserWindowCommand(object parameter)
 		{
+			_navigationManager.AddUserControl<MainWindowForInformationViewModelUser, MainWindowForInformation>(new MainWindowForInformationViewModelUser(_navigationManager),
+			   NavigationKeys.MainWindowForInformationUser);
 			_smallNavigationInfoManager.Insert(NavigationKeys.MainForUser);
 		}
 		#endregion

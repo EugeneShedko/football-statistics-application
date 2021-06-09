@@ -23,7 +23,6 @@
                         <TextBox  materialDesign:HintAssist.Hint="Id игрока" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="70,0,0,0" FontSize="20" Text="{Binding SearchGoalsPlayerId, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
                         <Button Content="Найти" HorizontalAlignment="Center" Margin="50,0,0,0" Command="{Binding SearchGoalsPlayers}"/>
                         <Button Content="Назад" HorizontalAlignment="Center" Margin="220,0,0,0" Command="{Binding BackGoals}"/>
-                        <Button Content="Cортировать" HorizontalAlignment="Right" Margin="0,0,80,0" Command="{Binding SortedGoals}"/>
                         <ScrollViewer Grid.Column="0" Grid.Row="1">
                             <DataGrid HorizontalAlignment="Center" ItemsSource="{Binding UserGoalsPlayer}" AutoGenerateColumns="False">
                                 <DataGrid.Columns>

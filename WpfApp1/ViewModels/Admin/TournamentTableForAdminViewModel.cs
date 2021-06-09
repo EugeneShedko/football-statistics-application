@@ -260,7 +260,6 @@ namespace WpfApp1.ViewModels.Admin
 			errors["DeleteTeamId"] = null;
 			SearchTeams = new DelegateCommand(SearchTeamsCommand, CanSearchTeamsCommand);
 			Back = new DelegateCommand(BackCommand, CanBackCommand);
-			Sorted = new DelegateCommand(SortedCommand, CanSortedCommand);
 			CreateTeam = new DelegateCommand(CreateTeamCommand, CanCreateTeamCommand);
 			DeleteTeam = new DelegateCommand(DeleteTeamCommand, CanDeleteTeamCommamd);
 		}
@@ -268,7 +267,6 @@ namespace WpfApp1.ViewModels.Admin
 		#region Commands
 		public ICommand SearchTeams { get; set; }
 		public ICommand Back { get; set; }
-		public ICommand Sorted { get; set; }
 		public ICommand CreateTeam { get; set; }
 		public ICommand DeleteTeam { get; set; }
 		//-------------------------------------------------------
@@ -285,42 +283,46 @@ namespace WpfApp1.ViewModels.Admin
 		}
 		private void DeleteTeamCommand(object parameters)
 		{
-			using (UnitOfWork db = new UnitOfWork())
+			try
 			{
-				bool isMatch = db.Games.GetAll().Any(t=>t.TeamId1 == Convert.ToInt32(DeleteTeamId) || t.TeamId2 == Convert.ToInt32(DeleteTeamId));
-				if (isMatch == true)
+				using (UnitOfWork db = new UnitOfWork())
 				{
-					IEnumerable<int> idMatches = db.Games.GetAll().Where(t => t.TeamId1 == Convert.ToInt32(DeleteTeamId) || t.TeamId2 == Convert.ToInt32(DeleteTeamId)).Select(t => t.Id);
-					for (int i = 0; i < idMatches.ToList().Count; i++)
+					bool isMatch = db.Games.GetAll().Any(t => t.TeamId1 == Convert.ToInt32(DeleteTeamId) || t.TeamId2 == Convert.ToInt32(DeleteTeamId));
+					if (isMatch == true)
 					{
-						db.Games.Delete(idMatches.ToList()[i]);
-					}
-					if (db.Teams.Delete(Convert.ToInt32(DeleteTeamId)))
-					{
-						db.Save();
-						UserTeams = new ObservableCollection<Team>(db.Teams.GetAll());
-						MessageBox.Show("Данные успешно удалены!");
+						IEnumerable<int> idMatches = db.Games.GetAll().Where(t => t.TeamId1 == Convert.ToInt32(DeleteTeamId) || t.TeamId2 == Convert.ToInt32(DeleteTeamId)).Select(t => t.Id);
+						for (int i = 0; i < idMatches.ToList().Count; i++)
+						{
+							db.Games.Delete(idMatches.ToList()[i]);
+						}
+						if (db.Teams.Delete(Convert.ToInt32(DeleteTeamId)))
+						{
+							db.Save();
+							UserTeams = new ObservableCollection<Team>(db.Teams.GetAll().OrderByDescending(p => Convert.ToInt32(p.GoalsDifference)).OrderByDescending(t => Convert.ToInt32(t.Points)));
+							MessageBox.Show("Данные успешно удалены!");
+						}
+						else
+						{
+							MessageBox.Show("Не удалось найти команду с указанным Id");
+						}
 					}
 					else
 					{
-						MessageBox.Show("Не удалось найти команду с указанным Id");
+						if (db.Teams.Delete(Convert.ToInt32(DeleteTeamId)))
+						{
+							db.Save();
+							UserTeams = new ObservableCollection<Team>(db.Teams.GetAll().OrderByDescending(p => Convert.ToInt32(p.GoalsDifference)).OrderByDescending(t => Convert.ToInt32(t.Points)));
+							MessageBox.Show("Данные успешно удалены!");
+						}
+						else
+						{
+							MessageBox.Show("Не удалось найти команду с указанным Id");
+						}
 					}
+					DeleteTeamId = null;
 				}
-				else
-				{
-					if (db.Teams.Delete(Convert.ToInt32(DeleteTeamId)))
-					{
-						db.Save();
-						UserTeams = new ObservableCollection<Team>(db.Teams.GetAll());
-						MessageBox.Show("Данные успешно удалены!");
-					}
-					else
-					{
-						MessageBox.Show("Не удалось найти команду с указанным Id");
-					}
-				}
-				DeleteTeamId = null;
 			}
+			catch { }
 		}
 		//-------------------------------------------------------
 		//-------------------------------------------------------
@@ -365,17 +367,6 @@ namespace WpfApp1.ViewModels.Admin
 			}
 		}
 		//-------------------------------------------------------
-		//-------------------------------------------------------
-		private bool CanSortedCommand(object parameter)
-		{
-			return true;
-		}
-		private void SortedCommand(object parameter)
-		{
-			UserTeams = new ObservableCollection<Team>(UserTeams.OrderByDescending(p => p.GoalsDifference).OrderByDescending(t => t.Points));
-		}
-		//-------------------------------------------------------
-
 		//--------------------------------------------------------
 		public bool CanSearchTeamsCommand(object parameter)
 		{
@@ -392,14 +383,18 @@ namespace WpfApp1.ViewModels.Admin
 		{
 			using (UnitOfWork db = new UnitOfWork())
 			{
-				Team searchTeam = db.Teams.GetAll().Where(t => t.Id == Convert.ToInt32(SearchTeamId)).First();
-				if (searchTeam != null)
+				bool isTeam = db.Teams.GetAll().Any(t => t.Id == Convert.ToInt32(SearchTeamId));
+				if (isTeam == true)
 				{
-					UserTeams = new ObservableCollection<Team>() { searchTeam };
+					Team searchTeam = db.Teams.GetAll().Where(t => t.Id == Convert.ToInt32(SearchTeamId)).First();
+					if (searchTeam != null)
+					{
+						UserTeams = new ObservableCollection<Team>() { searchTeam };
+					}
 				}
 				else
 				{
-					MessageBox.Show("Не удалось найти команду с указанным Id");
+					MessageBox.Show("Не удалось найти по указанному Id");
 				}
 				SearchTeamId = null;
 			}
