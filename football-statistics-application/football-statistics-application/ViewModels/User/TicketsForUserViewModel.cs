@@ -82,7 +82,7 @@ namespace WpfApp1.ViewModels.User
 			using (UnitOfWork db = new UnitOfWork())
 			{
 				int id = db.Tickets.GetAll().Where(t => t.Game.Team1.TeamName + " - " + t.Game.Team2.TeamName == SelectedMatch).Select(t=>t.Id).First();
-				BookedTicket orderTicket = new BookedTicket(currentUser, id, "Обрабатывается", SelectedPlace );
+				BookedTicket orderTicket = new BookedTicket(currentUser, id, "Обрабатывается", SelectedPlace);
 				db.BookedTickets.Create(orderTicket);
 				db.Save();
 				MessageBox.Show("Ваш билет заказан!");

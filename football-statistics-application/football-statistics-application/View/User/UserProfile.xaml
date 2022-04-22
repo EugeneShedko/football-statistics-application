@@ -25,7 +25,7 @@
             </Grid.RowDefinitions>
             <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Фамилия" materialDesign:HintAssist.IsFloating="True"  FontSize="20" Text="{Binding UserFamilyName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
             <TextBox Grid.Row="2" materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.IsFloating="True"  FontSize="20" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
-            <ComboBox Grid.Row="3" materialDesign:HintAssist.Hint="Возвраст" materialDesign:HintAssist.IsFloating="True" FontSize="20" ItemsSource="{Binding Age}" Text="{Binding UserAge, UpdateSourceTrigger=PropertyChanged,  ValidatesOnDataErrors=True}"/>
+            <ComboBox Grid.Row="3" materialDesign:HintAssist.Hint="Возраст" materialDesign:HintAssist.IsFloating="True" FontSize="20" ItemsSource="{Binding Age}" Text="{Binding UserAge, UpdateSourceTrigger=PropertyChanged,  ValidatesOnDataErrors=True}"/>
             <TextBox Grid.Row="4" materialDesign:HintAssist.Hint="Дата Рождения" materialDesign:HintAssist.IsFloating="True" FontSize="20" Text="{Binding UserDateOfBirthd, UpdateSourceTrigger=PropertyChanged,  ValidatesOnDataErrors=True}"/>
             <TextBox Grid.Row="5" materialDesign:HintAssist.Hint="Страна" materialDesign:HintAssist.IsFloating="True"  FontSize="20" Text="{Binding UserCountry, UpdateSourceTrigger=PropertyChanged,  ValidatesOnDataErrors=True}"/>
             <TextBox Grid.Row="6" materialDesign:HintAssist.Hint="Город" materialDesign:HintAssist.IsFloating="True"  FontSize="20" Text="{Binding UserTown, UpdateSourceTrigger=PropertyChanged,  ValidatesOnDataErrors=True}" />

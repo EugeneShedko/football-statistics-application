@@ -83,12 +83,12 @@ namespace WpfApp1.ViewModels.User
 			set
 			{
 				Set(ref _userDateOfBirthd, value);
-				string str = @"(0[1-9]|1[0-9]|2[0-4])[:](0[1-9]|[012345][0-9])";
+				string str = @"^(0[1-9]|1[0-9]|2[0-9]|3[01])[.](0[1-9]|1[0-2])[.](19[0-9][0-9]|20[0-2][0-9])$";
 				if (UserDateOfBirthd != null)
 				{
 					if (!Regex.IsMatch(UserDateOfBirthd, str))
 					{
-						errors["UserDateOfBirthd"] = "Неверный формат данных, воозможно hh.mm";
+						errors["UserDateOfBirthd"] = "Неверный формат данных, воозможно dd.mm.yy";
 					}
 					else
 					{
